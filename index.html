@@ -8,8 +8,8 @@
 
   <style>
     :root {
-      --bg: #010208;
-      --card-bg: #13131c;
+      --bg: #02030a;
+      --card-bg: #11121a;
       --accent: #4fd1c5;
       --accent-soft: rgba(79, 209, 197, 0.35);
       --text-main: #ffffff;
@@ -21,7 +21,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top, #24244a 0%, #010208 65%);
+      background: radial-gradient(circle at top, #2a2a4d 0%, #02030a 70%);
       color: var(--text-main);
       margin: 0;
       padding: 0;
@@ -43,22 +43,21 @@
     }
 
     .logo-dl {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.9rem;
+      font-size: 2rem;
       font-weight: 700;
-      color: #4fd1c5;
-      letter-spacing: 0.1em;
-      border: 2px solid #4fd1c5;
+      color: var(--accent);
+      border: 2px solid var(--accent);
       padding: 6px 16px;
       border-radius: 8px;
       text-decoration: none;
+      letter-spacing: 0.1em;
       text-shadow: 0 0 12px rgba(79, 209, 197, 0.6);
       box-shadow: 0 0 18px rgba(79, 209, 197, 0.25);
       transition: 0.3s;
     }
 
     .logo-dl:hover {
-      background: #4fd1c5;
+      background: var(--accent);
       color: #000;
       box-shadow: 0 0 25px rgba(79, 209, 197, 0.8);
     }
@@ -73,14 +72,14 @@
     }
 
     .nav-links a:hover {
-      color: #4fd1c5;
+      color: var(--accent);
       text-shadow: 0 0 10px rgba(79,209,197,0.6);
     }
 
-    /* HEADER ANIMADO */
+    /* HEADER */
     header {
       text-align: center;
-      padding: 90px 20px 40px;
+      padding: 100px 20px 50px;
       opacity: 0;
       animation: fadeIn 1.5s ease-out forwards;
     }
@@ -91,11 +90,10 @@
     }
 
     h1 {
-      font-size: 3.2rem;
+      font-size: 3.4rem;
       margin-bottom: 12px;
       letter-spacing: 0.05em;
       font-weight: 700;
-      color: #ffffff;
     }
 
     p.subtitle {
@@ -128,14 +126,14 @@
       font-weight: 600;
     }
 
-    /* PROJECT CARDS */
+    /* PROJECTS */
     .projects {
       max-width: 1250px;
       margin: 60px auto 80px;
       padding: 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 32px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
     }
 
     .card {
@@ -168,7 +166,7 @@
       border-radius: 12px;
       margin-bottom: 18px;
       border: 2px solid #333;
-      filter: contrast(1.35) saturate(1.25) brightness(1.1);
+      filter: contrast(1.4) saturate(1.3) brightness(1.1);
     }
 
     .card h3 {
@@ -195,8 +193,8 @@
       padding: 14px 32px;
       font-size: 1.1rem;
       font-weight: 600;
-      color: #4fd1c5;
-      border: 2px solid #4fd1c5;
+      color: var(--accent);
+      border: 2px solid var(--accent);
       border-radius: 10px;
       text-decoration: none;
       letter-spacing: 0.05em;
@@ -207,7 +205,7 @@
     }
 
     .about-btn:hover {
-      background: #4fd1c5;
+      background: var(--accent);
       color: #000;
       box-shadow: 0 0 25px rgba(79,209,197,0.8);
     }
@@ -257,35 +255,30 @@
 
 <div class="projects">
 
-  <!-- PROJECT 1 -->
   <a href="super-sdms/index.html" class="card">
     <img src="sketch/0.jpg" alt="Super SDMS">
     <h3>Super SDMS – HP Antivirus Comic</h3>
     <p>Promotional cybersecurity comic created for Hewlett‑Packard.</p>
   </a>
 
-  <!-- PROJECT 2 -->
   <a href="prey/index.html" class="card">
     <img src="sketch/0.jpg" alt="PREY Game">
     <h3>PREY – Unity Platform Game</h3>
     <p>A hero returns to his hometown… but the villagers have turned into zombies.</p>
   </a>
 
-  <!-- PROJECT 3 -->
   <a href="shadowmap/index.html" class="card">
     <img src="sketch/0.jpg" alt="ShadowMap">
     <h3>ShadowMap – Paranormal Exploration App</h3>
     <p>A mobile experience mixing GPS, missions, fear and augmented storytelling.</p>
   </a>
 
-  <!-- PROJECT 4 -->
   <a href="ilustraciones/index.html" class="card">
     <img src="img/proyecto3.jpg" alt="Illustrations">
     <h3>Illustrations & Visual Experiments</h3>
     <p>Sketches, characters and visual explorations.</p>
   </a>
 
-  <!-- PROJECT 5 -->
   <a href="video-games/index.html" class="card">
     <img src="img/game_dev.jpg" alt="Game Dev">
     <h3>Game Development – Unity & Unreal</h3>
@@ -294,13 +287,12 @@
 
 </div>
 
-<!-- BOTTOM ABOUT BUTTON -->
 <div class="bottom-about">
   <a href="/about/" class="about-btn">About Me</a>
 </div>
 
 <footer>
-  © 2026/27 – Creative Portfolio by Damián López
+  © 2026 – Creative Portfolio by Damián López
 </footer>
 
 </body>
