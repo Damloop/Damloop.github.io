@@ -2,28 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Damián López – Creative Developer & Visual Storyteller</title>
+  <title>Damián López – Creative Developer · IT Innovation · Game Dev</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #050509;
-      --card-bg: #14141b;
+      --bg: #02030a;
+      --card-bg: #12121a;
       --accent: #4fd1c5;
-      --accent-soft: rgba(79, 209, 197, 0.2);
+      --accent-soft: rgba(79, 209, 197, 0.25);
       --text-main: #f5f5f5;
-      --text-muted: #a0a0a0;
-      --border: #262633;
+      --text-muted: #9a9a9a;
+      --border: #2a2a38;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top, #1a1a2e 0, #050509 55%);
+      background: radial-gradient(circle at top, #1b1b3a 0%, #02030a 60%);
       color: var(--text-main);
       margin: 0;
       padding: 0;
@@ -31,34 +29,39 @@
 
     header {
       text-align: center;
-      padding: 70px 20px 30px;
+      padding: 80px 20px 30px;
     }
 
     h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       margin-bottom: 10px;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
+      font-weight: 700;
     }
 
     p.subtitle {
-      opacity: 0.8;
-      font-size: 1.1rem;
-      max-width: 700px;
+      opacity: 0.9;
+      font-size: 1.2rem;
+      max-width: 850px;
       margin: 0 auto 10px;
     }
 
     p.tagline {
-      margin-top: 10px;
+      margin-top: 12px;
       font-size: 0.95rem;
       color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.18em;
+      font-weight: 600;
     }
 
     .hero-line {
       margin-top: 25px;
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: var(--text-muted);
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .hero-line span {
@@ -68,11 +71,11 @@
 
     .projects {
       max-width: 1200px;
-      margin: 40px auto 60px;
+      margin: 50px auto 70px;
       padding: 20px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
+      gap: 28px;
     }
 
     .card {
@@ -91,31 +94,27 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top, var(--accent-soft), transparent 55%);
+      background: radial-gradient(circle at top, var(--accent-soft), transparent 60%);
       opacity: 0;
       transition: 0.3s;
       pointer-events: none;
     }
 
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: var(--accent);
-    }
+    .card:hover::before { opacity: 1; }
+    .card:hover { transform: translateY(-6px); border-color: var(--accent); }
 
     .card img {
       width: 100%;
       border-radius: 10px;
       margin-bottom: 15px;
       border: 2px solid #222;
+      filter: contrast(1.25) saturate(1.2);
     }
 
     .card h3 {
       margin: 10px 0 6px;
       font-size: 1.25rem;
+      font-weight: 600;
     }
 
     .card p {
@@ -130,9 +129,21 @@
       display: block;
     }
 
+    /* COMING SOON PULSE */
+    .coming-soon {
+      animation: pulse 1.8s infinite ease-in-out;
+      border-color: var(--accent);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(79, 209, 197, 0.4); }
+      50% { transform: scale(1.04); box-shadow: 0 0 20px 10px rgba(79, 209, 197, 0.15); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(79, 209, 197, 0.4); }
+    }
+
     footer {
       text-align: center;
-      padding: 35px 20px 45px;
+      padding: 40px 20px 50px;
       opacity: 0.55;
       font-size: 0.9rem;
       border-top: 1px solid #15151f;
@@ -143,37 +154,56 @@
 <body>
 
   <header>
-    <h1>Creative Projects · Code · Visual Stories</h1>
+    <h1>Creative Developer · IT Innovation · Game Development</h1>
+
     <p class="subtitle">
-      I mix illustration, comics and web development to build experiences that feel human,
-      playful and a bit unexpected.
+      Web development, IT support, cybersecurity, UI/UX, and game development.  
+      I build digital experiences that blend technology, creativity, and visual storytelling.
     </p>
-    <p class="tagline">CREATIVE DEVELOPER · VISUAL STORYTELLER · IT INNOVATION</p>
+
+    <p class="tagline">WEB · SYSTEMS · CYBERSEC · GAME DEV · UI/UX</p>
+
     <p class="hero-line">
-      From <span>promotional comics for Hewlett‑Packard</span> to web‑based experiments,
-      this is a curated selection of work that connects tech and creativity.
+      From <span>promotional comics for Hewlett‑Packard</span> to web projects,  
+      UI prototypes, IT tools, and game development with Unity and Unreal Engine.
     </p>
   </header>
 
   <div class="projects">
 
+    <!-- PROJECT 1 -->
     <a href="super-sdms/index.html" class="card">
-      <img src="final/project_1.jpg" alt="Super SDMS">
+      <img src="sketch/1.jpg" alt="Super SDMS">
       <h3>Super SDMS – HP Antivirus Comic</h3>
-      <p>Promotional comic for Hewlett‑Packard about cybersecurity, told as a superhero story.</p>
+      <p>Promotional cybersecurity comic created for Hewlett‑Packard.</p>
     </a>
 
+    <!-- PROJECT 2 -->
     <a href="otro-proyecto/index.html" class="card">
       <img src="img/proyecto2.jpg" alt="Project 2">
-      <h3>Project 2 – Web Experience</h3>
-      <p>Interactive concept blending UI, storytelling and modern front‑end development.</p>
+      <h3>Web Experience – UI/UX + Front‑End</h3>
+      <p>Interactive concept blending design, storytelling and modern web development.</p>
     </a>
 
+    <!-- PROJECT 3 -->
     <a href="ilustraciones/index.html" class="card">
       <img src="img/proyecto3.jpg" alt="Illustrations">
       <h3>Illustrations & Visual Experiments</h3>
-      <p>Sketches, characters and visual explorations that feed future digital projects.</p>
+      <p>Sketches, characters and visual explorations.</p>
     </a>
+
+    <!-- PROJECT 4 -->
+    <a href="video-games/index.html" class="card">
+      <img src="img/game_dev.jpg" alt="Game Dev">
+      <h3>Game Development – Unity & Unreal</h3>
+      <p>Prototypes, AI, UI, level design and gameplay systems.</p>
+    </a>
+
+    <!-- PROJECT 5 – COMING SOON -->
+    <div class="card coming-soon">
+      <h3>Coming Soon</h3>
+      <p>New project in development…</p>
+    </div>
 
   </div>
 
