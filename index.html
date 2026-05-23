@@ -2,26 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Damián López – Creative Developer · IT Innovation · Game Dev</title>
+  <title>Damián López – Web Developer · IT Systems · Unity & Unreal</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #02030a;
-      --card-bg: #11121a;
-      --accent: #4fd1c5;
-      --accent-soft: rgba(79, 209, 197, 0.35);
-      --text-main: #ffffff;
-      --text-muted: #b5b5b5;
-      --border: #2e2e3d;
+      --bg-light: #f4f7fb;
+      --bg-gradient: linear-gradient(180deg, #ffffff 0%, #e8eef7 100%);
+      --card-bg: #ffffff;
+      --accent: #2bb8ff;
+      --accent-dark: #0077cc;
+      --text-main: #1a1a1a;
+      --text-muted: #555;
+      --border: #d9e2ec;
     }
 
     * { box-sizing: border-box; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top, #2a2a4d 0%, #02030a 70%);
+      background: var(--bg-gradient);
       color: var(--text-main);
       margin: 0;
       padding: 0;
@@ -36,35 +37,32 @@
       align-items: center;
       position: sticky;
       top: 0;
-      background: rgba(0, 0, 0, 0.45);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid var(--border);
       z-index: 999;
     }
 
     .logo-dl {
-      font-size: 2rem;
+      font-size: 1.9rem;
       font-weight: 700;
-      color: var(--accent);
-      border: 2px solid var(--accent);
+      color: var(--accent-dark);
+      border: 2px solid var(--accent-dark);
       padding: 6px 16px;
       border-radius: 8px;
       text-decoration: none;
       letter-spacing: 0.1em;
-      text-shadow: 0 0 12px rgba(79, 209, 197, 0.6);
-      box-shadow: 0 0 18px rgba(79, 209, 197, 0.25);
       transition: 0.3s;
     }
 
     .logo-dl:hover {
-      background: var(--accent);
-      color: #000;
-      box-shadow: 0 0 25px rgba(79, 209, 197, 0.8);
+      background: var(--accent-dark);
+      color: #fff;
     }
 
     .nav-links a {
       margin-left: 25px;
-      color: #fff;
+      color: var(--text-main);
       text-decoration: none;
       font-weight: 500;
       font-size: 1.05rem;
@@ -72,16 +70,15 @@
     }
 
     .nav-links a:hover {
-      color: var(--accent);
-      text-shadow: 0 0 10px rgba(79,209,197,0.6);
+      color: var(--accent-dark);
     }
 
     /* HEADER */
     header {
       text-align: center;
-      padding: 100px 20px 50px;
+      padding: 90px 20px 40px;
       opacity: 0;
-      animation: fadeIn 1.5s ease-out forwards;
+      animation: fadeIn 1.2s ease-out forwards;
     }
 
     @keyframes fadeIn {
@@ -90,14 +87,14 @@
     }
 
     h1 {
-      font-size: 3.4rem;
+      font-size: 3.2rem;
       margin-bottom: 12px;
-      letter-spacing: 0.05em;
       font-weight: 700;
+      color: var(--accent-dark);
     }
 
     p.subtitle {
-      opacity: 0.95;
+      opacity: 0.9;
       font-size: 1.25rem;
       max-width: 900px;
       margin: 0 auto 12px;
@@ -106,7 +103,7 @@
     p.tagline {
       margin-top: 14px;
       font-size: 1rem;
-      color: var(--accent);
+      color: var(--accent-dark);
       text-transform: uppercase;
       letter-spacing: 0.22em;
       font-weight: 600;
@@ -122,7 +119,7 @@
     }
 
     .hero-line span {
-      color: var(--accent);
+      color: var(--accent-dark);
       font-weight: 600;
     }
 
@@ -143,36 +140,27 @@
       text-align: center;
       transition: 0.3s;
       border: 1px solid var(--border);
-      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.55);
-      position: relative;
-      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top, var(--accent-soft), transparent 65%);
-      opacity: 0;
-      transition: 0.3s;
-      pointer-events: none;
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-dark);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
     }
-
-    .card:hover::before { opacity: 1; }
-    .card:hover { transform: translateY(-7px); border-color: var(--accent); }
 
     .card img {
       width: 100%;
       border-radius: 12px;
       margin-bottom: 18px;
-      border: 2px solid #333;
-      filter: contrast(1.4) saturate(1.3) brightness(1.1);
+      border: 1px solid var(--border);
     }
 
     .card h3 {
       margin: 12px 0 8px;
       font-size: 1.3rem;
       font-weight: 600;
+      color: var(--accent-dark);
     }
 
     .card p {
@@ -193,35 +181,25 @@
       padding: 14px 32px;
       font-size: 1.1rem;
       font-weight: 600;
-      color: var(--accent);
-      border: 2px solid var(--accent);
+      color: var(--accent-dark);
+      border: 2px solid var(--accent-dark);
       border-radius: 10px;
       text-decoration: none;
       letter-spacing: 0.05em;
       transition: 0.3s;
-      text-shadow: 0 0 10px rgba(79,209,197,0.6);
-      box-shadow: 0 0 18px rgba(79,209,197,0.25);
-      animation: pulseAbout 2.5s infinite ease-in-out;
     }
 
     .about-btn:hover {
-      background: var(--accent);
-      color: #000;
-      box-shadow: 0 0 25px rgba(79,209,197,0.8);
-    }
-
-    @keyframes pulseAbout {
-      0% { transform: scale(1); box-shadow: 0 0 10px rgba(79,209,197,0.3); }
-      50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(79,209,197,0.6); }
-      100% { transform: scale(1); box-shadow: 0 0 10px rgba(79,209,197,0.3); }
+      background: var(--accent-dark);
+      color: #fff;
     }
 
     footer {
       text-align: center;
       padding: 45px 20px 55px;
-      opacity: 0.55;
+      opacity: 0.7;
       font-size: 0.95rem;
-      border-top: 1px solid #1a1a25;
+      border-top: 1px solid var(--border);
     }
   </style>
 </head>
@@ -242,14 +220,14 @@
   <h1>Damián López</h1>
 
   <p class="subtitle">
-    Creative Developer specializing in Web Development, IT Systems, Cybersecurity, UI/UX and Game Development.
+    Web Developer specialized in HTML, CSS, JavaScript, IT Systems, and Game Development with Unity & Unreal Engine.
   </p>
 
-  <p class="tagline">WEB · IT SYSTEMS · CYBERSEC · GAME DEV · UI/UX</p>
+  <p class="tagline">WEB DEVELOPMENT · IT SYSTEMS · UNITY · UNREAL ENGINE</p>
 
   <p class="hero-line">
-    From <span>promotional comics for Hewlett‑Packard</span> to web apps,  
-    UI prototypes, IT automation tools, and game development with Unity and Unreal Engine.
+    Building modern web interfaces and interactive digital experiences.  
+    From <span>HTML/CSS/JS front‑end projects</span> to <span>Unity & Unreal gameplay prototypes</span>.
   </p>
 </header>
 
@@ -270,23 +248,23 @@
   <a href="shadowmap/index.html" class="card">
     <img src="sketch/0.jpg" alt="ShadowMap">
     <h3>ShadowMap – Paranormal Exploration App</h3>
-    <p>A mobile experience mixing GPS, missions, fear and augmented storytelling.</p>
+    <p>GPS missions, paranormal events and interactive storytelling.</p>
   </a>
 
-  <a href="ilustraciones/index.html" class="card">
-    <img src="img/proyecto3.jpg" alt="Illustrations">
-    <h3>Illustrations & Visual Experiments</h3>
-    <p>Sketches, characters and visual explorations.</p>
+  <a href="web_project/index.html" class="card">
+    <img src="img/proyecto2.jpg" alt="Web Project">
+    <h3>Web Projects – HTML, CSS & JavaScript</h3>
+    <p>Responsive layouts, UI components and interactive front‑end features.</p>
   </a>
 
- </div>
+</div>
 
 <div class="bottom-about">
   <a href="/about/" class="about-btn">About Me</a>
 </div>
 
 <footer>
-  © 2026 – Creative Portfolio by Damián López
+  © 2026 – Portfolio by Damián López
 </footer>
 
 </body>
