@@ -3,110 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <title>Super SDMS – Comic Project for Hewlett‑Packard</title>
+
+  <!-- Professional Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body { font-family: Arial, sans-serif; background: #111; color: #eee; margin: 0; }
-    h1, h2 { text-align: center; }
-    p { max-width: 900px; margin: 0 auto 20px; line-height: 1.6; padding: 0 20px; }
-    .section { margin: 40px 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0d0d0d;
+      color: #e6e6e6;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #f0f0f0;
+    }
+
+    p {
+      max-width: 900px;
+      margin: 0 auto 20px;
+      padding: 0 20px;
+      font-size: 1.05rem;
+      opacity: 0.9;
+    }
+
+    .section {
+      margin: 60px 0;
+    }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
       padding: 20px;
       max-width: 1200px;
       margin: 0 auto;
     }
+
     .grid img {
       width: 100%;
-      border-radius: 8px;
-      transition: 0.3s;
-      border: 2px solid #333;
+      border-radius: 10px;
+      transition: 0.3s ease;
+      border: 2px solid #222;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
+
     .grid img:hover {
-      transform: scale(1.05);
+      transform: scale(1.04);
       border-color: #fff;
     }
+
     .cover {
       max-width: 900px;
       margin: 20px auto 40px;
       padding: 0 20px;
     }
+
     .cover img {
       width: 100%;
-      border-radius: 10px;
-      border: 3px solid #444;
+      border-radius: 12px;
+      border: 3px solid #333;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      font-size: 0.9rem;
+      opacity: 0.6;
     }
   </style>
 </head>
+
 <body>
 
-  <h1>Super SDMS – Comic Project for Hewlett‑Packard</h1>
+  <header>
+    <h1>Super SDMS – Comic Project for Hewlett‑Packard</h1>
+  </header>
 
-  <!-- COVER IMAGE -->
+  <div class="cover">
+    <img src="final/project_1.jpg" alt="Super SDMS Cover">
+  </div>
 
   <p>
     <strong>Super SDMS</strong> is a promotional comic project developed for Hewlett‑Packard
     in <strong>December 2001</strong>, focused on cybersecurity and protection against computer viruses.
     The goal was to communicate technical concepts in a visual, fast, and appealing way, using a
-    superhero-inspired style with vibrant colors and very little text to make it easy to read and
-    instantly eye‑catching.
+    superhero-inspired style with vibrant colors and minimal text.
   </p>
 
   <p>
     The comic was distributed together with <strong>promotional chocolates</strong> at two major events:
-    the <strong>SIMO fair in Madrid</strong> and the <strong>Fira / Zoo Aquarium in Barcelona</strong>,
-    where it received excellent feedback from professionals and visitors. Its striking aesthetics and
-    direct narrative made it a highly effective promotional material.
+    the <strong>SIMO fair in Madrid</strong> and the <strong>Fira / Zoo Aquarium in Barcelona</strong>.
+    Its striking aesthetics and direct narrative made it a highly effective promotional material.
   </p>
 
   <p>
     The project was created by two people, each contributing 50%. I was responsible for the
     <strong>drawing, aesthetics, visual narrative, and composition</strong>, while the digital work and
-    final layout were developed using tools of the time such as <strong>Dreamweaver</strong>. The process
-    combined hand‑drawn artwork, scanning, digital cleanup, coloring, and final assembly.
+    final layout were developed using tools of the time such as <strong>Dreamweaver</strong>.
   </p>
 
   <p>
     Due to the success of the first comic, a <strong>second project</strong> was developed, this time
-    fully web‑oriented, expanding the Super SDMS universe and adapting it to the digital formats of
-    the early 2000s.
+    fully web‑oriented, expanding the Super SDMS universe and adapting it to early‑2000s digital formats.
   </p>
 
-  <!-- SKETCHES FIRST -->
+  <!-- SKETCHES -->
   <div class="section">
     <h2>Sketches</h2>
     <p>Early ideas, page composition tests, and character design.</p>
     <div class="grid">
-      <img src="process/a.jpeg" alt="Process a">
-      <img src="process/d_arte_2.jpeg" alt="Process d_arte_2">
-      
+      <img src="process/a.jpeg" alt="Sketch A">
+      <img src="process/d_arte_2.jpeg" alt="Sketch B">
     </div>
   </div>
 
-  <!-- PROCESS SECOND -->
+  <!-- PROCESS -->
   <div class="section">
     <h2>Process</h2>
-    <p>
-      Full creation process: intermediate sketches, composition tests, adjustments, and evolution
-      leading to the final comic pages.
-    </p>
+    <p>Intermediate sketches, composition tests, and evolution toward the final comic pages.</p>
     <div class="grid">
       <img src="sketch/2.jpg" alt="Sketch 2">
       <img src="sketch/4.jpg" alt="Sketch 4">
-
     </div>
   </div>
 
-  <!-- FINAL ARTWORK LAST -->
+  <!-- FINAL ARTWORK -->
   <div class="section">
     <h2>Final Artwork</h2>
     <p>Finished versions of the Super SDMS comic, ready for printing and exhibition.</p>
     <div class="grid">
-      <img src="final/project_1.jpg" alt="Project 1">
-      <img src="final/project_5_final.jpg" alt="Project_5_final">
-      
+      <img src="final/project_1.jpg" alt="Final 1">
+      <img src="final/project_5_final.jpg" alt="Final 5">
     </div>
   </div>
+
+  <footer>
+    © Super SDMS – Hewlett‑Packard Promotional Comic Project
+  </footer>
 
 </body>
 </html>
