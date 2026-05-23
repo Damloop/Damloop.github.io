@@ -2,37 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Damián López – Portfolio</title>
+  <title>Damián López – Creative Developer & Visual Storyteller</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg: #050509;
+      --card-bg: #14141b;
+      --accent: #4fd1c5;
+      --accent-soft: rgba(79, 209, 197, 0.2);
+      --text-main: #f5f5f5;
+      --text-muted: #a0a0a0;
+      --border: #262633;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      background: #0d0d0d;
-      color: #e6e6e6;
+      background: radial-gradient(circle at top, #1a1a2e 0, #050509 55%);
+      color: var(--text-main);
       margin: 0;
       padding: 0;
     }
 
     header {
       text-align: center;
-      padding: 60px 20px 20px;
+      padding: 70px 20px 30px;
     }
 
     h1 {
-      font-size: 2.6rem;
+      font-size: 2.8rem;
       margin-bottom: 10px;
+      letter-spacing: 0.04em;
     }
 
     p.subtitle {
-      opacity: 0.7;
+      opacity: 0.8;
       font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 10px;
+    }
+
+    p.tagline {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .hero-line {
+      margin-top: 25px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .hero-line span {
+      color: var(--accent);
+      font-weight: 600;
     }
 
     .projects {
       max-width: 1200px;
-      margin: 40px auto;
+      margin: 40px auto 60px;
       padding: 20px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -40,17 +76,34 @@
     }
 
     .card {
-      background: #1a1a1a;
-      border-radius: 12px;
+      background: var(--card-bg);
+      border-radius: 14px;
       padding: 20px;
       text-align: center;
       transition: 0.3s;
-      border: 1px solid #333;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, var(--accent-soft), transparent 55%);
+      opacity: 0;
+      transition: 0.3s;
+      pointer-events: none;
+    }
+
+    .card:hover::before {
+      opacity: 1;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      border-color: #fff;
+      transform: translateY(-6px);
+      border-color: var(--accent);
     }
 
     .card img {
@@ -61,20 +114,28 @@
     }
 
     .card h3 {
-      margin: 10px 0;
-      font-size: 1.3rem;
+      margin: 10px 0 6px;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-muted);
     }
 
     .card a {
       text-decoration: none;
-      color: #fff;
+      color: var(--text-main);
+      display: block;
     }
 
     footer {
       text-align: center;
-      padding: 40px;
-      opacity: 0.5;
+      padding: 35px 20px 45px;
+      opacity: 0.55;
       font-size: 0.9rem;
+      border-top: 1px solid #15151f;
     }
   </style>
 </head>
@@ -82,8 +143,16 @@
 <body>
 
   <header>
-    <h1>Damián López – Portfolio</h1>
-    <p class="subtitle">Illustration · Comics · Design · Creative Projects</p>
+    <h1>Creative Projects · Code · Visual Stories</h1>
+    <p class="subtitle">
+      I mix illustration, comics and web development to build experiences that feel human,
+      playful and a bit unexpected.
+    </p>
+    <p class="tagline">CREATIVE DEVELOPER · VISUAL STORYTELLER · IT INNOVATION</p>
+    <p class="hero-line">
+      From <span>promotional comics for Hewlett‑Packard</span> to web‑based experiments,
+      this is a curated selection of work that connects tech and creativity.
+    </p>
   </header>
 
   <div class="projects">
@@ -91,25 +160,25 @@
     <a href="super-sdms/index.html" class="card">
       <img src="final/project_1.jpg" alt="Super SDMS">
       <h3>Super SDMS – HP Antivirus Comic</h3>
-      <p>Promotional comic project for Hewlett‑Packard.</p>
+      <p>Promotional comic for Hewlett‑Packard about cybersecurity, told as a superhero story.</p>
     </a>
 
     <a href="otro-proyecto/index.html" class="card">
       <img src="img/proyecto2.jpg" alt="Project 2">
-      <h3>Project 2</h3>
-      <p>Short description of the second project.</p>
+      <h3>Project 2 – Web Experience</h3>
+      <p>Interactive concept blending UI, storytelling and modern front‑end development.</p>
     </a>
 
     <a href="ilustraciones/index.html" class="card">
       <img src="img/proyecto3.jpg" alt="Illustrations">
-      <h3>Illustrations</h3>
-      <p>Artwork, sketches and visual experiments.</p>
+      <h3>Illustrations & Visual Experiments</h3>
+      <p>Sketches, characters and visual explorations that feed future digital projects.</p>
     </a>
 
   </div>
 
   <footer>
-    © 2026 – Portfolio by Damián López
+    © 2026 – Creative Portfolio by Damián López
   </footer>
 
 </body>
