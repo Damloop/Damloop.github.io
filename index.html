@@ -27,9 +27,67 @@
       padding: 0;
     }
 
+    /* NAVBAR */
+    .navbar {
+      width: 100%;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 999;
+    }
+
+    .logo-dl {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #4fd1c5;
+      letter-spacing: 0.1em;
+      border: 2px solid #4fd1c5;
+      padding: 6px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      text-shadow: 0 0 12px rgba(79, 209, 197, 0.6);
+      box-shadow: 0 0 18px rgba(79, 209, 197, 0.25);
+      transition: 0.3s;
+    }
+
+    .logo-dl:hover {
+      background: #4fd1c5;
+      color: #000;
+      box-shadow: 0 0 25px rgba(79, 209, 197, 0.8);
+    }
+
+    .nav-links a {
+      margin-left: 25px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.05rem;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #4fd1c5;
+      text-shadow: 0 0 10px rgba(79,209,197,0.6);
+    }
+
+    /* HEADER ANIMADO */
     header {
       text-align: center;
       padding: 90px 20px 40px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
@@ -70,6 +128,7 @@
       font-weight: 600;
     }
 
+    /* PROJECT CARDS */
     .projects {
       max-width: 1250px;
       margin: 60px auto 80px;
@@ -124,22 +183,39 @@
       color: var(--text-muted);
     }
 
-    .card a {
+    /* BOTTOM ABOUT BUTTON */
+    .bottom-about {
+      width: 100%;
+      text-align: center;
+      margin: 60px 0 20px;
+    }
+
+    .about-btn {
+      display: inline-block;
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #4fd1c5;
+      border: 2px solid #4fd1c5;
+      border-radius: 10px;
       text-decoration: none;
-      color: var(--text-main);
-      display: block;
+      letter-spacing: 0.05em;
+      transition: 0.3s;
+      text-shadow: 0 0 10px rgba(79,209,197,0.6);
+      box-shadow: 0 0 18px rgba(79,209,197,0.25);
+      animation: pulseAbout 2.5s infinite ease-in-out;
     }
 
-    /* COMING SOON PULSE */
-    .coming-soon {
-      animation: pulse 1.8s infinite ease-in-out;
-      border-color: var(--accent);
+    .about-btn:hover {
+      background: #4fd1c5;
+      color: #000;
+      box-shadow: 0 0 25px rgba(79,209,197,0.8);
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(79, 209, 197, 0.5); }
-      50% { transform: scale(1.05); box-shadow: 0 0 25px 12px rgba(79, 209, 197, 0.2); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(79, 209, 197, 0.5); }
+    @keyframes pulseAbout {
+      0% { transform: scale(1); box-shadow: 0 0 10px rgba(79,209,197,0.3); }
+      50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(79,209,197,0.6); }
+      100% { transform: scale(1); box-shadow: 0 0 10px rgba(79,209,197,0.3); }
     }
 
     footer {
@@ -154,101 +230,78 @@
 
 <body>
 
-  <header>
-    <h1>Damián López</h1>
-
-    <p class="subtitle">
-      Creative Developer specializing in Web Development, IT Systems, Cybersecurity, UI/UX and Game Development.
-    </p>
-
-    <p class="tagline">WEB · IT SYSTEMS · CYBERSEC · GAME DEV · UI/UX</p>
-
-    <p class="hero-line">
-      From <span>promotional comics for Hewlett‑Packard</span> to web apps,  
-      UI prototypes, IT automation tools, and game development with Unity and Unreal Engine.
-    </p>
-  </header>
-
-  <div class="projects">
-
-    <!-- PROJECT 1 -->
-    <a href="super-sdms/index.html" class="card">
-      <img src="sketch/0.jpg" alt="Super SDMS">
-      <h3>Super SDMS – HP Antivirus Comic</h3>
-      <p>Promotional cybersecurity comic created for Hewlett‑Packard.</p>
-    </a>
-
-    <!-- PROJECT 2 -->
-    <a href="otro-proyecto/index.html" class="card">
-      <img src="img/proyecto2.jpg" alt="Project 2">
-      <h3>Web Experience – UI/UX + Front‑End</h3>
-      <p>Interactive concept blending design, storytelling and modern web development.</p>
-    </a>
-
-    <!-- PROJECT 3 -->
-    <a href="ilustraciones/index.html" class="card">
-      <img src="img/proyecto3.jpg" alt="Illustrations">
-      <h3>Illustrations & Visual Experiments</h3>
-      <p>Sketches, characters and visual explorations.</p>
-    </a>
-
-    <!-- PROJECT 4 -->
-    <a href="video-games/index.html" class="card">
-      <img src="img/game_dev.jpg" alt="Game Dev">
-      <h3>Game Development – Unity & Unreal</h3>
-      <p>Prototypes, AI, UI, level design and gameplay systems.</p>
-    </a>
-
-    <!-- PROJECT 5 – COMING SOON -->
-    <div class="card coming-soon">
-      <h3>Coming Soon</h3>
-      <p>New project in development…</p>
-    </div>
-
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="/" class="logo-dl">DL</a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
   </div>
+</nav>
+
+<header>
+  <h1>Damián López</h1>
+
+  <p class="subtitle">
+    Creative Developer specializing in Web Development, IT Systems, Cybersecurity, UI/UX and Game Development.
+  </p>
+
+  <p class="tagline">WEB · IT SYSTEMS · CYBERSEC · GAME DEV · UI/UX</p>
+
+  <p class="hero-line">
+    From <span>promotional comics for Hewlett‑Packard</span> to web apps,  
+    UI prototypes, IT automation tools, and game development with Unity and Unreal Engine.
+  </p>
+</header>
+
+<div class="projects">
+
+  <!-- PROJECT 1 -->
+  <a href="super-sdms/index.html" class="card">
+    <img src="sketch/0.jpg" alt="Super SDMS">
+    <h3>Super SDMS – HP Antivirus Comic</h3>
+    <p>Promotional cybersecurity comic created for Hewlett‑Packard.</p>
+  </a>
+
+  <!-- PROJECT 2 -->
+  <a href="prey/index.html" class="card">
+    <img src="sketch/0.jpg" alt="PREY Game">
+    <h3>PREY – Unity Platform Game</h3>
+    <p>A hero returns to his hometown… but the villagers have turned into zombies.</p>
+  </a>
+
+  <!-- PROJECT 3 -->
+  <a href="shadowmap/index.html" class="card">
+    <img src="sketch/0.jpg" alt="ShadowMap">
+    <h3>ShadowMap – Paranormal Exploration App</h3>
+    <p>A mobile experience mixing GPS, missions, fear and augmented storytelling.</p>
+  </a>
+
+  <!-- PROJECT 4 -->
+  <a href="ilustraciones/index.html" class="card">
+    <img src="img/proyecto3.jpg" alt="Illustrations">
+    <h3>Illustrations & Visual Experiments</h3>
+    <p>Sketches, characters and visual explorations.</p>
+  </a>
+
+  <!-- PROJECT 5 -->
+  <a href="video-games/index.html" class="card">
+    <img src="img/game_dev.jpg" alt="Game Dev">
+    <h3>Game Development – Unity & Unreal</h3>
+    <p>Prototypes, AI, UI, level design and gameplay systems.</p>
+  </a>
+
+</div>
+
+<!-- BOTTOM ABOUT BUTTON -->
 <div class="bottom-about">
   <a href="/about/" class="about-btn">About Me</a>
 </div>
 
-<style>
-.bottom-about {
-  width: 100%;
-  text-align: center;
-  margin: 60px 0 20px;
-}
-
-.about-btn {
-  display: inline-block;
-  padding: 14px 32px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #4fd1c5;
-  border: 2px solid #4fd1c5;
-  border-radius: 10px;
-  text-decoration: none;
-  letter-spacing: 0.05em;
-  transition: 0.3s;
-  text-shadow: 0 0 10px rgba(79,209,197,0.6);
-  box-shadow: 0 0 18px rgba(79,209,197,0.25);
-  animation: pulseAbout 2.5s infinite ease-in-out;
-}
-
-.about-btn:hover {
-  background: #4fd1c5;
-  color: #000;
-  box-shadow: 0 0 25px rgba(79,209,197,0.8);
-}
-
-@keyframes pulseAbout {
-  0% { transform: scale(1); box-shadow: 0 0 10px rgba(79,209,197,0.3); }
-  50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(79,209,197,0.6); }
-  100% { transform: scale(1); box-shadow: 0 0 10px rgba(79,209,197,0.3); }
-}
-</style>
-
-  <footer>
-    © 2026 – Creative Portfolio by Damián López
-  </footer>
+<footer>
+  © 2026/27 – Creative Portfolio by Damián López
+</footer>
 
 </body>
 </html>
