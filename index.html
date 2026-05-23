@@ -8,20 +8,20 @@
 
   <style>
     :root {
-      --bg: #02030a;
-      --card-bg: #12121a;
+      --bg: #010208;
+      --card-bg: #13131c;
       --accent: #4fd1c5;
-      --accent-soft: rgba(79, 209, 197, 0.25);
-      --text-main: #f5f5f5;
-      --text-muted: #9a9a9a;
-      --border: #2a2a38;
+      --accent-soft: rgba(79, 209, 197, 0.35);
+      --text-main: #ffffff;
+      --text-muted: #b5b5b5;
+      --border: #2e2e3d;
     }
 
     * { box-sizing: border-box; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top, #1b1b3a 0%, #02030a 60%);
+      background: radial-gradient(circle at top, #24244a 0%, #010208 65%);
       color: var(--text-main);
       margin: 0;
       padding: 0;
@@ -29,35 +29,36 @@
 
     header {
       text-align: center;
-      padding: 80px 20px 30px;
+      padding: 90px 20px 40px;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
+      font-size: 3.2rem;
+      margin-bottom: 12px;
       letter-spacing: 0.05em;
       font-weight: 700;
+      color: #ffffff;
     }
 
     p.subtitle {
-      opacity: 0.9;
-      font-size: 1.2rem;
-      max-width: 850px;
-      margin: 0 auto 10px;
+      opacity: 0.95;
+      font-size: 1.25rem;
+      max-width: 900px;
+      margin: 0 auto 12px;
     }
 
     p.tagline {
-      margin-top: 12px;
-      font-size: 0.95rem;
+      margin-top: 14px;
+      font-size: 1rem;
       color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.22em;
       font-weight: 600;
     }
 
     .hero-line {
-      margin-top: 25px;
-      font-size: 1rem;
+      margin-top: 28px;
+      font-size: 1.05rem;
       color: var(--text-muted);
       max-width: 900px;
       margin-left: auto;
@@ -70,22 +71,22 @@
     }
 
     .projects {
-      max-width: 1200px;
-      margin: 50px auto 70px;
+      max-width: 1250px;
+      margin: 60px auto 80px;
       padding: 20px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
+      gap: 32px;
     }
 
     .card {
       background: var(--card-bg);
-      border-radius: 14px;
-      padding: 20px;
+      border-radius: 16px;
+      padding: 22px;
       text-align: center;
       transition: 0.3s;
       border: 1px solid var(--border);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.55);
       position: relative;
       overflow: hidden;
     }
@@ -94,32 +95,32 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top, var(--accent-soft), transparent 60%);
+      background: radial-gradient(circle at top, var(--accent-soft), transparent 65%);
       opacity: 0;
       transition: 0.3s;
       pointer-events: none;
     }
 
     .card:hover::before { opacity: 1; }
-    .card:hover { transform: translateY(-6px); border-color: var(--accent); }
+    .card:hover { transform: translateY(-7px); border-color: var(--accent); }
 
     .card img {
       width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      border: 2px solid #222;
-      filter: contrast(1.25) saturate(1.2);
+      border-radius: 12px;
+      margin-bottom: 18px;
+      border: 2px solid #333;
+      filter: contrast(1.35) saturate(1.25) brightness(1.1);
     }
 
     .card h3 {
-      margin: 10px 0 6px;
-      font-size: 1.25rem;
+      margin: 12px 0 8px;
+      font-size: 1.3rem;
       font-weight: 600;
     }
 
     .card p {
       margin: 0;
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: var(--text-muted);
     }
 
@@ -136,17 +137,17 @@
     }
 
     @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(79, 209, 197, 0.4); }
-      50% { transform: scale(1.04); box-shadow: 0 0 20px 10px rgba(79, 209, 197, 0.15); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(79, 209, 197, 0.4); }
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(79, 209, 197, 0.5); }
+      50% { transform: scale(1.05); box-shadow: 0 0 25px 12px rgba(79, 209, 197, 0.2); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(79, 209, 197, 0.5); }
     }
 
     footer {
       text-align: center;
-      padding: 40px 20px 50px;
+      padding: 45px 20px 55px;
       opacity: 0.55;
-      font-size: 0.9rem;
-      border-top: 1px solid #15151f;
+      font-size: 0.95rem;
+      border-top: 1px solid #1a1a25;
     }
   </style>
 </head>
@@ -154,18 +155,17 @@
 <body>
 
   <header>
-    <h1>Creative Developer · IT Innovation · Game Development</h1>
+    <h1>Damián López</h1>
 
     <p class="subtitle">
-      Web development, IT support, cybersecurity, UI/UX, and game development.  
-      I build digital experiences that blend technology, creativity, and visual storytelling.
+      Creative Developer specializing in Web Development, IT Systems, Cybersecurity, UI/UX and Game Development.
     </p>
 
-    <p class="tagline">WEB · SYSTEMS · CYBERSEC · GAME DEV · UI/UX</p>
+    <p class="tagline">WEB · IT SYSTEMS · CYBERSEC · GAME DEV · UI/UX</p>
 
     <p class="hero-line">
-      From <span>promotional comics for Hewlett‑Packard</span> to web projects,  
-      UI prototypes, IT tools, and game development with Unity and Unreal Engine.
+      From <span>promotional comics for Hewlett‑Packard</span> to web apps,  
+      UI prototypes, IT automation tools, and game development with Unity and Unreal Engine.
     </p>
   </header>
 
@@ -173,7 +173,7 @@
 
     <!-- PROJECT 1 -->
     <a href="super-sdms/index.html" class="card">
-      <img src="sketch/1.jpg" alt="Super SDMS">
+      <img src="sketch/0.jpg" alt="Super SDMS">
       <h3>Super SDMS – HP Antivirus Comic</h3>
       <p>Promotional cybersecurity comic created for Hewlett‑Packard.</p>
     </a>
