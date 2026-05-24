@@ -3,25 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Damián López – Web · Game Dev · IT</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #000000;
+      --bg: #000;
       --panel: #0d0f14;
       --accent: #00e0ff;
       --accent-strong: #0094cc;
-      --text-main: #ffffff;
+      --text-main: #fff;
       --text-muted: #b8b8b8;
       --border: #1f1f25;
     }
 
     body {
+      margin: 0;
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text-main);
-      margin: 0;
-      padding: 0;
     }
 
     /* NAVBAR */
@@ -33,7 +32,7 @@
       align-items: center;
       position: sticky;
       top: 0;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0,0,0,0.75);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       z-index: 999;
@@ -47,7 +46,6 @@
       padding: 8px 18px;
       border: 3px solid var(--accent);
       border-radius: 10px;
-      display: inline-block;
       text-shadow: 0 0 18px rgba(0,200,255,0.6);
       box-shadow: 0 0 25px rgba(0,200,255,0.25);
       background: rgba(0,0,0,0.4);
@@ -79,9 +77,9 @@
     /* HERO */
     header {
       text-align: center;
-      padding: 110px 20px 60px;
-      opacity: 0;
+      padding: 120px 20px 80px;
       animation: fadeIn 1.2s ease-out forwards;
+      opacity: 0;
     }
 
     @keyframes fadeIn {
@@ -90,27 +88,26 @@
     }
 
     h1 {
-      font-size: 3.4rem;
-      margin-bottom: 12px;
-      font-weight: 700;
+      font-size: 3.8rem;
+      font-weight: 800;
       color: var(--accent);
-      text-shadow: 0 0 18px rgba(0,200,255,0.4);
+      text-shadow: 0 0 25px rgba(0,200,255,0.5);
+      margin-bottom: 15px;
     }
 
-    p.subtitle {
-      opacity: 0.9;
-      font-size: 1.25rem;
-      max-width: 900px;
-      margin: 0 auto 12px;
+    .subtitle {
+      font-size: 1.3rem;
       color: var(--text-muted);
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    p.tagline {
-      margin-top: 14px;
+    .tagline {
+      margin-top: 18px;
       font-size: 1rem;
       color: var(--accent);
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      letter-spacing: 0.22em;
       font-weight: 600;
     }
 
@@ -129,9 +126,9 @@
       border-radius: 16px;
       padding: 22px;
       text-align: center;
-      transition: 0.3s;
       border: 1px solid var(--border);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+      transition: 0.3s;
     }
 
     .card:hover {
@@ -149,27 +146,23 @@
     }
 
     .card h3 {
-      margin: 12px 0 8px;
-      font-size: 1.3rem;
-      font-weight: 600;
       color: var(--accent);
+      font-size: 1.3rem;
+      margin-bottom: 8px;
     }
 
     .card p {
-      margin: 0;
-      font-size: 1rem;
       color: var(--text-muted);
+      font-size: 1rem;
     }
 
     /* ABOUT BUTTON */
     .bottom-about {
-      width: 100%;
       text-align: center;
       margin: 60px 0 20px;
     }
 
     .about-btn {
-      display: inline-block;
       padding: 14px 32px;
       font-size: 1.1rem;
       font-weight: 600;
@@ -177,7 +170,6 @@
       border: 2px solid var(--accent);
       border-radius: 10px;
       text-decoration: none;
-      letter-spacing: 0.05em;
       transition: 0.3s;
     }
 
@@ -211,7 +203,7 @@
 <header>
   <h1>Damián López</h1>
   <p class="subtitle">
-    Web Developer · Game Developer · IT Specialist · AI Projects · Continuous Learning
+    Web Developer · Game Developer · IT Specialist · Cybersecurity · UI/UX · AI Projects
   </p>
   <p class="tagline">WEB · UNITY · UNREAL · APPS · IA</p>
 </header>
