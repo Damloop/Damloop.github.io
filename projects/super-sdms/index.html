@@ -9,58 +9,58 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: #0d0d0d;
-      color: #e6e6e6;
+      background: #f4f4f4;
+      color: #222;
       margin: 0;
       line-height: 1.7;
     }
 
-    /* --- ESTILO CÓMIC MODERNO --- */
-
-    h1, h2 {
-      text-shadow: 0 0 12px rgba(0, 255, 255, 0.35);
-      letter-spacing: 1px;
-    }
-
+    /* --- ESTILO CÓMIC --- */
     header {
       text-align: center;
       padding: 60px 20px 30px;
-      border-bottom: 4px solid #00e0ff;
-      box-shadow: 0 6px 20px rgba(0, 224, 255, 0.15);
+      background: #ffdd33;
+      border-bottom: 8px solid #000;
+      box-shadow: 0 6px 0 #000;
     }
 
     h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
+      font-size: 3rem;
+      font-weight: 900;
       margin-bottom: 10px;
-      color: #00e0ff;
+      color: #000;
       text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 3px 3px 0 #fff;
     }
 
     h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
+      font-size: 2rem;
+      font-weight: 800;
       margin-bottom: 10px;
       text-align: center;
-      color: #00e0ff;
-      border-left: 6px solid #00e0ff;
-      padding-left: 12px;
+      color: #000;
+      background: #ffdd33;
       display: inline-block;
+      padding: 6px 14px;
+      border: 4px solid #000;
+      box-shadow: 4px 4px 0 #000;
+      margin-left: 20px;
     }
 
     p {
       max-width: 900px;
       margin: 0 auto 20px;
       padding: 0 20px;
-      font-size: 1.05rem;
-      opacity: 0.9;
+      font-size: 1.1rem;
+      color: #333;
     }
 
     .section {
       margin: 60px 0;
     }
 
-    /* --- GRID ESTILO CÓMIC --- */
+    /* --- GRID CÓMIC --- */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -72,17 +72,17 @@
 
     .grid img {
       width: 100%;
-      border-radius: 12px;
-      border: 4px solid #111;
-      box-shadow: 0 0 0 4px #00e0ff, 0 0 20px rgba(0, 224, 255, 0.25);
+      border-radius: 0;
+      border: 6px solid #000;
+      box-shadow: 6px 6px 0 #000;
       transition: 0.25s ease;
-      filter: contrast(1.15) saturate(1.2);
+      background: white;
+      filter: contrast(1.1) saturate(1.1);
     }
 
     .grid img:hover {
-      transform: scale(1.05) rotate(-1deg);
-      box-shadow: 0 0 0 4px #fff, 0 0 25px rgba(255, 255, 255, 0.35);
-      filter: contrast(1.25) saturate(1.35);
+      transform: scale(1.03) rotate(-1deg);
+      box-shadow: 10px 10px 0 #000;
     }
 
     /* --- PORTADA --- */
@@ -94,25 +94,25 @@
 
     .cover img {
       width: 100%;
-      border-radius: 14px;
-      border: 5px solid #00e0ff;
-      box-shadow: 0 0 0 5px #111, 0 0 25px rgba(0, 224, 255, 0.35);
-      filter: contrast(1.15) saturate(1.25);
+      border: 8px solid #000;
+      box-shadow: 10px 10px 0 #000;
+      background: white;
       transition: 0.3s ease;
     }
 
     .cover img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 0 5px #fff, 0 0 35px rgba(255, 255, 255, 0.35);
+      transform: scale(1.02);
+      box-shadow: 14px 14px 0 #000;
     }
 
     footer {
       text-align: center;
       padding: 40px;
-      font-size: 0.9rem;
-      opacity: 0.6;
-      border-top: 4px solid #00e0ff;
-      margin-top: 40px;
+      font-size: 1rem;
+      background: #ffdd33;
+      border-top: 8px solid #000;
+      box-shadow: 0 -6px 0 #000;
+      font-weight: 700;
     }
   </style>
 </head>
@@ -139,13 +139,7 @@
   </p>
 
   <p>
-    The project was created by two people, each contributing 50%. I was responsible for the
-    <strong>drawing, aesthetics, visual narrative, and composition</strong>.
-  </p>
-
-  <p>
-    Due to the success of the first comic, a <strong>second project</strong> was developed,
-    this time fully web‑oriented.
+    I was responsible for the <strong>drawing, aesthetics, visual narrative, and composition</strong>.
   </p>
 
   <!-- SKETCHES -->
@@ -153,31 +147,31 @@
     <h2>Sketches</h2>
     <p>Early ideas, page composition tests, and character design.</p>
     <div class="grid">
-      <img src="FIRST_PROJECT/process/a.jpeg" alt="Sketch A">
-      <img src="FIRST_PROJECT/process/d_arte_2.jpeg" alt="Sketch B">
-      <img src="FIRST_PROJECT/process/0.jpg" alt="Sketch C">
+      <img src="FIRST_PROJECT/process/1.jpg" alt="Sketch 1">
+      <img src="FIRST_PROJECT/process/2.jpg" alt="Sketch 2">
+      <img src="FIRST_PROJECT/process/3.jpg" alt="Sketch 3">
     </div>
   </div>
 
   <!-- PROCESS -->
   <div class="section">
     <h2>Process</h2>
-    <p>Intermediate sketches, composition tests, and evolution toward the final comic pages.</p>
+    <p>Intermediate sketches and evolution toward the final comic pages.</p>
     <div class="grid">
-      <img src="FIRST_PROJECT/sketch/2.jpg" alt="Sketch 2">
-      <img src="FIRST_PROJECT/sketch/4.jpg" alt="Sketch 4">
-      <img src="FIRST_PROJECT/sketch/3.jpg" alt="Sketch 3">
+      <img src="FIRST_PROJECT/process/4.jpg" alt="Process 1">
+      <img src="FIRST_PROJECT/process/5.jpg" alt="Process 2">
+      <img src="FIRST_PROJECT/process/6.jpg" alt="Process 3">
     </div>
   </div>
 
   <!-- FINAL ARTWORK -->
   <div class="section">
     <h2>Final Artwork</h2>
-    <p>Finished versions of the Super SDMS comic, ready for printing and exhibition.</p>
+    <p>Finished pages of the Super SDMS comic.</p>
     <div class="grid">
       <img src="FIRST_PROJECT/work/project_1.jpg" alt="Final 1">
-      <img src="FIRST_PROJECT/work/project_5_final.jpg" alt="Final 5">
-      <img src="FIRST_PROJECT/work/project_3.jpg" alt="Final 3">
+      <img src="FIRST_PROJECT/work/project_3.jpg" alt="Final 2">
+      <img src="FIRST_PROJECT/work/project_5_final.jpg" alt="Final 3">
     </div>
   </div>
 
@@ -186,9 +180,20 @@
     <h2>Project 2 – Web Edition</h2>
     <p>The second part of the project, redesigned for web distribution.</p>
     <div class="grid">
-      <img src="SECOND_PROJECT/work/1.jpg" alt="Project 2 - 1">
-      <img src="SECOND_PROJECT/work/2.jpg" alt="Project 2 - 2">
-      <img src="SECOND_PROJECT/work/3.jpg" alt="Project 2 - 3">
+      <img src="SECOND_PROJECT/SECOND_PROJECT_1.png" alt="Project 2 - 1">
+      <img src="SECOND_PROJECT/SECOND_PROJECT_2.jpeg" alt="Project 2 - 2">
+      <img src="SECOND_PROJECT/SECOND_PROJECT_3.jpeg" alt="Project 2 - 3">
+    </div>
+  </div>
+
+  <!-- MERCHANDISING -->
+  <div class="section">
+    <h2>Merchandising</h2>
+    <p>Promotional items created for events and fairs.</p>
+    <div class="grid">
+      <img src="FIRST_PROJECT/merchandising/1.jpg" alt="Merch 1">
+      <img src="FIRST_PROJECT/merchandising/2.jpg" alt="Merch 2">
+      <img src="FIRST_PROJECT/merchandising/3.jpg" alt="Merch 3">
     </div>
   </div>
 
