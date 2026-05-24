@@ -1,1 +1,100 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact – Damián López</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --panel: #0d0f14;
+      --accent: #00e0ff;
+      --accent-strong: #0094cc;
+      --text-main: #ffffff;
+      --text-muted: #b8b8b8;
+      --border: #1f1f25;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      margin: 0;
+      padding: 40px;
+      line-height: 1.7;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 40px;
+      color: var(--accent);
+      text-shadow: 0 0 18px rgba(0,200,255,0.4);
+    }
+
+    .contact-box {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 30px;
+      background: var(--panel);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 25px rgba(0,200,255,0.08);
+      text-align: center;
+    }
+
+    .contact-box:hover {
+      box-shadow: 0 0 35px rgba(0,200,255,0.18);
+      transform: translateY(-4px);
+      transition: 0.3s;
+    }
+
+    .contact-item {
+      margin: 18px 0;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+    }
+
+    .contact-item span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-shadow: 0 0 10px rgba(0,200,255,0.6);
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Contact</h1>
+
+  <div class="contact-box">
+    <div class="contact-item">
+      <span>Email:</span> <a href="mailto:lopez.damian@outlook.com">lopez.damian@outlook.com</a>
+    </div>
+
+    <div class="contact-item">
+      <span>Phone:</span> +34 678 576 515
+    </div>
+
+    <div class="contact-item">
+      <span>LinkedIn:</span> <a href="https://linkedin.com/in/damianlopez">linkedin.com/in/damianlopez</a>
+    </div>
+
+    <div class="contact-item">
+      <span>GitHub:</span> <a href="https://github.com/Damloop">github.com/Damloop</a>
+    </div>
+  </div>
+
+</body>
+</html>
