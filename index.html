@@ -20,32 +20,29 @@
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
-    /* GLOW DINÁMICO SUAVE EN EL FONDO */
-    body::before {
-      content: "";
-      position: fixed;
-      top: -20%;
-      left: -20%;
-      width: 140%;
-      height: 140%;
-      background: radial-gradient(circle at center, rgba(0, 224, 255, 0.12), transparent 70%);
-      animation: pulseGlow 7s ease-in-out infinite;
-      z-index: -1;
-      pointer-events: none;
+    main {
+      flex: 1;
+      width: 100%;
     }
 
-    @keyframes pulseGlow {
-      0% { opacity: 0.35; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.12); }
-      100% { opacity: 0.35; transform: scale(1); }
+    html, body {
+      overflow-x: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+      max-width: 100%;
     }
 
     /* NAVBAR */
     .navbar {
       width: 100%;
-      padding: 18px 40px;
+      padding: 18px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -55,6 +52,7 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       z-index: 999;
+      flex-wrap: wrap; /* ⭐ FIX: permite que los enlaces bajen si no caben */
     }
 
     .logo-modern {
@@ -71,6 +69,7 @@
       backdrop-filter: blur(6px);
       transition: 0.3s;
       text-decoration: none;
+      margin-bottom: 10px; /* ⭐ FIX: espacio si baja a segunda línea */
     }
 
     .logo-modern:hover {
@@ -80,8 +79,14 @@
       transform: translateY(-3px);
     }
 
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap; /* ⭐ FIX: evita que se corte */
+      justify-content: center;
+    }
+
     .nav-links a {
-      margin-left: 25px;
       color: var(--text-main);
       text-decoration: none;
       font-weight: 500;
@@ -100,20 +105,12 @@
       padding: 120px 20px 80px;
     }
 
-    /* ANIMACIÓN DEL TÍTULO */
     h1 {
       font-size: 3.8rem;
       font-weight: 800;
       color: var(--accent);
       text-shadow: 0 0 25px rgba(0,200,255,0.5);
       margin-bottom: 15px;
-      opacity: 0;
-      animation: fadeInTitle 1.4s ease forwards;
-    }
-
-    @keyframes fadeInTitle {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
     }
 
     .subtitle {
@@ -142,7 +139,6 @@
       gap: 35px;
     }
 
-    /* ANIMACIÓN DE TARJETAS */
     .card {
       background: var(--panel);
       border-radius: 16px;
@@ -153,43 +149,6 @@
       transition: 0.3s;
       position: relative;
       overflow: hidden;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeCard 0.8s ease forwards;
-    }
-
-    .card:nth-child(1) { animation-delay: 0.2s; }
-    .card:nth-child(2) { animation-delay: 0.35s; }
-    .card:nth-child(3) { animation-delay: 0.5s; }
-    .card:nth-child(4) { animation-delay: 0.65s; }
-
-    @keyframes fadeCard {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* GLOW EN HOVER */
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 16px;
-      background: radial-gradient(circle at top, rgba(0, 224, 255, 0.12), transparent 70%);
-      opacity: 0;
-      transition: 0.4s ease;
-      pointer-events: none;
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: var(--accent);
-      box-shadow: 0 15px 35px rgba(0,200,255,0.25);
     }
 
     .card img {
@@ -254,6 +213,8 @@
   </div>
 </nav>
 
+<main>
+
 <header>
   <h1>Damián López</h1>
   <p class="subtitle">
@@ -293,6 +254,8 @@
 <div class="bottom-about">
   <a href="/about/" class="about-btn">About Me</a>
 </div>
+
+</main>
 
 <footer>
   © 2026 – Portfolio by Damián López
