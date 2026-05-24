@@ -25,6 +25,60 @@
       line-height: 1.7;
     }
 
+    /* NAVBAR */
+    .navbar {
+      width: 100%;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 999;
+      margin-bottom: 40px;
+    }
+
+    .logo-modern {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      padding: 8px 18px;
+      border: 3px solid var(--accent);
+      border-radius: 10px;
+      display: inline-block;
+      text-shadow: 0 0 18px rgba(0,200,255,0.6);
+      box-shadow: 0 0 25px rgba(0,200,255,0.25);
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(6px);
+      transition: 0.3s;
+    }
+
+    .logo-modern:hover {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 0 35px rgba(0,200,255,0.9);
+      transform: translateY(-3px);
+    }
+
+    .nav-links a {
+      margin-left: 25px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.05rem;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+      text-shadow: 0 0 10px rgba(0,200,255,0.6);
+    }
+
+    /* TITLE */
     h1 {
       text-align: center;
       font-size: 3rem;
@@ -40,6 +94,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* SECTIONS */
     .section {
       max-width: 900px;
       margin: 0 auto 40px;
@@ -85,51 +140,63 @@
 
 <body>
 
-  <h1>About Me</h1>
-
-  <div class="section">
-    <h2>Who I Am</h2>
-    <p>
-      I am a <span class="highlight">Creative Developer</span> specialized in 
-      <span class="highlight">Web Development (HTML, CSS, JavaScript)</span>, 
-      <span class="highlight">Game Development (Unity C#, Unreal C++)</span>, 
-      and <span class="highlight">IT Systems</span>.
-      My background includes real experience in multinational environments such as 
-      <span class="highlight">Microsoft</span> and <span class="highlight">Google</span>, 
-      working across infrastructure, support, cybersecurity, and digital product creation.
-    </p>
-    <p>
-      I combine technical knowledge with visual storytelling to build modern interfaces, 
-      interactive apps, gameplay prototypes, and tools powered by AI.  
-      Always learning, always building.
-    </p>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="/" class="logo-modern">DL</a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
   </div>
+</nav>
 
-  <div class="section">
-    <h2>Technical Skills</h2>
-    <ul>
-      <li><strong>Web Development:</strong> HTML5, CSS3, JavaScript, React, Bootstrap</li>
-      <li><strong>Game Development:</strong> Unity (C#), Unreal Engine (Blueprints & C++)</li>
-      <li><strong>IT Systems:</strong> Active Directory, Intune, Azure AD, ITSM, Jira</li>
-      <li><strong>Cybersecurity:</strong> Ethical Hacking, Digital Forensics</li>
-      <li><strong>Automation & Cloud:</strong> Power Automate, APIs, Node.js, Python</li>
-      <li><strong>UI/UX:</strong> Figma, Sketch, responsive design</li>
-      <li><strong>Tools:</strong> GitHub, Docker, Splunk, Dynamics 365</li>
-    </ul>
-  </div>
+<h1>About Me</h1>
 
-  <div class="section">
-    <h2>Education & Certifications</h2>
-    <ul>
-      <li>Higher Degree in Web Application Development (2025–Current)</li>
-      <li>Full Stack Web Developer – 4Geeks Academy</li>
-      <li>ITIL v4 Certification</li>
-      <li>Mobile Interface Design (80h)</li>
-      <li>Digital Forensics & Cybersecurity (500h)</li>
-      <li>Unity & Unreal Engine Game Development Diplomas</li>
-      <li>Blockchain, Agile, PMBOK7, .NET Programming</li>
-    </ul>
-  </div>
+<div class="section">
+  <h2>Who I Am</h2>
+  <p>
+    I am a <span class="highlight">Creative Developer</span> specialized in 
+    <span class="highlight">Web Development (HTML, CSS, JavaScript)</span>, 
+    <span class="highlight">Game Development (Unity C#, Unreal C++)</span>, 
+    and <span class="highlight">IT Systems</span>.
+  </p>
+  <p>
+    I have real experience in multinational environments such as 
+    <span class="highlight">Microsoft</span> and <span class="highlight">Google</span>, 
+    working across infrastructure, support, cybersecurity, and digital product creation. 
+  </p>
+  <p>
+    I combine technical knowledge with visual storytelling to build modern interfaces, 
+    interactive apps, gameplay prototypes, and tools powered by AI. 
+  </p>
+</div>
+
+<div class="section">
+  <h2>Technical Skills</h2>
+  <ul>
+    <li><strong>Web Development:</strong> HTML5, CSS3, JavaScript, React, Bootstrap</li>
+    <li><strong>Game Development:</strong> Unity (C#), Unreal Engine (Blueprints & C++)</li>
+    <li><strong>IT Systems:</strong> Active Directory, Intune, Azure AD, ITSM, Jira</li>
+    <li><strong>Cybersecurity:</strong> Ethical Hacking, Digital Forensics</li>
+    <li><strong>Automation & Cloud:</strong> Power Automate, APIs, Node.js, Python</li>
+    <li><strong>UI/UX:</strong> Figma, Sketch, responsive design</li>
+    <li><strong>Tools:</strong> GitHub, Docker, Splunk, Dynamics 365</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Education & Certifications</h2>
+  <ul>
+    <li>Higher Degree in Web Application Development (2025–Current)</li>
+    <li>Higher Degree in Commerce and Marketing (2013-2015)</li>
+    <li>Full Stack Web Developer – 4Geeks Academy</li>
+    <li>ITIL v4 Training</li>
+    <li>Mobile Interface Design</li>
+    <li>Digital Forensics & Cybersecurity</li>
+    <li>Unity & Unreal Engine Game Development Diplomas</li>
+    <li>Blockchain, Agile, PMBOK7, .NET Programming</li>
+  </ul>
+</div>
 
 </body>
 </html>
