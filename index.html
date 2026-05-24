@@ -2,261 +2,164 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Damián López – Web · Game Dev · IT</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <title>Super SDMS – Comic Project for Hewlett‑Packard</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #000;
-      --panel: #0d0f14;
-      --accent: #00e0ff;
-      --text-main: #fff;
-      --text-muted: #b8b8b8;
-      --border: #1f1f25;
-    }
-
     body {
-      margin: 0;
       font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
+      background: #0d0d0d;
+      color: #e6e6e6;
+      margin: 0;
+      line-height: 1.7;
     }
 
-    /* GLOW DINÁMICO SUAVE EN EL FONDO */
-    body::before {
-      content: "";
-      position: fixed;
-      top: -20%;
-      left: -20%;
-      width: 140%;
-      height: 140%;
-      background: radial-gradient(circle at center, rgba(0, 224, 255, 0.12), transparent 70%);
-      animation: pulseGlow 7s ease-in-out infinite;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    @keyframes pulseGlow {
-      0% { opacity: 0.35; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.12); }
-      100% { opacity: 0.35; transform: scale(1); }
-    }
-
-    /* NAVBAR */
-    .navbar {
-      width: 100%;
-      padding: 18px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      z-index: 999;
-    }
-
-    .logo-modern {
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      padding: 8px 18px;
-      border: 3px solid var(--accent);
-      border-radius: 10px;
-      text-shadow: 0 0 18px rgba(0,200,255,0.6);
-      box-shadow: 0 0 25px rgba(0,200,255,0.25);
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(6px);
-      transition: 0.3s;
-      text-decoration: none;
-    }
-
-    .logo-modern:hover {
-      background: var(--accent);
-      color: #000;
-      box-shadow: 0 0 35px rgba(0,200,255,0.9);
-      transform: translateY(-3px);
-    }
-
-    .nav-links a {
-      margin-left: 25px;
-      color: var(--text-main);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1.05rem;
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-      text-shadow: 0 0 10px rgba(0,200,255,0.6);
-    }
-
-    /* HERO */
     header {
       text-align: center;
-      padding: 120px 20px 80px;
+      padding: 60px 20px 30px;
     }
 
     h1 {
-      font-size: 3.8rem;
-      font-weight: 800;
-      color: var(--accent);
-      text-shadow: 0 0 25px rgba(0,200,255,0.5);
-      margin-bottom: 15px;
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #ffffff;
     }
 
-    .subtitle {
-      font-size: 1.3rem;
-      color: var(--text-muted);
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #f0f0f0;
+    }
+
+    p {
       max-width: 900px;
+      margin: 0 auto 20px;
+      padding: 0 20px;
+      font-size: 1.05rem;
+      opacity: 0.9;
+    }
+
+    .section {
+      margin: 60px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
-    .tagline {
-      margin-top: 18px;
-      font-size: 1rem;
-      color: var(--accent);
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    /* PROJECTS */
-    .projects {
-      max-width: 1250px;
-      margin: 60px auto 80px;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 35px;
-    }
-
-    .card {
-      background: var(--panel);
-      border-radius: 16px;
-      padding: 22px;
-      text-align: center;
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.45);
-      transition: 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: var(--accent);
-      box-shadow: 0 15px 35px rgba(0,200,255,0.25);
-    }
-
-    .card img {
+    .grid img {
       width: 100%;
-      border-radius: 12px;
-      margin-bottom: 18px;
-      border: 1px solid var(--border);
-      filter: contrast(1.35) saturate(1.25);
-    }
-
-    .card h3 {
-      color: var(--accent);
-      font-size: 1.3rem;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      color: var(--text-muted);
-      font-size: 1rem;
-    }
-
-    .bottom-about {
-      text-align: center;
-      margin: 60px 0 20px;
-    }
-
-    .about-btn {
-      padding: 14px 32px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--accent);
-      border: 2px solid var(--accent);
       border-radius: 10px;
-      text-decoration: none;
-      transition: 0.3s;
+      transition: 0.3s ease;
+      border: 2px solid #222;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
 
-    .about-btn:hover {
-      background: var(--accent);
-      color: #000;
-      box-shadow: 0 0 25px rgba(0,200,255,0.8);
+    .grid img:hover {
+      transform: scale(1.04);
+      border-color: #fff;
     }
 
     footer {
       text-align: center;
-      padding: 45px 20px 55px;
-      opacity: 0.7;
-      font-size: 0.95rem;
-      border-top: 1px solid var(--border);
+      padding: 40px;
+      font-size: 0.9rem;
+      opacity: 0.6;
     }
   </style>
 </head>
 
 <body>
 
-<nav class="navbar">
-  <a href="/" class="logo-modern">DL</a>
-  <div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
-  </div>
-</nav>
+  <header>
+    <h1>Super SDMS – Comic Project for Hewlett‑Packard</h1>
+  </header>
 
-<header>
-  <h1>Damián López</h1>
-  <p class="subtitle">
-    Web Developer · Game Developer · IT Specialist · Cybersecurity · UI/UX · AI Projects
+  <!-- INTRO -->
+  <p>
+    <strong>Super SDMS</strong> is a promotional comic project developed for Hewlett‑Packard
+    in <strong>December 2001</strong>, focused on cybersecurity and protection against computer viruses.
   </p>
-  <p class="tagline">WEB · UNITY · UNREAL · APPS · IA</p>
-</header>
 
-<div class="projects">
+  <p>
+    Creation of the comic character, visual design, and development of communication pieces and merchandising 
+    for events and the promotional campaign “Super SDMS,” a security service initiative.
+  </p>
 
-  <a href="/projects/super-sdms/index.html" class="card">
-    <img src="/sketch/0.jpg" alt="Super SDMS">
-    <h3>Super SDMS – HP Antivirus Comic</h3>
-    <p>Promotional cybersecurity comic created for Hewlett‑Packard.</p>
-  </a>
+  <!-- PROJECT 1 -->
+  <div class="section">
+    <h2>PROJECT 1 – FIRST PROJECT</h2>
+  </div>
 
-  <a href="/projects/prey/index.html" class="card">
-    <img src="/sketch/0.jpg" alt="PREY Game">
-    <h3>PREY – Unity Platform Game</h3>
-    <p>A hero returns to his hometown… but the villagers have turned into zombies.</p>
-  </a>
+  <!-- SKETCH -->
+  <div class="section">
+    <h2>Sketch</h2>
+    <div class="grid">
+      <img src="FIRST PROJECT/sketch/3.jpeg" alt="Sketch 3">
+      <img src="FIRST PROJECT/sketch/6.jpeg" alt="Sketch 6">
+      <img src="FIRST PROJECT/sketch/7.jpeg" alt="Sketch 7">
+    </div>
+  </div>
 
-  <a href="/projects/shadowmap/index.html" class="card">
-    <img src="/sketch/0.jpg" alt="ShadowMap">
-    <h3>ShadowMap – Paranormal Exploration App</h3>
-    <p>GPS missions, paranormal events and interactive storytelling.</p>
-  </a>
+  <!-- PROCESS -->
+  <div class="section">
+    <h2>Process</h2>
+    <div class="grid">
+      <img src="FIRST PROJECT/process/art_0.jpg" alt="Process art_o">
+      <img src="FIRST PROJECT/process/art_1.jpg" alt="Process art 1">
+      <img src="FIRST PROJECT/process/art_2.jpg" alt="Process art 2">
+    </div>
+  </div>
 
-  <a href="/projects/web_project/index.html" class="card">
-    <img src="/img/proyecto2.jpg" alt="Web Project">
-    <h3>Web Projects – HTML, CSS & JavaScript</h3>
-    <p>Responsive layouts, UI components and interactive front‑end features.</p>
-  </a>
+  <!-- WORK -->
+  <div class="section">
+    <h2>Work</h2>
+    <div class="grid">
+      <img src="FIRST PROJECT/work/1.jpeg" alt="Work 1">
+      <img src="FIRST PROJECT/work/5.jpeg" alt="Work 5">
+    </div>
+  </div>
 
-</div>
+  <!-- WEB -->
+  <div class="section">
+    <h2>Web Version</h2>
+    <div class="grid">
+      <img src="FIRST PROJECT/web/1.jpg" alt="Web 1">
+    </div>
+  </div>
 
-<div class="bottom-about">
-  <a href="/about/" class="about-btn">About Me</a>
-</div>
+  <!-- PROJECT 2 -->
+  <div class="section">
+    <h2>PROJECT 2 – WEB EDITION</h2>
+    <p>Digital continuation of the Super SDMS universe.</p>
+    <div class="grid">
+      <img src="SECOND PROJECT/SECOND_PROJECT_(WEB)1.png" alt="Second Project 1">
+      <img src="SECOND PROJECT/SECOND_PROJECT_(WEB)3.png" alt="Second Project 3">    
+    </div>
+  </div>
 
-<footer>
-  © 2026 – Portfolio by Damián López
-</footer>
+  <!-- MERCHANDISING -->
+  <div class="section">
+    <h2>Merchandising</h2>
+    <div class="grid">
+      <img src="FIRST PROJECT/merchandising/2.jpg" alt="2">
+      <img src="FIRST PROJECT/merchandising/3.jpg" alt="3">
+      <img src="FIRST PROJECT/merchandising/4.jpg" alt="4">
+    </div>
+  </div>
+
+  <footer>
+    © Super SDMS – Hewlett‑Packard Promotional Comic Project
+  </footer>
 
 </body>
 </html>
