@@ -108,21 +108,22 @@
 
 
     
-/* PROJECT 2: imágenes completas, más grandes y bien ajustadas */
+/* PROJECT 2: imagen completa, más grande y sin fondo blanco */
 .project2 img {
   width: 100%;
-  height: 420px;        /* MÁS GRANDE y visible */
-  object-fit: contain;  /* Muestra TODA la imagen */
-  background: white;    /* Fondo limpio alrededor */
+  height: 480px;        /* MÁS GRANDE */
+  object-fit: contain;  /* Muestra la imagen entera */
+  background: transparent; /* Sin fondo blanco */
   border: 6px solid #000;
   box-shadow: 6px 6px 0 #000;
-  padding: 10px;        /* Ajusta bordes y evita cortes */
+  padding: 0;           /* Ajusta bordes, sin espacio extra */
 }
 
 /* Primera imagen un poco más grande */
 .project2 img:first-child {
-  height: 460px;
+  height: 520px;
 }
+
 
 
 
@@ -131,16 +132,17 @@
 
 
     
-/* MERCHANDISING: imágenes horizontales completas y grandes */
+/* MERCHANDISING: imágenes horizontales muy grandes y completas */
 .merch img {
   width: 100%;
-  height: 410px;        /* Más grande pero sin recortar */
-  object-fit: contain;  /* Muestra la imagen entera */
-  background: white;    /* Fondo limpio alrededor */
-  border: 10px solid #000;
-  box-shadow: 14px 14px 0 #000;
-  padding: 10px;        /* Espacio para que no se corte */
+  height: 420px;         /* Mucho más grande */
+  object-fit: contain;   /* Se ve la imagen entera */
+  background: white;     /* Fondo limpio para horizontales */
+  border: 12px solid #000;
+  box-shadow: 18px 18px 0 #000;
+  padding: 12px;         /* Evita que el borde toque la imagen */
 }
+
 
 
 
