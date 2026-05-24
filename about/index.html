@@ -10,7 +10,6 @@
       --bg: #000000;
       --panel: #0d0f14;
       --accent: #00e0ff;
-      --accent-strong: #0094cc;
       --text-main: #ffffff;
       --text-muted: #b8b8b8;
       --border: #1f1f25;
@@ -21,7 +20,7 @@
       background: var(--bg);
       color: var(--text-main);
       margin: 0;
-      padding: 40px;
+      padding: 0;
       line-height: 1.7;
     }
 
@@ -38,7 +37,6 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       z-index: 999;
-      margin-bottom: 40px;
     }
 
     .logo-modern {
@@ -55,6 +53,7 @@
       background: rgba(0,0,0,0.4);
       backdrop-filter: blur(6px);
       transition: 0.3s;
+      text-decoration: none;
     }
 
     .logo-modern:hover {
@@ -82,16 +81,10 @@
     h1 {
       text-align: center;
       font-size: 3rem;
+      margin-top: 80px;
       margin-bottom: 40px;
       color: var(--accent);
       text-shadow: 0 0 18px rgba(0,200,255,0.4);
-      animation: fadeIn 1.2s ease-out forwards;
-      opacity: 0;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     /* SECTIONS */
@@ -142,11 +135,11 @@
 
 <!-- NAVBAR -->
 <nav class="navbar">
-  <a href="/" class="logo-modern">DL</a>
+  <a href="/Damloop.github.io/" class="logo-modern">DL</a>
   <div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
+    <a href="/Damloop.github.io/">Home</a>
+    <a href="/Damloop.github.io/about/">About</a>
+    <a href="/Damloop.github.io/contact">Contact</a>
   </div>
 </nav>
 
@@ -188,11 +181,11 @@
   <h2>Education & Certifications</h2>
   <ul>
     <li>Higher Degree in Web Application Development (2025–Current)</li>
-    <li>Higher Degree in Commerce and Marketing (2013-2015)</li>
+    <li>Higher Degree in Commerce and Marketing (2013–2015)</li>
     <li>Full Stack Web Developer – 4Geeks Academy</li>
-    <li>ITIL v4 Training</li>
-    <li>Mobile Interface Design</li>
-    <li>Digital Forensics & Cybersecurity</li>
+    <li>ITIL v4 Certification</li>
+    <li>Mobile Interface Design (80h)</li>
+    <li>Digital Forensics & Cybersecurity (500h)</li>
     <li>Unity & Unreal Engine Game Development Diplomas</li>
     <li>Blockchain, Agile, PMBOK7, .NET Programming</li>
   </ul>
