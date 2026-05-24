@@ -41,11 +41,12 @@
       text-align: center;
       color: #000;
       background: #ffdd33;
-      display: inline-block;
+      display: block;
       padding: 6px 14px;
       border: 4px solid #000;
       box-shadow: 4px 4px 0 #000;
-      margin-left: 20px;
+      width: fit-content;
+      margin: 0 auto 20px;
     }
 
     p {
@@ -85,7 +86,7 @@
       box-shadow: 10px 10px 0 #000;
     }
 
-    /* --- PORTADA MÁS PEQUEÑA --- */
+    /* --- PORTADA --- */
     .cover {
       max-width: 450px;
       margin: 20px auto 40px;
@@ -105,56 +106,34 @@
       box-shadow: 12px 12px 0 #000;
     }
 
+    /* --- PROJECT 2: CÓMIC COMPLETO, SIN BORDES BLANCOS, MÁS GRANDE --- */
+    .project2 img {
+      width: 100%;
+      height: auto;
+      max-width: 750px;     /* Más grande */
+      display: block;
+      margin: 0 auto 25px;
+      object-fit: contain;
+      background: none;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+    }
 
+    /* --- MERCHANDISING: MUCHO MÁS GRANDE Y SIN BLANCOS --- */
+    .merch img {
+      width: 100%;
+      height: auto;
+      max-width: 950px;     /* Mucho más grande */
+      display: block;
+      margin: 0 auto 30px;
+      object-fit: contain;
+      background: none;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+    }
 
-    
-/* PROJECT 2: imagen más pequeña y sin bordes blancos */
-.project2 img {
-  width: 100%;
-  height: auto;        /* Mantiene proporción real */
-  max-width: 500px;    /* Tamaño más pequeño */
-  display: block;
-  margin: 0 auto 20px; /* Centrada y con espacio abajo */
-  object-fit: contain; /* Muestra toda la imagen */
-  background: none;    /* Sin fondo blanco */
-  border: none;        /* Sin borde negro si no lo quieres */
-  box-shadow: none;    /* Sin sombra si molesta */
-  padding: 0;          /* Sin espacio extra */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-    
-/* MERCHANDISING: imágenes horizontales muy grandes */
-.merch img {
-  width: 100%;
-  height: auto;
-  max-height: 800px;     /* Mucho más grande */
-  object-fit: contain;   /* Se ve la imagen entera */
-  background: none;      /* Quitamos blanco extra */
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  margin-bottom: 30px;
-}
-
-
-
-
-
-
-
-
-    
     footer {
       text-align: center;
       padding: 40px;
@@ -178,7 +157,6 @@
     <img src="FIRST_PROJECT/process/0.jpg" alt="Super SDMS Cover">
   </div>
 
-  <!-- NUEVO TEXTO PROFESIONAL -->
   <p>
     <strong>Super SDMS</strong> is a promotional comic project developed for Hewlett‑Packard,
     focused on cybersecurity and visual storytelling. The intention behind the comic was to use
@@ -218,7 +196,6 @@
       <img src="FIRST_PROJECT/process/art_2.jpg" alt="Process 3">
       <img src="FIRST_PROJECT/process/art_0.jpeg" alt="Process 1">
       <img src="FIRST_PROJECT/process/art_1.jpg" alt="Process 2">
-      
     </div>
   </div>
 
@@ -238,8 +215,6 @@
     <p>Second part of the project, adapted for digital distribution.</p>
     <div class="grid project2">
       <img src="SECOND_PROJECT/SECOND_PROJECT_1.png" alt="Project 2 - 1">
-      
-      
     </div>
   </div>
 
@@ -256,7 +231,7 @@
   </div>
 
   <footer>
-    © Super SDMS – Damián López
+    © Super SDMS – Damian Lopez
   </footer>
 
 </body>
