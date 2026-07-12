@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PREY – Code Showcase</title>
+<style>
+    body { background:#0d0d0d; color:#e6e6e6; font-family:Arial; padding:40px; }
+    h1, h2 { color:#00eaff; }
+    pre { background:#1a1a1a; padding:20px; border-radius:10px; overflow-x:auto; }
+    .section { margin-bottom:50px; }
+</style>
+</head>
+<body>
+
+<h1>PREY – Technical Code Showcase</h1>
+<p>This page displays the core gameplay systems used in PREY, including movement, AI, damage, and level flow.</p>
+
+<div class="section">
+    <h2>Player Movement System</h2>
+    <p>Handles player input, rotation, movement, animations, and jump physics.</p>
+    <pre>
+// PlayerMove.cs (excerpt)
+transform.Rotate(0, x * rotationSpeed * Time.deltaTime, 0);
+transform.Translate(0, 0, y * runSpeed * Time.deltaTime);
+
+isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+    </pre>
+</div>
+
+<div class="section">
+    <h2>Enemy AI System</h2>
+    <p>Controls patrol, chase, attack behavior and animation transitions.</p>
+    <pre>
+// EnemyMove.cs (excerpt)
+if (distanceToPlayer <= attackRange)
+{
+    AttackPlayer();
+}
+
+Vector3 direction = (player.position - transform.position).normalized;
+transform.Translate(direction * moveSpeed * Time.deltaTime, Space.World);
+    </pre>
+</div>
+
+<div class="section">
+    <h2>Damage System</h2>
+    <p>Applies damage to any object with a Health component.</p>
+    <pre>
+// Damage.cs (excerpt)
+Health targetHealth = other.GetComponent<Health>();
+if (targetHealth != null)
+{
+    targetHealth.TakeDamage(damageAmount);
+}
+    </pre>
+</div>
+
+<div class="section">
+    <h2>Level Flow System</h2>
+    <p>Handles scene transitions, game over, and win conditions.</p>
+    <pre>
+// LevelManager.cs (excerpt)
+SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+gameOverUI.SetActive(true);
+Time.timeScale = 0f;
+    </pre>
+</div>
+
+</body>
+</html>
