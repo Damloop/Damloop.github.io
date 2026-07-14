@@ -4,24 +4,21 @@
   <meta charset="UTF-8">
   <title>PREY</title>
 
-  <!-- Tipografía medieval EXACTA al estilo de tu imagen -->
+  <!-- Medieval gothic font similar to your PREY image -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    /* === PREY – ESTÉTICA EXACTA DE TU IMAGEN (MEDIEVAL + TERROR + ROJO SANGRE) === */
+    /* === PREY – Medieval Horror UI (Gray, Fog, Lamp Light) === */
 
     :root {
       --bg: #000;
-      --fog1: rgba(80, 90, 110, 0.35);   /* niebla azul-gris de tu imagen */
-      --fog2: rgba(255, 180, 80, 0.25);  /* luz cálida de farola */
-      --accent: #ff0000;                /* rojo intenso del título PREY */
-      --accent-dark: #c00000;           /* rojo sangre oscuro */
-      --text-main: #e0e0e0;
-      --text-muted: #b0b0b0;
-      --panel: rgba(20, 20, 30, 0.75);
-      --panel-remastered: rgba(40, 0, 0, 0.8);
+      --fog: rgba(120, 130, 150, 0.35);     /* gray-blue fog */
+      --lamp: rgba(255, 200, 120, 0.25);    /* warm lamp glow */
+      --accent: #c00000;                    /* blood red (title) */
+      --text-main: #d0d0d0;
+      --text-muted: #9a9a9a;
+      --panel: rgba(20, 20, 25, 0.75);
       --border: rgba(255, 0, 0, 0.25);
-      --border-remastered: rgba(255, 60, 60, 0.35);
     }
 
     body {
@@ -35,7 +32,7 @@
       overflow-x: hidden;
     }
 
-    /* Niebla dinámica EXACTA al ambiente de tu imagen */
+    /* Dynamic medieval fog + lamp ambience */
     body::before {
       content: "";
       position: fixed;
@@ -44,8 +41,8 @@
       width: 180%;
       height: 180%;
       background:
-        radial-gradient(circle at 30% 20%, var(--fog1), transparent 70%),
-        radial-gradient(circle at 70% 80%, var(--fog2), transparent 75%);
+        radial-gradient(circle at 20% 30%, var(--lamp), transparent 70%),
+        radial-gradient(circle at 70% 80%, var(--fog), transparent 75%);
       filter: blur(140px);
       opacity: 0.55;
       animation: fogMove 22s ease-in-out infinite;
@@ -55,71 +52,49 @@
 
     @keyframes fogMove {
       0%   { transform: translateX(0) translateY(0); opacity: 0.45; }
-      25%  { transform: translateX(80px) translateY(40px); opacity: 0.65; }
-      50%  { transform: translateX(-60px) translateY(20px); opacity: 0.55; }
-      75%  { transform: translateX(40px) translateY(-30px); opacity: 0.65; }
+      25%  { transform: translateX(60px) translateY(40px); opacity: 0.65; }
+      50%  { transform: translateX(-40px) translateY(20px); opacity: 0.55; }
+      75%  { transform: translateX(30px) translateY(-30px); opacity: 0.65; }
       100% { transform: translateX(0) translateY(0); opacity: 0.45; }
     }
 
-    /* Menú estilo videojuego AAA */
+    /* Minimal UX – only HOME */
     .top-menu {
       max-width: 1100px;
       margin: 0 auto 35px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
+      justify-content: flex-end;
     }
 
-    .logo-prey {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 2rem;
-      color: var(--accent);
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(0, 0, 0, 0.7);
-      box-shadow: 0 0 25px rgba(255,0,0,0.35);
-    }
-
-    .menu-links {
-      display: flex;
-      gap: 18px;
-      font-size: 0.95rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .menu-links a {
+    .top-menu a {
       color: var(--text-muted);
       text-decoration: none;
-      padding-bottom: 4px;
-      border-bottom: 1px solid transparent;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
       transition: 0.3s ease;
     }
 
-    .menu-links a:hover {
+    .top-menu a:hover {
       color: var(--accent);
-      border-bottom-color: var(--accent);
-      text-shadow: 0 0 10px rgba(255,0,0,0.6);
     }
 
-    /* Título EXACTO al estilo de tu imagen */
+    /* Title EXACT style of your PREY image */
     h1 {
       font-family: 'Cinzel Decorative', serif;
-      font-size: 4rem;
+      font-size: 4.2rem;
       color: var(--accent);
       letter-spacing: 0.08em;
       text-shadow:
-        0 0 25px rgba(255,0,0,0.6),
-        0 0 60px rgba(255,0,0,0.3),
-        0 0 120px rgba(255,0,0,0.15);
+        0 0 25px rgba(192,0,0,0.6),
+        0 0 60px rgba(192,0,0,0.3),
+        0 0 120px rgba(192,0,0,0.15);
       margin-bottom: 10px;
     }
 
     .subtitle {
       color: var(--text-muted);
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       margin-bottom: 40px;
     }
 
@@ -128,7 +103,7 @@
       margin: 0 auto;
     }
 
-    /* Panel medieval */
+    /* Medieval dark panel */
     .section {
       max-width: 1000px;
       margin: 0 auto 45px;
@@ -144,40 +119,26 @@
     .section h2 {
       font-family: 'Cinzel Decorative', serif;
       color: var(--accent);
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 16px;
     }
 
     .section p {
       color: var(--text-main);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       line-height: 1.7;
     }
 
-    /* Menú de archivos AAA */
+    /* File links – minimal, serious, medieval */
     .file-links a {
       display: block;
       margin: 10px 0;
       color: var(--accent);
       text-decoration: none;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      position: relative;
-      padding-left: 18px;
-      transition: 0.3s ease;
-    }
-
-    .file-links a::before {
-      content: "▶";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 0.8rem;
-      color: var(--accent);
-      opacity: 0.8;
       transition: 0.3s ease;
     }
 
@@ -187,54 +148,35 @@
       transform: translateX(6px);
     }
 
-    .file-links a:hover::before {
-      transform: translateY(-50%) translateX(3px);
-      opacity: 1;
-    }
-
-    /* Bloque remastered medieval infernal */
+    /* Remastered block */
     .remastered-block {
       max-width: 1000px;
       margin: 0 auto 20px;
       text-align: left;
-      background: var(--panel-remastered);
+      background: rgba(40, 0, 0, 0.8);
       padding: 26px 32px;
       border-radius: 14px;
-      border: 1px solid var(--border-remastered);
+      border: 1px solid rgba(255, 60, 60, 0.35);
       box-shadow: 0 0 40px rgba(255,60,60,0.25);
       backdrop-filter: blur(10px);
     }
 
     .remastered-block h2 {
       font-family: 'Cinzel Decorative', serif;
-      color: var(--accent-blood);
-      font-size: 2rem;
+      color: var(--accent);
+      font-size: 1.8rem;
       margin-bottom: 14px;
     }
 
     .remastered-block a {
       display: inline-block;
       margin-top: 12px;
-      color: var(--accent-blood);
+      color: var(--accent);
       text-decoration: none;
       font-weight: 700;
       letter-spacing: 0.1em;
-      font-size: 1.1rem;
+      font-size: 1rem;
       text-transform: uppercase;
-      transition: 0.3s ease;
-      position: relative;
-      padding-left: 20px;
-    }
-
-    .remastered-block a::before {
-      content: "⚔";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 0.9rem;
-      color: var(--accent-blood);
-      opacity: 0.9;
       transition: 0.3s ease;
     }
 
@@ -256,46 +198,41 @@
 
 <body>
 
-  <!-- Menú superior estilo videojuego AAA -->
+  <!-- Minimal UX: only HOME -->
   <div class="top-menu">
-    <div class="logo-prey">PREY</div>
-    <div class="menu-links">
-      <a href="/">Home</a>
-      <a href="/projects/prey/original/">Original</a>
-      <a href="/projects/prey/remastered/">Remastered</a>
-    </div>
+    <a href="/">Home</a>
   </div>
 
-  <!-- Título y subtítulo -->
+  <!-- Title -->
   <h1>PREY</h1>
   <p class="subtitle">
-    A cursed hero returns to his medieval hometown… but the villagers are no longer human.
+    A medieval town drowned in fog… and something hunts in the dark.
   </p>
 
   <div class="content-wrap">
 
-    <!-- Bloque ORIGINAL -->
+    <!-- ORIGINAL -->
     <div class="section">
-      <h2>Project Files – Original</h2>
+      <h2>Original Project Files</h2>
       <p>
-        Explore the original version of PREY: medieval horror, cursed lands, and the first iteration of the game.
+        The first iteration of PREY: medieval horror, cursed lands, and the earliest concepts of the game.
       </p>
       <div class="file-links">
-        <a href="./gdd/">📘 Game Design Document (GDD)</a>
-        <a href="./history/story.md">📚 Story &amp; Lore</a>
-        <a href="./code/">💻 Source Code</a>
-        <a href="./images/">🖼️ Image Gallery</a>
-        <a href="./videos/">🎬 Videos &amp; Trailers</a>
+        <a href="./gdd/">Game Design Document</a>
+        <a href="./history/story.md">Story & Lore</a>
+        <a href="projects/prey/original/code">Source Code</a>
+        <a href="./images/">Image Gallery</a>
+        <a href="./videos/">Videos & Trailers</a>
       </div>
     </div>
 
-    <!-- Bloque REMASTERED -->
+    <!-- REMASTERED -->
     <div class="remastered-block">
       <h2>PREY – Remastered</h2>
       <p>
-        A future, enhanced version of PREY with upgraded visuals, expanded medieval lore, new enemies and refined gameplay.
+        A future enhanced version with expanded lore, new enemies, and improved medieval atmosphere.
       </p>
-      <a href="../remastered/">Disponible próximamente</a>
+      <a href="../remastered/">Available Soon</a>
     </div>
 
   </div>
