@@ -6,133 +6,335 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
+    /* === PREY – LÚGUBRE, MEDIEVAL, TERRORÍFICO CON MENÚ AAA === */
+
+    :root {
+      --bg: #000000;
+      --fog1: rgba(20, 40, 70, 0.45);
+      --fog2: rgba(80, 20, 20, 0.35);
+      --accent: #00e0ff;
+      --accent-blood: #ff3b3b;
+      --text-main: #d6e8f0;
+      --text-muted: #9bbcc7;
+      --panel: rgba(10, 10, 18, 0.75);
+      --panel-remastered: rgba(30, 0, 0, 0.8);
+      --border: rgba(0, 200, 255, 0.25);
+      --border-remastered: rgba(255, 60, 60, 0.35);
+    }
+
     body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: radial-gradient(circle at 50% 20%, rgba(0, 50, 80, 0.25), #000 70%);
-  color: #d6e8f0;
-  padding: 40px 20px;
-  text-align: center;
-  position: relative;
-  overflow-x: hidden;
-}
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      padding: 40px 20px 60px;
+      text-align: center;
+      position: relative;
+      overflow-x: hidden;
+    }
 
-/* Niebla ambiental */
-body::before {
-  content: "";
-  position: fixed;
-  top: -20%;
-  left: -20%;
-  width: 140%;
-  height: 140%;
-  background: radial-gradient(circle at 50% 50%, rgba(0, 80, 120, 0.25), transparent 70%);
-  filter: blur(80px);
-  opacity: 0.45;
-  animation: fogMove 12s ease-in-out infinite;
-  pointer-events: none;
-  z-index: -1;
-}
+    /* Niebla dinámica medieval/terror */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -40%;
+      left: -40%;
+      width: 180%;
+      height: 180%;
+      background:
+        radial-gradient(circle at 30% 20%, var(--fog1), transparent 70%),
+        radial-gradient(circle at 70% 80%, var(--fog2), transparent 75%);
+      filter: blur(130px);
+      opacity: 0.5;
+      animation: fogMove 18s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
 
-@keyframes fogMove {
-  0% { transform: translateX(0); opacity: 0.35; }
-  50% { transform: translateX(40px); opacity: 0.55; }
-  100% { transform: translateX(0); opacity: 0.35; }
-}
+    @keyframes fogMove {
+      0%   { transform: translateX(0) translateY(0);   opacity: 0.4; }
+      25%  { transform: translateX(60px) translateY(40px); opacity: 0.6; }
+      50%  { transform: translateX(-40px) translateY(20px); opacity: 0.5; }
+      75%  { transform: translateX(30px) translateY(-30px); opacity: 0.6; }
+      100% { transform: translateX(0) translateY(0);   opacity: 0.4; }
+    }
 
-/* Título estilo videojuego */
-h1 {
-  font-size: 3.4rem;
-  color: #00e0ff;
-  text-shadow: 0 0 25px rgba(0,200,255,0.6), 0 0 60px rgba(0,200,255,0.3);
-  margin-bottom: 10px;
-  letter-spacing: 0.08em;
-}
+    /* Menú estilo videojuego AAA (superior) */
+    .top-menu {
+      max-width: 1100px;
+      margin: 0 auto 35px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
 
-/* Subtítulo */
-.subtitle {
-  color: #9bbcc7;
-  font-size: 1.25rem;
-  margin-bottom: 40px;
-}
+    .logo-prey {
+      font-size: 1.1rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.7);
+      box-shadow: 0 0 25px rgba(0,200,255,0.35);
+    }
 
-/* Imagen principal estilo portada de videojuego */
-.preview-img {
-  width: 100%;
-  max-width: 900px;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 2px solid rgba(0,200,255,0.25);
-  box-shadow: 0 0 35px rgba(0,200,255,0.25), 0 0 80px rgba(0,200,255,0.15);
-  margin-bottom: 50px;
-}
+    .menu-links {
+      display: flex;
+      gap: 18px;
+      font-size: 0.95rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
 
-/* Secciones */
-.section {
-  max-width: 900px;
-  margin: 0 auto 50px;
-  text-align: left;
-  background: rgba(0, 20, 30, 0.45);
-  padding: 25px 30px;
-  border-radius: 12px;
-  border: 1px solid rgba(0,200,255,0.15);
-  box-shadow: 0 0 25px rgba(0,200,255,0.15);
-  backdrop-filter: blur(6px);
-}
+    .menu-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
+      transition: 0.3s ease;
+    }
 
-/* Títulos de sección */
-.section h2 {
-  color: #00e0ff;
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  text-shadow: 0 0 12px rgba(0,200,255,0.35);
-}
+    .menu-links a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      text-shadow: 0 0 10px rgba(0,200,255,0.6);
+    }
 
-/* Texto */
-.section p {
-  color: #b8c9d1;
-  font-size: 1.05rem;
-  line-height: 1.6;
-}
+    /* Título principal lúgubre medieval */
+    h1 {
+      font-size: 3.4rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 25px rgba(0,200,255,0.6),
+        0 0 60px rgba(0,200,255,0.3),
+        0 0 120px rgba(0,200,255,0.15);
+      margin-bottom: 10px;
+      animation: glitchTitle 4s infinite;
+    }
 
-/* Enlaces estilo menú de videojuego */
-.file-links a {
-  display: block;
-  margin: 10px 0;
-  color: #00e0ff;
-  text-decoration: none;
-  font-size: 1.15rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  transition: 0.3s ease;
-}
+    @keyframes glitchTitle {
+      0%   { transform: translateX(0);   text-shadow: 0 0 25px rgba(0,200,255,0.6); }
+      20%  { transform: translateX(2px); text-shadow: 0 0 35px rgba(0,200,255,0.9); }
+      40%  { transform: translateX(-2px); text-shadow: 0 0 30px rgba(0,200,255,0.7); }
+      60%  { transform: translateX(1px); text-shadow: 0 0 40px rgba(0,200,255,0.9); }
+      80%  { transform: translateX(-1px); text-shadow: 0 0 28px rgba(0,200,255,0.7); }
+      100% { transform: translateX(0);   text-shadow: 0 0 25px rgba(0,200,255,0.6); }
+    }
 
-.file-links a:hover {
-  color: #fff;
-  text-shadow: 0 0 15px rgba(0,200,255,0.8);
-  transform: translateX(6px);
-}
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(0,200,255,0.25);
+    }
 
+    /* Contenedor general */
+    .content-wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Panel original medieval/terror */
+    .section {
+      max-width: 1000px;
+      margin: 0 auto 45px;
+      text-align: left;
+      background: var(--panel);
+      padding: 28px 32px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 35px rgba(0,200,255,0.18);
+      backdrop-filter: blur(8px);
+    }
+
+    .section h2 {
+      color: var(--accent);
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      text-shadow: 0 0 15px rgba(0,200,255,0.35);
+    }
+
+    .section p {
+      color: var(--text-main);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* Menú de archivos estilo videojuego AAA */
+    .file-links {
+      margin-top: 18px;
+    }
+
+    .file-links a {
+      display: block;
+      margin: 10px 0;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      position: relative;
+      padding-left: 18px;
+      transition: 0.3s ease;
+    }
+
+    .file-links a::before {
+      content: "▶";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.8rem;
+      color: var(--accent);
+      opacity: 0.8;
+      transition: 0.3s ease;
+    }
+
+    .file-links a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 18px rgba(0,200,255,0.9);
+      transform: translateX(6px);
+    }
+
+    .file-links a:hover::before {
+      transform: translateY(-50%) translateX(3px);
+      opacity: 1;
+    }
+
+    /* Bloque remastered medieval infernal */
+    .remastered-block {
+      max-width: 1000px;
+      margin: 0 auto 20px;
+      text-align: left;
+      background: var(--panel-remastered);
+      padding: 26px 32px;
+      border-radius: 14px;
+      border: 1px solid var(--border-remastered);
+      box-shadow: 0 0 40px rgba(255,60,60,0.25);
+      backdrop-filter: blur(10px);
+    }
+
+    .remastered-block h2 {
+      color: var(--accent-blood);
+      font-size: 1.8rem;
+      margin-bottom: 14px;
+      text-shadow:
+        0 0 18px rgba(255,60,60,0.7),
+        0 0 40px rgba(255,60,60,0.4);
+    }
+
+    .remastered-block p {
+      color: #e8d6d6;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .remastered-block a {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--accent-blood);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      font-size: 1rem;
+      text-transform: uppercase;
+      transition: 0.3s ease;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .remastered-block a::before {
+      content: "⚔";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: var(--accent-blood);
+      opacity: 0.9;
+      transition: 0.3s ease;
+    }
+
+    .remastered-block a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 20px rgba(255,60,60,0.9);
+      transform: translateX(6px);
+    }
+
+    .remastered-block a:hover::before {
+      transform: translateY(-50%) translateX(3px);
+      opacity: 1;
+    }
+
+    /* Footer pequeño, lúgubre */
+    footer {
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: #666;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
   </style>
 </head>
 
 <body>
 
-  <h1>PREY – Unity Platform Game</h1>
-  <p class="subtitle">A hero returns to his hometown… but the villagers have turned into zombies.</p>
-
-  <img src="images/prey-cover.png" class="preview-img" alt="PREY Cover">
-
-  <div class="section">
-    <h2>Project Files</h2>
-    <div class="file-links">
-      <a href="gdd/">📘 Game Design Document (GDD)</a>
-      <a href="history/">📚 Story & Lore</a>
-      <a href="code/">💻 Source Code</a>
-      <a href="images/">🖼️ Image Gallery</a>
-      <a href="videos/">🎬 Videos & Trailers</a>
+  <!-- Menú superior estilo videojuego AAA -->
+  <div class="top-menu">
+    <div class="logo-prey">PREY · ORIGINAL</div>
+    <div class="menu-links">
+      <a href="/">Home</a>
+      <a href="/projects/prey/original/">Original</a>
+      <a href="/projects/prey/remastered/">Remastered</a>
     </div>
   </div>
+
+  <!-- Título y subtítulo -->
+  <h1>PREY</h1>
+  <p class="subtitle">
+    A cursed hero returns to his medieval hometown… but the villagers are no longer human.
+  </p>
+
+  <div class="content-wrap">
+
+    <!-- Bloque ORIGINAL -->
+    <div class="section">
+      <h2>Project Files – Original</h2>
+      <p>
+        Explore the original version of PREY: medieval horror, cursed lands, and the first iteration of the game.
+        Here you can access the design documents, story, source code and visual assets that define the core experience.
+      </p>
+      <div class="file-links">
+        <a href="gdd/">📘 Game Design Document (GDD)</a>
+        <a href="history/story.md">📚 Story &amp; Lore</a>
+        <a href="code/">💻 Source Code</a>
+        <a href="images/">🖼️ Image Gallery</a>
+        <a href="videos/">🎬 Videos &amp; Trailers</a>
+      </div>
+    </div>
+
+    <!-- Bloque REMASTERED -->
+    <div class="remastered-block">
+      <h2>PREY – Remastered</h2>
+      <p>
+        A future, enhanced version of PREY with upgraded visuals, expanded medieval lore, new enemies and refined gameplay.
+        This remastered branch will grow as new content, assets and systems are developed.
+      </p>
+      <a href="../remastered/">ENTER REMASTERED VERSION</a>
+    </div>
+
+  </div>
+
+  <footer>
+    PREY · ORIGINAL & REMASTERED
+  </footer>
 
 </body>
 </html>
