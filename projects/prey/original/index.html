@@ -1,25 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>PREY – Original Version</title>
-<style>
-  body {
-    background: #000;
-    color: #fff;
-    font-family: Arial;
-    padding: 40px;
-  }
-  h1 { color: #00eaff; }
-  a { color: #00eaff; }
-</style>
+  <meta charset="UTF-8">
+  <title>PREY – Unity Platform Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #00e0ff;
+      text-shadow: 0 0 25px rgba(0,200,255,0.5);
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      color: #b8b8b8;
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+    }
+
+    .preview-img {
+      width: 100%;
+      max-width: 900px;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid #1f1f25;
+      margin: 0 auto 40px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 0 auto 50px;
+      text-align: left;
+    }
+
+    .section h2 {
+      color: #00e0ff;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      text-shadow: 0 0 12px rgba(0,200,255,0.25);
+    }
+
+    .section p {
+      color: #b8b8b8;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .file-links a {
+      display: block;
+      margin: 8px 0;
+      color: #00e0ff;
+      text-decoration: none;
+      font-size: 1.05rem;
+    }
+
+    .file-links a:hover {
+      text-shadow: 0 0 10px rgba(0,200,255,0.6);
+    }
+  </style>
 </head>
+
 <body>
 
-<h1>PREY – Original Version</h1>
-<p>This is the PREY original project folder.</p>
+  <h1>PREY – Unity Platform Game</h1>
+  <p class="subtitle">A hero returns to his hometown… but the villagers have turned into zombies.</p>
 
-<p><a href="code/index.html">Technical Breakdown →</a></p>
+  <img src="images/prey-cover.png" class="preview-img" alt="PREY Cover">
+
+  <div class="section">
+    <h2>Project Files</h2>
+    <div class="file-links">
+      <a href="gdd/">📘 Game Design Document (GDD)</a>
+      <a href="history/">📚 Story & Lore</a>
+      <a href="code/">💻 Source Code</a>
+      <a href="images/">🖼️ Image Gallery</a>
+      <a href="videos/">🎬 Videos & Trailers</a>
+    </div>
+  </div>
 
 </body>
 </html>
