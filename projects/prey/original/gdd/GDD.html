@@ -1,246 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PREY – Game Design Document (GDD)</title>
 
-# PREY – Game Design Document (GDD)
-**Version:** 1.1  
-**Author:** Damian Lopez  
-**Publication Date:** 05/05/2024  
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
 
----
+  <style>
+    :root {
+      --bg: #000;
+      --accent: #b00000;
+      --text-main: #c8c8c8;
+      --text-muted: #8a8a8a;
+      --panel: rgba(15, 15, 20, 0.7);
+      --border: rgba(255, 0, 0, 0.18);
+    }
 
-# DEVELOPMENT STATUS
-Only **Level 1** has been fully developed due to time constraints.  
-The intention is to expand PREY with **additional levels, improved mechanics, new enemies, and enhanced narrative** over time.  
-This GDD reflects the **complete vision** of the game, even if only part of it has been implemented so far.
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: 'IM Fell English SC', serif;
+      padding: 40px;
+      text-align: left;
+      overflow-x: hidden;
+    }
 
----
+    body::before {
+      content: "";
+      position: fixed;
+      top: -40%;
+      left: -40%;
+      width: 180%;
+      height: 180%;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,180,80,0.18), transparent 70%),
+        radial-gradient(circle at 70% 80%, rgba(100,100,110,0.35), transparent 75%);
+      filter: blur(150px);
+      opacity: 0.55;
+      animation: fogMove 22s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
 
-# TABLE OF CONTENTS
-1. Game Objectives  
-2. Story Overview  
-3. Controls  
-4. Mechanics & Scripts  
-5. Technical Requirements  
-6. Title Screen / Main Menu  
-7. Flowchart  
-8. Camera & HUD  
-9. Health & Combat  
-10. Main Characters  
-11. Game Progression  
-12. Enemy Rules  
-13. Level Design  
-14. World Summary Screen  
-15. Extra Content (Images, Concept Art, Music, Minigame)
+    @keyframes fogMove {
+      0%   { transform: translateX(0) translateY(0); opacity: 0.45; }
+      25%  { transform: translateX(60px) translateY(40px); opacity: 0.65; }
+      50%  { transform: translateX(-40px) translateY(20px); opacity: 0.55; }
+      75%  { transform: translateX(30px) translateY(-30px); opacity: 0.65; }
+      100% { transform: translateX(0) translateY(0); opacity: 0.45; }
+    }
 
----
+    h1, h2 {
+      color: var(--accent);
+      text-shadow: 0 0 25px rgba(176,0,0,0.6);
+      margin-bottom: 10px;
+    }
 
-# 1. GAME OBJECTIVES
-Humanity is in danger. The undead rise from their graves with bloodlust, and no one remains alive—you are alone.  
-Fight alongside the **Soldier Without a Name (SWN)** to uncover the terrifying truth while battling hordes of zombies and solving puzzles across the dark lands of Middle Earth.
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
----
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 40px;
+    }
 
-# 2. STORY OVERVIEW
-You are the **Soldier Without a Name**, a warrior fighting in the **Red Army (RA)** against the **Golems** in the **Ice Mountains**, north of your hometown **Midgar**.
+    p, li {
+      color: var(--text-main);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
 
-These battles take place after the **Great War**, where humans united against **The Void** and **The Dark Ones**. With the help of the **Ancients**, The Void was sealed inside the **Dungeon of Pain**.
+    ul {
+      margin-left: 20px;
+    }
 
-Before being defeated, The Void cast a poisonous spell across Middle Earth, forcing all humans to wear masks to breathe. Feeling betrayed, the Ancients removed all weapons from the world.
+    .back {
+      display: block;
+      margin-top: 40px;
+      text-align: center;
+      color: var(--accent);
+      font-size: 1.2rem;
+      text-decoration: none;
+      letter-spacing: 0.1em;
+    }
 
-During a Red Army advance, a massive explosion blinds and knocks out everyone. When the SWN awakens, he is the only survivor. The sky and land have turned dark.
+    .back:hover {
+      color: #fff;
+      text-shadow: 0 0 20px rgba(255,0,0,0.9);
+    }
+  </style>
+</head>
 
-Returning to Midgar, he discovers the city has become a desolate, zombie-infested ruin.
+<body>
 
-As the story progresses, the SWN learns:
+  <h1>PREY – Game Design Document (GDD)</h1>
 
-- The Golems sought help from the Dark Ones.  
-- The Dark Ones consumed the Golems and began corrupting the world.  
-- The Void has returned.  
-- The SWN survived because the **Ancients protected him with Ancient Magic**.  
-- The SWN is the son of an Ancient and a human woman absorbed by The Void during the Great War.  
+  <h2>Version 1.1</h2>
+  <p><strong>Author:</strong> Damian Lopez<br>
+  <strong>Publication Date:</strong> 05/05/2024</p>
 
-The SWN is the key to stopping the extinction of humanity.
+  <h2>Development Status</h2>
+  <p>Only <strong>Level 1</strong> has been fully developed due to time constraints. The intention is to expand PREY with additional levels, improved mechanics, new enemies, and enhanced narrative over time. This GDD reflects the complete vision of the game, even if only part of it has been implemented so far.</p>
 
----
+  <h2>Table of Contents</h2>
+  <ul>
+    <li>1. Game Objectives</li>
+    <li>2. Story Overview</li>
+    <li>3. Controls</li>
+    <li>4. Mechanics & Scripts</li>
+    <li>5. Technical Requirements</li>
+    <li>6. Title Screen / Main Menu</li>
+    <li>7. Flowchart</li>
+    <li>8. Camera & HUD</li>
+    <li>9. Health & Combat</li>
+    <li>10. Main Characters</li>
+    <li>11. Game Progression</li>
+    <li>12. Enemy Rules</li>
+    <li>13. Level Design</li>
+    <li>14. World Summary Screen</li>
+    <li>15. Extra Content</li>
+  </ul>
 
-# 3. CONTROLS
-**Basic Movement:** Walk / Run / Crouch  
-**Attack:** Punch / Combo Attack  
-**Defense:** Guard  
-**Other:** Jump / Pick Up / Break / Interact  
+  <h2>1. Game Objectives</h2>
+  <p>Humanity is in danger. The undead rise from their graves with bloodlust, and no one remains alive—you are alone. Fight alongside the <strong>Soldier Without a Name (SWN)</strong> to uncover the terrifying truth while battling hordes of zombies and solving puzzles across the dark lands of Middle Earth.</p>
 
----
+  <h2>2. Story Overview</h2>
+  <p>You are the <strong>Soldier Without a Name</strong>, a warrior fighting in the <strong>Red Army (RA)</strong> against the <strong>Golems</strong> in the <strong>Ice Mountains</strong>, north of your hometown <strong>Midgar</strong>.</p>
 
-# 4. MECHANICS & SCRIPTS
+  <p>These battles take place after the <strong>Great War</strong>, where humans united against <strong>The Void</strong> and <strong>The Dark Ones</strong>. With the help of the <strong>Ancients</strong>, The Void was sealed inside the <strong>Dungeon of Pain</strong>.</p>
 
-### Tools
-- **Mixamo** – Characters, animations  
-- **Unity Asset Store** – Prefabs, assets  
-- **Copilot** – C# assistance  
-- **Blender** – Custom models  
-- **PowerPoint / Designer** – Visual materials  
-- **YED** – Flowcharts  
-- **Azgaar Fantasy Map** – World map  
+  <p>Before being defeated, The Void cast a poisonous spell across Middle Earth, forcing all humans to wear masks to breathe. Feeling betrayed, the Ancients removed all weapons from the world.</p>
 
-### Setup
-- Download characters and animations (FBX, DAE)  
-- Configure skeletons and animation blending  
-- Add Rigidbody and Capsule Collider  
-- Create Animator Controller  
-- Implement movement, combat, and AI scripts  
+  <p>During a Red Army advance, a massive explosion blinds and knocks out everyone. When the SWN awakens, he is the only survivor. The sky and land have turned dark.</p>
 
-### Scripts
-- **EnemyMove** – Enemy movement and pursuit  
-- **Health** – Player health  
-- **Damage** – Damage system  
-- **LevelManager** – Scene transitions  
-- **PlayerMove** – Player movement  
-- **PlayerData** – Game Over logic  
+  <p>Returning to Midgar, he discovers the city has become a desolate, zombie-infested ruin.</p>
 
----
+  <p>As the story progresses, the SWN learns:</p>
+  <ul>
+    <li>The Golems sought help from the Dark Ones.</li>
+    <li>The Dark Ones consumed the Golems and began corrupting the world.</li>
+    <li>The Void has returned.</li>
+    <li>The SWN survived because the <strong>Ancients protected him with Ancient Magic</strong>.</li>
+    <li>The SWN is the son of an Ancient and a human woman absorbed by The Void during the Great War.</li>
+  </ul>
 
-# 5. TECHNICAL REQUIREMENTS
-- Unity  
-- Mixamo  
-- Blender  
-- Asset Store  
-- Copilot (C# help)  
-- Fantasy map tools  
-- Flowchart tools  
+  <h2>3. Controls</h2>
+  <ul>
+    <li><strong>Basic Movement:</strong> Walk / Run / Crouch</li>
+    <li><strong>Attack:</strong> Punch / Combo Attack</li>
+    <li><strong>Defense:</strong> Guard</li>
+    <li><strong>Other:</strong> Jump / Pick Up / Break / Interact</li>
+  </ul>
 
-### Gameplay Tricks
-Each level contains two “tricks”:  
-- Moderate difficulty (extra armor, shortcuts, money)  
-- Replay-only tricks (invisibility, invincibility, lore fragments)
+  <h2>4. Mechanics & Scripts</h2>
+  <h3>Tools</h3>
+  <ul>
+    <li><strong>Mixamo</strong> – Characters, animations</li>
+    <li><strong>Unity Asset Store</strong> – Prefabs, assets</li>
+    <li><strong>Copilot</strong> – C# assistance</li>
+    <li><strong>Blender</strong> – Custom models</li>
+    <li><strong>PowerPoint / Designer</strong> – Visual materials</li>
+    <li><strong>YED</strong> – Flowcharts</li>
+    <li><strong>Azgaar Fantasy Map</strong> – World map</li>
+  </ul>
 
----
+  <h3>Setup</h3>
+  <ul>
+    <li>Download characters and animations (FBX, DAE)</li>
+    <li>Configure skeletons and animation blending</li>
+    <li>Add Rigidbody and Capsule Collider</li>
+    <li>Create Animator Controller</li>
+    <li>Implement movement, combat, and AI scripts</li>
+  </ul>
 
-# 6. TITLE SCREEN / MAIN MENU
-Scenes:
-- **Menu** – Start game  
-- **Game** – Main gameplay  
-- **Game Over** – Retry or return to menu  
+  <h3>Scripts</h3>
+  <ul>
+    <li><strong>EnemyMove</strong> – Enemy movement and pursuit</li>
+    <li><strong>Health</strong> – Player health</li>
+    <li><strong>Damage</strong> – Damage system</li>
+    <li><strong>LevelManager</strong> – Scene transitions</li>
+    <li><strong>PlayerMove</strong> – Player movement</li>
+    <li><strong>PlayerData</strong> – Game Over logic</li>
+  </ul>
 
-Menu features:
-- Medieval-inspired ambient music  
-- Slow fade-in red text  
-- Auto-save at checkpoints  
-- Load screen with timestamp, level, and screenshot  
+  <h2>5. Technical Requirements</h2>
+  <ul>
+    <li>Unity</li>
+    <li>Mixamo</li>
+    <li>Blender</li>
+    <li>Asset Store</li>
+    <li>Copilot (C# help)</li>
+    <li>Fantasy map tools</li>
+    <li>Flowchart tools</li>
+  </ul>
 
----
+  <h3>Gameplay Tricks</h3>
+  <ul>
+    <li>Moderate difficulty (extra armor, shortcuts, money)</li>
+    <li>Replay-only tricks (invisibility, invincibility, lore fragments)</li>
+  </ul>
 
-# 7. FLOWCHART
-Includes:
-- Play  
-- Load  
-- Options (video, audio, subtitles, contrast)  
-- Extras (drafts, team, unlockables)  
-- Custom Modes (Zombie Eater, Power of a God, DJ Void Party)
+  <h2>6. Title Screen / Main Menu</h2>
+  <p>Medieval-inspired ambient music, slow fade-in red text, auto-save checkpoints, load screen with timestamp and screenshot.</p>
 
----
+  <h2>7. Flowchart</h2>
+  <p>Includes: Play, Load, Options, Extras, Custom Modes.</p>
 
-# 8. CAMERA & HUD
-**Camera:**  
-Third-person, locked behind the player.  
-Cinematics trigger during boss encounters.
+  <h2>8. Camera & HUD</h2>
+  <p><strong>Camera:</strong> Third-person, locked behind the player. Cinematics trigger during boss encounters.</p>
+  <p><strong>HUD:</strong> Health bar, infinite respawn, linear level design.</p>
 
-**HUD:**  
-- Health bar  
-- No lives; infinite respawn at last checkpoint  
-- Linear level design (no map needed)
+  <h2>9. Health & Combat</h2>
+  <p><strong>Health:</strong> 100 base HP, Tubes (+10), Bottles (+30), Barrels (full heal)</p>
+  <p><strong>Combat:</strong> Punch, Air kick, Combo, traps, puzzles</p>
+  <p><strong>Status Effects:</strong> Fire, Poison, Paralysis, Miasma, Curse, Instant death</p>
 
----
+  <h2>10. Main Characters</h2>
+  <ul>
+    <li><strong>Soldier Without a Name (SWN)</strong></li>
+    <li><strong>The Void (Form 1 & Form 2)</strong></li>
+    <li><strong>SWN’s Father (Ancient)</strong></li>
+    <li><strong>SWN’s Mother (Human)</strong></li>
+  </ul>
 
-# 9. HEALTH & COMBAT
-**Health:**  
-- 100 base HP  
-- Tubes (+10)  
-- Bottles (+30)  
-- Barrels (full heal)
+  <h2>11. Game Progression & Levels</h2>
+  <p><strong>Level 1 – Ice Mountain:</strong> Golems, Ice Crows, frozen caves, deadly traps.</p>
+  <p><strong>Level 2 – Midgar Village:</strong> Zombies, Fire Zombies, lava zones.</p>
+  <p><strong>Level 3 – The Labyrinth:</strong> Puzzles, traps, Minotaur.</p>
+  <p><strong>Level 3 (Part 2) – Petrified Forest:</strong> Lizard Men, paralysis spikes.</p>
+  <p><strong>Level 4 – Black Lake:</strong> Miasma Zombies, Dark Ones, boss fight.</p>
+  <p><strong>Level 5 – Dungeon of Evil:</strong> Ghosts, Witch → Spider in the Gloom.</p>
+  <p><strong>Level 6 – Volcano of Destiny:</strong> Lava Titan, final confrontation with The Void.</p>
 
-**Combat:**  
-- Punch  
-- Air kick  
-- Combo (kick + punch)  
-- Environmental traps and puzzles  
+  <h2>12. World Summary Screen</h2>
+  <p>Shows regions, level descriptions, lore entries.</p>
 
-**Status Effects:**  
-- Fire  
-- Poison  
-- Paralysis  
-- Miasma  
-- Curse  
-- Instant death (lava, certain boss attacks)
+  <h2>13. Extra Content</h2>
+  <p><strong>Images:</strong> Screenshots of gameplay</p>
+  <p><strong>Concept Art:</strong> Characters, bosses, environments</p>
+  <p><strong>Music:</strong> Medieval, epic, dark ambience</p>
+  <p><strong>Minigame – DJ VOID PARTY:</strong> Dance battle against Void, unlocks special messages</p>
 
----
+  <a class="back" href="../index.html">← Back to PREY</a>
 
-# 10. MAIN CHARACTERS
-- **Soldier Without a Name (SWN)**  
-- **The Void (Form 1 & Form 2)**  
-- **SWN’s Father (Ancient)**  
-- **SWN’s Mother (Human)**  
-
----
-
-# 11. GAME PROGRESSION & LEVELS
-
-## LEVEL 1 – Ice Mountain  
-Enemies: Golems, Ice Crows  
-Hazards: Ice caves, falling ice boulders  
-Rewards: Tubes (+10)
-
-## LEVEL 2 – Midgar Village  
-Enemies: Zombies, Fire Zombies  
-Hazards: Lava zones  
-Rewards: Tubes (+10), Bottles (+30)
-
-## LEVEL 3 – The Labyrinth  
-Enemies: Zombies, Minotaur  
-Hazards: Traps (-10 HP)  
-Rewards: Full heal barrel
-
-## LEVEL 3 (Part 2) – Petrified Forest  
-Enemies: Lizard Men  
-Hazards: Paralysis spikes  
-Rewards: Bottles (+30)
-
-## LEVEL 4 – Black Lake  
-Enemies: Miasma Zombies, Dark Ones  
-Boss: The Dark One Who Never Returns  
-Ancients grant temporary god powers.
-
-## LEVEL 5 – Dungeon of Evil  
-Enemies: Ghosts  
-Boss: The Witch → Spider in the Gloom  
-Puzzle: Candle order system
-
-## LEVEL 6 – Volcano of Destiny  
-Enemies: Lava Titan  
-Boss: The Void (Form 1 & Form 2)  
-Hazards: Lava, inverted controls, instant-death attacks  
-
----
-
-# 12. WORLD SUMMARY SCREEN
-Shows:
-- Regions  
-- Level descriptions  
-- Lore entries  
-
----
-
-# 13. EXTRA CONTENT
-### Images  
-Screenshots of gameplay  
-
-### Concept Art  
-Characters, bosses, environments  
-
-### Music  
-Medieval, epic, dark ambience  
-
-### Minigame – DJ VOID PARTY  
-Dance battle against Void  
-Unlocks special messages  
-
----
-
-# END OF DOCUMENT
+</body>
+</html>
