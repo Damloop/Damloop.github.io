@@ -3,14 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <title>PREY – Technical Breakdown</title>
+
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+
 <style>
-    body { background:#0d0d0d; color:#e6e6e6; font-family:Arial; padding:40px; }
-    h1, h2 { color:#00eaff; }
-    pre { background:#1a1a1a; padding:20px; border-radius:10px; overflow-x:auto; }
-    .section { margin-bottom:50px; }
-    a { color:#00eaff; }
+    :root {
+        --bg: #000;
+        --accent: #b00000;
+        --text-main: #c8c8c8;
+        --text-muted: #8a8a8a;
+        --panel: rgba(15, 15, 20, 0.7);
+        --border: rgba(255, 0, 0, 0.18);
+    }
+
+    body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text-main);
+        font-family: 'IM Fell English SC', serif;
+        padding: 40px;
+        text-align: left;
+        overflow-x: hidden;
+    }
+
+    /* Fog + ambient light */
+    body::before {
+        content: "";
+        position: fixed;
+        top: -40%;
+        left: -40%;
+        width: 180%;
+        height: 180%;
+        background:
+            radial-gradient(circle at 20% 30%, rgba(255,180,80,0.18), transparent 70%),
+            radial-gradient(circle at 70% 80%, rgba(100,100,110,0.35), transparent 75%);
+        filter: blur(150px);
+        opacity: 0.55;
+        animation: fogMove 22s ease-in-out infinite;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    @keyframes fogMove {
+        0%   { transform: translateX(0) translateY(0); opacity: 0.45; }
+        25%  { transform: translateX(60px) translateY(40px); opacity: 0.65; }
+        50%  { transform: translateX(-40px) translateY(20px); opacity: 0.55; }
+        75%  { transform: translateX(30px) translateY(-30px); opacity: 0.65; }
+        100% { transform: translateX(0) translateY(0); opacity: 0.45; }
+    }
+
+    h1, h2 {
+        color: var(--accent);
+        text-shadow: 0 0 25px rgba(176,0,0,0.6);
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        margin-top: 40px;
+    }
+
+    p {
+        color: var(--text-main);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .section {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        padding: 25px;
+        border-radius: 10px;
+        margin-bottom: 40px;
+        box-shadow: 0 0 25px rgba(255,0,0,0.18);
+        backdrop-filter: blur(6px);
+    }
+
+    pre {
+        background: #0f0f0f;
+        padding: 20px;
+        border-radius: 10px;
+        overflow-x: auto;
+        border: 1px solid rgba(255,0,0,0.2);
+        color: #e6e6e6;
+    }
+
+    a {
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 1.2rem;
+        letter-spacing: 0.1em;
+        display: block;
+        margin-top: 40px;
+        text-align: center;
+        transition: 0.3s ease;
+    }
+
+    a:hover {
+        color: #fff;
+        text-shadow: 0 0 20px rgba(255,0,0,0.9);
+    }
 </style>
 </head>
+
 <body>
 
 <h1>PREY – Technical Breakdown</h1>
