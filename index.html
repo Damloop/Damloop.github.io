@@ -171,54 +171,53 @@
       gap: 35px;
     }
 
-    /* Cards premium */
-    .card {
-      background: var(--panel);
-      border-radius: 16px;
-      padding: 22px;
-      text-align: center;
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.45);
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-      position: relative;
-      overflow: hidden;
-    }
+/* Cards premium */
+.card {
+  background: var(--panel);
+  border-radius: 16px;
+  padding: 22px;
+  text-align: center;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
 
-    .card:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 20px 45px rgba(0,200,255,0.25);
-      border-color: var(--accent);
-    }
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 45px rgba(0,200,255,0.25);
+  border-color: var(--accent);
+}
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 16px;
-      background: radial-gradient(circle at top, rgba(0, 224, 255, 0.18), transparent 75%);
-      opacity: 0;
-      transition: 0.4s ease;
-      pointer-events: none;
-    }
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: radial-gradient(circle at top, rgba(0, 224, 255, 0.18), transparent 75%);
+  opacity: 0;
+  transition: 0.4s ease;
+  pointer-events: none;
+}
 
-    .card:hover::before {
-      opacity: 1;
-    }
+.card:hover::before {
+  opacity: 1;
+}
 
-    .card img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 18px;
-      border: 1px solid var(--border);
-      filter: contrast(1.25) saturate(1.15) brightness(1.05);
-      transition: 0.35s ease;
-    }
+.card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  border: 1px solid var(--border);
+  filter: contrast(1.25) saturate(1.15) brightness(1.05);
+  transition: 0.35s ease;
+}
 
-    .card:hover img {
-      filter: contrast(1.35) saturate(1.25) brightness(1.15);
-    }
+.card:hover img {
+  filter: contrast(1.35) saturate(1.25) brightness(1.15);
+}
 
-    
 .card h3 {
   color: var(--accent);
   font-size: 1.35rem;
@@ -241,20 +240,11 @@
   border-radius: 2px;
 }
 
+.card p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
 
-    .card p {
-      color: var(--text-muted);
-      font-size: 1rem;
-    }
-
-    /* PREY más luminosa */
-    .card-prey img {
-      filter: brightness(1.4) contrast(1.3) saturate(1.2);
-    }
-
-    .card-prey:hover img {
-      filter: brightness(1.55) contrast(1.4) saturate(1.25);
-    }
 
     /* Botón About premium */
     .about-btn {
