@@ -1,69 +1,110 @@
-using UnityEngine;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PREY – Source Code</title>
 
-public class EnemyMove : MonoBehaviour
-{
-    [Header("Movement Settings")]
-    public float moveSpeed = 3f;
-    public float chaseRange = 8f;
-    public float attackRange = 1.5f;
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
 
-    [Header("Components")]
-    public Transform player;
-    public Animator animator;
-
-    private float distanceToPlayer;
-
-    void Update()
-    {
-        distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-        HandleMovement();
-        HandleAnimations();
+<style>
+    :root {
+        --bg: #000;
+        --accent: #b00000;
+        --text-main: #c8c8c8;
+        --panel: rgba(15, 15, 20, 0.7);
+        --border: rgba(255, 0, 0, 0.18);
     }
 
-    // Enemy movement logic
-    void HandleMovement()
-    {
-        if (distanceToPlayer <= attackRange)
-        {
-            AttackPlayer();
-            return;
-        }
-
-        if (distanceToPlayer <= chaseRange)
-        {
-            ChasePlayer();
-        }
-        else
-        {
-            Patrol();
-        }
+    body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text-main);
+        font-family: 'IM Fell English SC', serif;
+        padding: 40px;
+        overflow-x: hidden;
     }
 
-    // Patrol behavior
-    void Patrol()
-    {
-        animator.SetBool("IsMoving", false);
+    body::before {
+        content: "";
+        position: fixed;
+        top: -40%;
+        left: -40%;
+        width: 180%;
+        height: 180%;
+        background:
+            radial-gradient(circle at 20% 30%, rgba(255,180,80,0.18), transparent 70%),
+            radial-gradient(circle at 70% 80%, rgba(100,100,110,0.35), transparent 75%);
+        filter: blur(150px);
+        opacity: 0.55;
+        animation: fogMove 22s ease-in-out infinite;
+        pointer-events: none;
+        z-index: -1;
     }
 
-    // Chase behavior
-    void ChasePlayer()
-    {
-        animator.SetBool("IsMoving", true);
-
-        Vector3 direction = (player.position - transform.position).normalized;
-        transform.Translate(direction * moveSpeed * Time.deltaTime, Space.World);
-        transform.LookAt(player);
+    @keyframes fogMove {
+        0%   { transform: translateX(0) translateY(0); opacity: 0.45; }
+        25%  { transform: translateX(60px) translateY(40px); opacity: 0.65; }
+        50%  { transform: translateX(-40px) translateY(20px); opacity: 0.55; }
+        75%  { transform: translateX(30px) translateY(-30px); opacity: 0.65; }
+        100% { transform: translateX(0) translateY(0); opacity: 0.45; }
     }
 
-    // Attack behavior
-    void AttackPlayer()
-    {
-        animator.SetTrigger("Attack");
+    h1 {
+        color: var(--accent);
+        text-shadow: 0 0 25px rgba(176,0,0,0.6);
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 30px;
     }
 
-    // Animation control
-    void HandleAnimations()
-    {
-        animator.SetFloat("Distance", distanceToPlayer);
+    .panel {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 25px rgba(255,0,0,0.18);
+        backdrop-filter: blur(6px);
+        max-width: 800px;
+        margin: auto;
     }
+
+    a {
+        display: block;
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 1.3rem;
+        margin: 15px 0;
+        transition: 0.3s ease;
+    }
+
+    a:hover {
+        color: #fff;
+        text-shadow: 0 0 20px rgba(255,0,0,0.9);
+    }
+
+    .back {
+        margin-top: 40px;
+        text-align: center;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>PREY – Source Code</h1>
+
+<div class="panel">
+
+    <a href="./PlayerMove.html">PlayerMove.cs</a>
+    <a href="./EnemyMove.html">EnemyMove.cs</a>
+    <a href="./Damage.html">Damage.cs</a>
+    <a href="./LevelManager.html">LevelManager.cs</a>
+
+</div>
+
+<div class="back">
+    <a href="../index.html">← Back to PREY</a>
+</div>
+
+</body>
+</html>
