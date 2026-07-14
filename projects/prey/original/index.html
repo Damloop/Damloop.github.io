@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>PREY</title>
+  <title>PREY – Medieval Horror</title>
 
-  <!-- Tipografía medieval + Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <!-- Tipografía medieval EXACTA al estilo de tu imagen -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    /* === PREY – MEDIEVAL + TERROR + NIEBLA DINÁMICA + MENÚ AAA === */
+    /* === PREY – ESTÉTICA EXACTA DE TU IMAGEN (MEDIEVAL + TERROR + ROJO SANGRE) === */
 
     :root {
       --bg: #000;
-      --fog1: rgba(40, 20, 60, 0.45);
-      --fog2: rgba(120, 0, 0, 0.35);
-      --accent: #7dd0ff;        /* azul frío espectral */
-      --accent-blood: #ff3b3b;  /* rojo sangre */
+      --fog1: rgba(80, 90, 110, 0.35);   /* niebla azul-gris de tu imagen */
+      --fog2: rgba(255, 180, 80, 0.25);  /* luz cálida de farola */
+      --accent: #ff0000;                /* rojo intenso del título PREY */
+      --accent-dark: #c00000;           /* rojo sangre oscuro */
       --text-main: #e0e0e0;
-      --text-muted: #9bbcc7;
-      --panel: rgba(15, 15, 25, 0.75);
+      --text-muted: #b0b0b0;
+      --panel: rgba(20, 20, 30, 0.75);
       --panel-remastered: rgba(40, 0, 0, 0.8);
-      --border: rgba(125, 208, 255, 0.25);
+      --border: rgba(255, 0, 0, 0.25);
       --border-remastered: rgba(255, 60, 60, 0.35);
     }
 
@@ -35,7 +35,7 @@
       overflow-x: hidden;
     }
 
-    /* Niebla dinámica medieval */
+    /* Niebla dinámica EXACTA al ambiente de tu imagen */
     body::before {
       content: "";
       position: fixed;
@@ -72,14 +72,14 @@
     }
 
     .logo-prey {
-      font-family: 'UnifrakturMaguntia', cursive;
+      font-family: 'Cinzel Decorative', serif;
       font-size: 2rem;
       color: var(--accent);
       padding: 10px 18px;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: rgba(0, 0, 0, 0.7);
-      box-shadow: 0 0 25px rgba(125,208,255,0.35);
+      box-shadow: 0 0 25px rgba(255,0,0,0.35);
     }
 
     .menu-links {
@@ -101,37 +101,26 @@
     .menu-links a:hover {
       color: var(--accent);
       border-bottom-color: var(--accent);
-      text-shadow: 0 0 10px rgba(125,208,255,0.6);
+      text-shadow: 0 0 10px rgba(255,0,0,0.6);
     }
 
-    /* Título medieval terrorífico */
+    /* Título EXACTO al estilo de tu imagen */
     h1 {
-      font-family: 'UnifrakturMaguntia', cursive;
+      font-family: 'Cinzel Decorative', serif;
       font-size: 4rem;
       color: var(--accent);
       letter-spacing: 0.08em;
       text-shadow:
-        0 0 25px rgba(125,208,255,0.6),
-        0 0 60px rgba(125,208,255,0.3),
-        0 0 120px rgba(125,208,255,0.15);
+        0 0 25px rgba(255,0,0,0.6),
+        0 0 60px rgba(255,0,0,0.3),
+        0 0 120px rgba(255,0,0,0.15);
       margin-bottom: 10px;
-      animation: glitchTitle 4s infinite;
-    }
-
-    @keyframes glitchTitle {
-      0%   { transform: translateX(0);   text-shadow: 0 0 25px rgba(125,208,255,0.6); }
-      20%  { transform: translateX(2px); text-shadow: 0 0 35px rgba(125,208,255,0.9); }
-      40%  { transform: translateX(-2px); text-shadow: 0 0 30px rgba(125,208,255,0.7); }
-      60%  { transform: translateX(1px); text-shadow: 0 0 40px rgba(125,208,255,0.9); }
-      80%  { transform: translateX(-1px); text-shadow: 0 0 28px rgba(125,208,255,0.7); }
-      100% { transform: translateX(0);   text-shadow: 0 0 25px rgba(125,208,255,0.6); }
     }
 
     .subtitle {
       color: var(--text-muted);
       font-size: 1.3rem;
       margin-bottom: 40px;
-      text-shadow: 0 0 10px rgba(125,208,255,0.25);
     }
 
     .content-wrap {
@@ -139,7 +128,7 @@
       margin: 0 auto;
     }
 
-    /* Panel original medieval */
+    /* Panel medieval */
     .section {
       max-width: 1000px;
       margin: 0 auto 45px;
@@ -148,16 +137,15 @@
       padding: 28px 32px;
       border-radius: 14px;
       border: 1px solid var(--border);
-      box-shadow: 0 0 35px rgba(125,208,255,0.18);
+      box-shadow: 0 0 35px rgba(255,0,0,0.18);
       backdrop-filter: blur(8px);
     }
 
     .section h2 {
-      font-family: 'UnifrakturMaguntia', cursive;
+      font-family: 'Cinzel Decorative', serif;
       color: var(--accent);
       font-size: 2rem;
       margin-bottom: 16px;
-      text-shadow: 0 0 15px rgba(125,208,255,0.35);
     }
 
     .section p {
@@ -167,10 +155,6 @@
     }
 
     /* Menú de archivos AAA */
-    .file-links {
-      margin-top: 18px;
-    }
-
     .file-links a {
       display: block;
       margin: 10px 0;
@@ -199,7 +183,7 @@
 
     .file-links a:hover {
       color: #ffffff;
-      text-shadow: 0 0 18px rgba(125,208,255,0.9);
+      text-shadow: 0 0 18px rgba(255,0,0,0.9);
       transform: translateX(6px);
     }
 
@@ -222,19 +206,10 @@
     }
 
     .remastered-block h2 {
-      font-family: 'UnifrakturMaguntia', cursive;
+      font-family: 'Cinzel Decorative', serif;
       color: var(--accent-blood);
       font-size: 2rem;
       margin-bottom: 14px;
-      text-shadow:
-        0 0 18px rgba(255,60,60,0.7),
-        0 0 40px rgba(255,60,60,0.4);
-    }
-
-    .remastered-block p {
-      color: #e8d6d6;
-      font-size: 1.1rem;
-      line-height: 1.6;
     }
 
     .remastered-block a {
@@ -269,11 +244,6 @@
       transform: translateX(6px);
     }
 
-    .remastered-block a:hover::before {
-      transform: translateY(-50%) translateX(3px);
-      opacity: 1;
-    }
-
     footer {
       margin-top: 40px;
       font-size: 0.85rem;
@@ -292,7 +262,7 @@
     <div class="menu-links">
       <a href="/">Home</a>
       <a href="/projects/prey/original/">Original</a>
-      <a href="/projects/prey/remastered/">Remastered (Available Soon)</a>
+      <a href="/projects/prey/remastered/">Remastered</a>
     </div>
   </div>
 
@@ -325,7 +295,7 @@
       <p>
         A future, enhanced version of PREY with upgraded visuals, expanded medieval lore, new enemies and refined gameplay.
       </p>
-      <a href="../remastered/">Available Soon</a>
+      <a href="../remastered/">Disponible próximamente</a>
     </div>
 
   </div>
