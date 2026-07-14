@@ -2,23 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>PREY – Unity Platform Game</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <title>PREY – Medieval Horror</title>
+
+  <!-- Tipografía medieval + Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 
   <style>
-    /* === PREY – TERROR MEDIEVAL + NIEBLA DINÁMICA + MENÚ AAA === */
+    /* === PREY – MEDIEVAL + TERROR + NIEBLA DINÁMICA + MENÚ AAA === */
 
     :root {
       --bg: #000;
-      --fog1: rgba(30, 40, 70, 0.45);
-      --fog2: rgba(80, 20, 20, 0.35);
-      --accent: #00e0ff;
-      --accent-blood: #ff3b3b;
-      --text-main: #d6e8f0;
+      --fog1: rgba(40, 20, 60, 0.45);
+      --fog2: rgba(120, 0, 0, 0.35);
+      --accent: #7dd0ff;        /* azul frío espectral */
+      --accent-blood: #ff3b3b;  /* rojo sangre */
+      --text-main: #e0e0e0;
       --text-muted: #9bbcc7;
-      --panel: rgba(10, 10, 18, 0.75);
-      --panel-remastered: rgba(30, 0, 0, 0.8);
-      --border: rgba(0, 200, 255, 0.25);
+      --panel: rgba(15, 15, 25, 0.75);
+      --panel-remastered: rgba(40, 0, 0, 0.8);
+      --border: rgba(125, 208, 255, 0.25);
       --border-remastered: rgba(255, 60, 60, 0.35);
     }
 
@@ -33,7 +35,7 @@
       overflow-x: hidden;
     }
 
-    /* Niebla dinámica medieval/terror */
+    /* Niebla dinámica medieval */
     body::before {
       content: "";
       position: fixed;
@@ -44,19 +46,19 @@
       background:
         radial-gradient(circle at 30% 20%, var(--fog1), transparent 70%),
         radial-gradient(circle at 70% 80%, var(--fog2), transparent 75%);
-      filter: blur(130px);
-      opacity: 0.5;
-      animation: fogMove 18s ease-in-out infinite;
+      filter: blur(140px);
+      opacity: 0.55;
+      animation: fogMove 22s ease-in-out infinite;
       pointer-events: none;
       z-index: -1;
     }
 
     @keyframes fogMove {
-      0%   { transform: translateX(0) translateY(0);   opacity: 0.4; }
-      25%  { transform: translateX(60px) translateY(40px); opacity: 0.6; }
-      50%  { transform: translateX(-40px) translateY(20px); opacity: 0.5; }
-      75%  { transform: translateX(30px) translateY(-30px); opacity: 0.6; }
-      100% { transform: translateX(0) translateY(0);   opacity: 0.4; }
+      0%   { transform: translateX(0) translateY(0); opacity: 0.45; }
+      25%  { transform: translateX(80px) translateY(40px); opacity: 0.65; }
+      50%  { transform: translateX(-60px) translateY(20px); opacity: 0.55; }
+      75%  { transform: translateX(40px) translateY(-30px); opacity: 0.65; }
+      100% { transform: translateX(0) translateY(0); opacity: 0.45; }
     }
 
     /* Menú estilo videojuego AAA */
@@ -70,15 +72,14 @@
     }
 
     .logo-prey {
-      font-size: 1.1rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 2rem;
       color: var(--accent);
       padding: 10px 18px;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: rgba(0, 0, 0, 0.7);
-      box-shadow: 0 0 25px rgba(0,200,255,0.35);
+      box-shadow: 0 0 25px rgba(125,208,255,0.35);
     }
 
     .menu-links {
@@ -100,38 +101,37 @@
     .menu-links a:hover {
       color: var(--accent);
       border-bottom-color: var(--accent);
-      text-shadow: 0 0 10px rgba(0,200,255,0.6);
+      text-shadow: 0 0 10px rgba(125,208,255,0.6);
     }
 
     /* Título medieval terrorífico */
     h1 {
-      font-size: 3.4rem;
-      font-weight: 800;
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 4rem;
       color: var(--accent);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      letter-spacing: 0.08em;
       text-shadow:
-        0 0 25px rgba(0,200,255,0.6),
-        0 0 60px rgba(0,200,255,0.3),
-        0 0 120px rgba(0,200,255,0.15);
+        0 0 25px rgba(125,208,255,0.6),
+        0 0 60px rgba(125,208,255,0.3),
+        0 0 120px rgba(125,208,255,0.15);
       margin-bottom: 10px;
       animation: glitchTitle 4s infinite;
     }
 
     @keyframes glitchTitle {
-      0%   { transform: translateX(0);   text-shadow: 0 0 25px rgba(0,200,255,0.6); }
-      20%  { transform: translateX(2px); text-shadow: 0 0 35px rgba(0,200,255,0.9); }
-      40%  { transform: translateX(-2px); text-shadow: 0 0 30px rgba(0,200,255,0.7); }
-      60%  { transform: translateX(1px); text-shadow: 0 0 40px rgba(0,200,255,0.9); }
-      80%  { transform: translateX(-1px); text-shadow: 0 0 28px rgba(0,200,255,0.7); }
-      100% { transform: translateX(0);   text-shadow: 0 0 25px rgba(0,200,255,0.6); }
+      0%   { transform: translateX(0);   text-shadow: 0 0 25px rgba(125,208,255,0.6); }
+      20%  { transform: translateX(2px); text-shadow: 0 0 35px rgba(125,208,255,0.9); }
+      40%  { transform: translateX(-2px); text-shadow: 0 0 30px rgba(125,208,255,0.7); }
+      60%  { transform: translateX(1px); text-shadow: 0 0 40px rgba(125,208,255,0.9); }
+      80%  { transform: translateX(-1px); text-shadow: 0 0 28px rgba(125,208,255,0.7); }
+      100% { transform: translateX(0);   text-shadow: 0 0 25px rgba(125,208,255,0.6); }
     }
 
     .subtitle {
       color: var(--text-muted);
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-bottom: 40px;
-      text-shadow: 0 0 10px rgba(0,200,255,0.25);
+      text-shadow: 0 0 10px rgba(125,208,255,0.25);
     }
 
     .content-wrap {
@@ -148,20 +148,21 @@
       padding: 28px 32px;
       border-radius: 14px;
       border: 1px solid var(--border);
-      box-shadow: 0 0 35px rgba(0,200,255,0.18);
+      box-shadow: 0 0 35px rgba(125,208,255,0.18);
       backdrop-filter: blur(8px);
     }
 
     .section h2 {
+      font-family: 'UnifrakturMaguntia', cursive;
       color: var(--accent);
-      font-size: 1.8rem;
+      font-size: 2rem;
       margin-bottom: 16px;
-      text-shadow: 0 0 15px rgba(0,200,255,0.35);
+      text-shadow: 0 0 15px rgba(125,208,255,0.35);
     }
 
     .section p {
       color: var(--text-main);
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       line-height: 1.7;
     }
 
@@ -175,7 +176,7 @@
       margin: 10px 0;
       color: var(--accent);
       text-decoration: none;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -198,7 +199,7 @@
 
     .file-links a:hover {
       color: #ffffff;
-      text-shadow: 0 0 18px rgba(0,200,255,0.9);
+      text-shadow: 0 0 18px rgba(125,208,255,0.9);
       transform: translateX(6px);
     }
 
@@ -221,8 +222,9 @@
     }
 
     .remastered-block h2 {
+      font-family: 'UnifrakturMaguntia', cursive;
       color: var(--accent-blood);
-      font-size: 1.8rem;
+      font-size: 2rem;
       margin-bottom: 14px;
       text-shadow:
         0 0 18px rgba(255,60,60,0.7),
@@ -231,7 +233,7 @@
 
     .remastered-block p {
       color: #e8d6d6;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       line-height: 1.6;
     }
 
@@ -242,7 +244,7 @@
       text-decoration: none;
       font-weight: 700;
       letter-spacing: 0.1em;
-      font-size: 1rem;
+      font-size: 1.1rem;
       text-transform: uppercase;
       transition: 0.3s ease;
       position: relative;
@@ -319,7 +321,7 @@
 
     <!-- Bloque REMASTERED -->
     <div class="remastered-block">
-      <h2>PREY – Remastered (Under Construction)</h2>
+      <h2>PREY – Remastered</h2>
       <p>
         A future, enhanced version of PREY with upgraded visuals, expanded medieval lore, new enemies and refined gameplay.
       </p>
