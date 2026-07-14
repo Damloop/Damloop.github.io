@@ -222,11 +222,22 @@
       color: var(--accent);
       font-size: 1.3rem;
       margin-bottom: 8px;
+      text-align: center;
+      min-height: 40px;
     }
 
     .card p {
       color: var(--text-muted);
       font-size: 1rem;
+    }
+
+    /* PREY más luminosa */
+    .card-prey img {
+      filter: brightness(1.4) contrast(1.3) saturate(1.2);
+    }
+
+    .card-prey:hover img {
+      filter: brightness(1.55) contrast(1.4) saturate(1.25);
     }
 
     /* Botón About premium */
@@ -258,9 +269,9 @@
     }
 
     .bottom-about {
-  text-align: center;
-  margin: 40px 0;
-}
+      text-align: center;
+      margin: 40px 0;
+    }
   </style>
 </head>
 
@@ -293,12 +304,11 @@
     <p>Promotional cybersecurity comic created for Hewlett‑Packard.</p>
   </a>
 
-<a href="/projects/prey/original/index.html" class="card">
-  <img src="/projects/prey/original/images/prey-cover.png" alt="PREY Game">
-  <h3>PREY – Unity Platform Game</h3>
-  <p>A hero returns to his hometown… but the villagers have turned into zombies.</p>
-</a>
-
+  <a href="/projects/prey/original/index.html" class="card card-prey">
+    <img src="/projects/prey/original/images/prey-cover.png" alt="PREY Game">
+    <h3>PREY – Unity Platform Game</h3>
+    <p>A hero returns to his hometown… but the villagers have turned into zombies.</p>
+  </a>
 
   <a href="/projects/shadowmap/index.html" class="card">
     <img src="/sketch/0.jpg" alt="ShadowMap">
