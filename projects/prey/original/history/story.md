@@ -1,101 +1,153 @@
-# PREY – Story Overview
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PREY – Story Overview</title>
 
-## Introduction
-Humanity stands on the brink of extinction. The undead rise from their graves with an insatiable hunger, and no one has survived… except you. As the **Soldier Without a Name (SWN)**, you must carve your path through hordes of zombies, uncover ancient secrets, and face the horrors unleashed upon the Middle Earth.
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
 
-This story follows the lore established in the official GDD, where the SWN fights as part of the **Red Army (RA)** against the **Golems** in the **Ice Mountains**, north of his hometown **Midgar**.  
+  <style>
+    :root {
+      --bg: #000;
+      --accent: #b00000;
+      --text-main: #c8c8c8;
+      --text-muted: #8a8a8a;
+      --panel: rgba(15, 15, 20, 0.7);
+      --border: rgba(255, 0, 0, 0.18);
+    }
 
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: 'IM Fell English SC', serif;
+      padding: 40px;
+      text-align: left;
+      overflow-x: hidden;
+    }
 
-## The Great War
-Long before the events of the game, the Middle Earth endured the **Great War**, where humans united against **The Void** and **The Dark Ones**, enemies of all life. The war lasted centuries and cost countless lives. With the help of the **Ancients**, The Void and the Dark Ones were sealed inside the **Dungeon of Pain**.  
+    /* Fog + lamp ambience */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -40%;
+      left: -40%;
+      width: 180%;
+      height: 180%;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,180,80,0.18), transparent 70%),
+        radial-gradient(circle at 70% 80%, rgba(100,100,110,0.35), transparent 75%);
+      filter: blur(150px);
+      opacity: 0.55;
+      animation: fogMove 22s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
 
+    @keyframes fogMove {
+      0%   { transform: translateX(0) translateY(0); opacity: 0.45; }
+      25%  { transform: translateX(60px) translateY(40px); opacity: 0.65; }
+      50%  { transform: translateX(-40px) translateY(20px); opacity: 0.55; }
+      75%  { transform: translateX(30px) translateY(-30px); opacity: 0.65; }
+      100% { transform: translateX(0) translateY(0); opacity: 0.45; }
+    }
 
-Before being defeated, The Void cast a poisonous spell across the land, forcing all humans to wear masks to breathe. Feeling betrayed by humanity, the Ancients removed all weapons from Middle Earth forever.  
+    h1, h2 {
+      color: var(--accent);
+      text-shadow: 0 0 25px rgba(176,0,0,0.6);
+      margin-bottom: 10px;
+    }
 
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-## The Awakening
-The SWN fights alongside the Red Army in the Ice Mountains. The Golems are strong but slow, making the battle manageable… until a deafening explosion blinds and knocks out the entire army.  
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 40px;
+    }
 
+    p {
+      color: var(--text-main);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
 
-When the SWN awakens, everyone around him is dead. The sky and land have turned dark. Silence reigns.
+    .back {
+      display: block;
+      margin-top: 40px;
+      text-align: center;
+      color: var(--accent);
+      font-size: 1.2rem;
+      text-decoration: none;
+      letter-spacing: 0.1em;
+    }
 
-What happened?  
-Why did everyone die?  
-What was that explosion?
+    .back:hover {
+      color: #fff;
+      text-shadow: 0 0 20px rgba(255,0,0,0.9);
+    }
+  </style>
+</head>
 
-With no answers, the SWN begins his journey back to Midgar, crossing the dangerous Ice Mountains.  
+<body>
 
+  <h1>PREY – Story Overview</h1>
 
-## Midgar in Ruins
-Upon returning home, the SWN discovers that Midgar has become a desolate, corrupted city infested with zombies.  
+  <h2>Introduction</h2>
+  <p>Humanity stands on the brink of extinction. The undead rise from their graves with an insatiable hunger, and no one has survived… except you. As the <strong>Soldier Without a Name (SWN)</strong>, you must carve your path through hordes of zombies, uncover ancient secrets, and face the horrors unleashed upon the Middle Earth.</p>
 
+  <p>This story follows the lore established in the official GDD, where the SWN fights as part of the <strong>Red Army (RA)</strong> against the <strong>Golems</strong> in the <strong>Ice Mountains</strong>, north of his hometown <strong>Midgar</strong>.</p>
 
-As he progresses, he learns the truth:  
-The Golems sought help from the Dark Ones, freeing them and their leader **The Void** from the Dungeon of Pain. The Dark Ones consumed the Golems and began corrupting the world, spreading terror and destruction.  
+  <h2>The Great War</h2>
+  <p>Long before the events of the game, the Middle Earth endured the <strong>Great War</strong>, where humans united against <strong>The Void</strong> and <strong>The Dark Ones</strong>, enemies of all life. The war lasted centuries and cost countless lives. With the help of the <strong>Ancients</strong>, The Void and the Dark Ones were sealed inside the <strong>Dungeon of Pain</strong>.</p>
 
+  <p>Before being defeated, The Void cast a poisonous spell across the land, forcing all humans to wear masks to breathe. Feeling betrayed by humanity, the Ancients removed all weapons from Middle Earth forever.</p>
 
-## The SWN’s True Origin
-Why did the SWN survive the explosion?  
-Why was he chosen?
+  <h2>The Awakening</h2>
+  <p>The SWN fights alongside the Red Army in the Ice Mountains. The Golems are strong but slow, making the battle manageable… until a deafening explosion blinds and knocks out the entire army.</p>
 
-The explosion was **Ancient Magic**, cast by the Ancients to protect him.  
-The SWN is the son of an Ancient and a human woman—his mother—who was mercilessly absorbed by The Void during the Great War.  
+  <p>When the SWN awakens, everyone around him is dead. The sky and land have turned dark. Silence reigns.</p>
 
+  <p>What happened?<br>Why did everyone die?<br>What was that explosion?</p>
 
-The SWN never knew his parents. Raised as an orphan in the streets of Midgar, he was recruited by the Red Army and trained to fight from a young age.  
-Now he learns the truth:  
-He is the key to stopping the extinction of humanity.
+  <p>With no answers, the SWN begins his journey back to Midgar, crossing the dangerous Ice Mountains.</p>
 
-## The Journey Through Middle Earth
-Throughout the game, the SWN travels through:
+  <h2>Midgar in Ruins</h2>
+  <p>Upon returning home, the SWN discovers that Midgar has become a desolate, corrupted city infested with zombies.</p>
 
-### **Level 1 – Ice Mountain**  
-Battling Golems and Ice Crows while surviving frozen caves and deadly traps.  
+  <p>As he progresses, he learns the truth: The Golems sought help from the Dark Ones, freeing them and their leader <strong>The Void</strong> from the Dungeon of Pain. The Dark Ones consumed the Golems and began corrupting the world, spreading terror and destruction.</p>
 
+  <h2>The SWN’s True Origin</h2>
+  <p>The explosion was <strong>Ancient Magic</strong>, cast by the Ancients to protect him. The SWN is the son of an Ancient and a human woman—his mother—who was mercilessly absorbed by The Void during the Great War.</p>
 
-### **Level 2 – Midgar Village**  
-Facing zombies and Fire Zombies in the ruins of his hometown.  
+  <p>Raised as an orphan in Midgar and trained by the Red Army, he now learns the truth: <strong>He is the key to stopping the extinction of humanity.</strong></p>
 
+  <h2>The Journey Through Middle Earth</h2>
+  <p><strong>Level 1 – Ice Mountain:</strong> Golems, Ice Crows, frozen caves, deadly traps.</p>
+  <p><strong>Level 2 – Midgar Village:</strong> Zombies, Fire Zombies, ruins of home.</p>
+  <p><strong>Level 3 – The Labyrinth:</strong> Puzzles, traps, Minotaur.</p>
+  <p><strong>Level 3 (Part 2) – Petrified Forest:</strong> Paralyzing spikes, Lizard Men.</p>
+  <p><strong>Level 4 – The Black Lake:</strong> Miasma Zombies, Dark Ones, the Dark One Who Never Returns.</p>
+  <p><strong>Level 5 – The Dungeon of Evil:</strong> Ghosts, candle puzzles, Witch → Spider in the Gloom.</p>
+  <p><strong>Level 6 – The Volcano of Destiny:</strong> Lava Titan chase, final confrontation with The Void.</p>
 
-### **Level 3 – The Labyrinth**  
-Solving puzzles, avoiding traps, and confronting the Minotaur to obtain the key.  
+  <h2>Final Battle Against The Void</h2>
+  <p>The Void first appears in human form—fast, powerful, invincible. Only with the help of the Ancients can the SWN defeat him.</p>
 
+  <p>After the first defeat, The Void reveals his true form, unleashing deadly attacks such as <strong>Decapitation</strong>, <strong>Tentacles</strong>, and <strong>Cursed Skulls</strong>.</p>
 
-### **Level 3 (Part 2) – Petrified Forest**  
-Dodging paralyzing spikes and fighting Lizard Men while searching for missing pieces.  
+  <h2>Ending</h2>
+  <p>After defeating The Void, the world begins to heal. Light returns to Middle Earth. The monsters revert to the humans they once were.</p>
 
+  <p>The SWN returns to Midgar. There is much work ahead to rebuild the world. But deep inside, he feels something is missing. He is not at peace. <strong>His story is not over.</strong></p>
 
-### **Level 4 – The Black Lake**  
-Battling Miasma Zombies and Dark Ones, culminating in a fight against **The Dark One Who Never Returns**, with temporary powers granted by the Ancients.  
+  <p>A sequel is hinted.</p>
 
+  <a class="back" href="../index.html">← Back to PREY</a>
 
-### **Level 5 – The Dungeon of Evil**  
-Escaping ghosts, solving candle puzzles, and defeating the Witch who transforms into the **Spider in the Gloom**.  
-
-
-### **Level 6 – The Volcano of Destiny**  
-A race against time while being chased by the Lava Titan, ending in the final confrontation with **The Void**.  
-
-
-## Final Battle Against The Void
-The Void first appears in human form—fast, powerful, and invincible.  
-Only with the help of the Ancients can the SWN defeat him.  
-After the first defeat, The Void reveals his true form, unleashing deadly attacks such as **Decapitation**, **Tentacles**, and **Cursed Skulls**.  
-
-
-The SWN must use everything he has learned to survive the inverted controls, traps, and chaos of the final battle.
-
-## Ending
-After defeating The Void, the world begins to heal.  
-Light returns to Middle Earth.  
-The monsters revert to the humans they once were.
-
-The SWN returns to Midgar.  
-There is much work ahead to rebuild the world.
-
-But deep inside, he feels something is missing.  
-He is not at peace.  
-His story is not over.
-
-A sequel is hinted.
-
+</body>
+</html>
