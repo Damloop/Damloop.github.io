@@ -2,23 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>PREY</title>
+  <title>PREY – Medieval Fog Horror</title>
 
-  <!-- Medieval gothic font similar to your PREY image -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Medieval gothic font closest to your PREY image -->
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    /* === PREY – Medieval Horror UI (Gray, Fog, Lamp Light) === */
+    /* === PREY — Medieval Fog Horror (Simple, Dark, Atmospheric) === */
 
     :root {
       --bg: #000;
-      --fog: rgba(120, 130, 150, 0.35);     /* gray-blue fog */
-      --lamp: rgba(255, 200, 120, 0.25);    /* warm lamp glow */
-      --accent: #c00000;                    /* blood red (title) */
+      --fog: rgba(140, 140, 150, 0.35);     /* gray fog */
+      --lamp: rgba(255, 200, 120, 0.22);    /* warm lamp glow */
+      --accent: #b00000;                    /* dark blood red */
       --text-main: #d0d0d0;
       --text-muted: #9a9a9a;
-      --panel: rgba(20, 20, 25, 0.75);
-      --border: rgba(255, 0, 0, 0.25);
+      --panel: rgba(25, 25, 30, 0.75);
+      --border: rgba(255, 0, 0, 0.22);
     }
 
     body {
@@ -32,7 +32,7 @@
       overflow-x: hidden;
     }
 
-    /* Dynamic medieval fog + lamp ambience */
+    /* Dynamic fog + lamp ambience */
     body::before {
       content: "";
       position: fixed;
@@ -43,7 +43,7 @@
       background:
         radial-gradient(circle at 20% 30%, var(--lamp), transparent 70%),
         radial-gradient(circle at 70% 80%, var(--fog), transparent 75%);
-      filter: blur(140px);
+      filter: blur(150px);
       opacity: 0.55;
       animation: fogMove 22s ease-in-out infinite;
       pointer-events: none;
@@ -58,7 +58,7 @@
       100% { transform: translateX(0) translateY(0); opacity: 0.45; }
     }
 
-    /* Minimal UX – only HOME */
+    /* Minimal UX — only HOME */
     .top-menu {
       max-width: 1100px;
       margin: 0 auto 35px;
@@ -79,16 +79,16 @@
       color: var(--accent);
     }
 
-    /* Title EXACT style of your PREY image */
+    /* Title — medieval horror style */
     h1 {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 4.2rem;
+      font-family: 'IM Fell English SC', serif;
+      font-size: 4.4rem;
       color: var(--accent);
       letter-spacing: 0.08em;
       text-shadow:
-        0 0 25px rgba(192,0,0,0.6),
-        0 0 60px rgba(192,0,0,0.3),
-        0 0 120px rgba(192,0,0,0.15);
+        0 0 25px rgba(176,0,0,0.6),
+        0 0 60px rgba(176,0,0,0.3),
+        0 0 120px rgba(176,0,0,0.15);
       margin-bottom: 10px;
     }
 
@@ -103,7 +103,7 @@
       margin: 0 auto;
     }
 
-    /* Medieval dark panel */
+    /* Dark medieval panel */
     .section {
       max-width: 1000px;
       margin: 0 auto 45px;
@@ -117,9 +117,9 @@
     }
 
     .section h2 {
-      font-family: 'Cinzel Decorative', serif;
+      font-family: 'IM Fell English SC', serif;
       color: var(--accent);
-      font-size: 1.8rem;
+      font-size: 2rem;
       margin-bottom: 16px;
     }
 
@@ -129,7 +129,7 @@
       line-height: 1.7;
     }
 
-    /* File links – minimal, serious, medieval */
+    /* File links — simple, serious */
     .file-links a {
       display: block;
       margin: 10px 0;
@@ -162,7 +162,7 @@
     }
 
     .remastered-block h2 {
-      font-family: 'Cinzel Decorative', serif;
+      font-family: 'IM Fell English SC', serif;
       color: var(--accent);
       font-size: 1.8rem;
       margin-bottom: 14px;
@@ -220,7 +220,7 @@
       <div class="file-links">
         <a href="./gdd/">Game Design Document</a>
         <a href="./history/story.md">Story & Lore</a>
-        <a href="projects/prey/original/code">Source Code</a>
+        <a href="./code/">Source Code</a>
         <a href="./images/">Image Gallery</a>
         <a href="./videos/">Videos & Trailers</a>
       </div>
