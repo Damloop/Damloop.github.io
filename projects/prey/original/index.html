@@ -2,193 +2,219 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>PREY – Video Showcase</title>
+<title>PREY</title>
 
-<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-    :root {
-        --bg: #000;
-        --accent: #b00000;
-        --text-main: #c8c8c8;
-        --panel: rgba(15, 15, 20, 0.7);
-        --border: rgba(255, 0, 0, 0.18);
-    }
 
-    body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--text-main);
-        font-family: 'IM Fell English SC', serif;
-        padding: 40px;
-        overflow-x: hidden;
-    }
+:root {
+--bg: #000;
+--fog: rgba(100, 100, 110, 0.35);     /* gray fog */
+--lamp: rgba(255, 180, 80, 0.18);     /* warm lamp glow */
+--accent: #b00000;                    /* dark blood red */
+--text-main: #c8c8c8;
+--text-muted: #8a8a8a;
+--panel: rgba(15, 15, 20, 0.7);
+--border: rgba(255, 0, 0, 0.18);
+}
 
-    /* Fog */
-    body::before {
-        content: "";
-        position: fixed;
-        top: -40%;
-        left: -40%;
-        width: 180%;
-        height: 180%;
-        background:
-            radial-gradient(circle at 20% 30%, rgba(255,180,80,0.18), transparent 70%),
-            radial-gradient(circle at 70% 80%, rgba(100,100,110,0.35), transparent 75%);
-        filter: blur(150px);
-        opacity: 0.55;
-        animation: fogMove 22s ease-in-out infinite;
-        pointer-events: none;
-        z-index: -1;
-    }
+body {
+margin: 0;
+font-family: 'Inter', sans-serif;
+background: var(--bg);
+color: var(--text-main);
+padding: 10px 20px;
+text-align: center;
+position: relative;
+overflow: hidden; /* NO SCROLL */
+height: 100vh;    /* Fit everything */
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: 8px;
+}
 
-    @keyframes fogMove {
-        0%   { transform: translateX(0) translateY(0); opacity: 0.45; }
-        25%  { transform: translateX(60px) translateY(40px); opacity: 0.65; }
-        50%  { transform: translateX(-40px) translateY(20px); opacity: 0.55; }
-        75%  { transform: translateX(30px) translateY(-30px); opacity: 0.65; }
-        100% { transform: translateX(0) translateY(0); opacity: 0.45; }
-    }
+/* Dynamic fog + lamp ambience */
+body::before {
+content: "";
+position: fixed;
+top: -40%;
+left: -40%;
+width: 180%;
+height: 180%;
+background:
+radial-gradient(circle at 20% 30%, var(--lamp), transparent 70%),
+radial-gradient(circle at 70% 80%, var(--fog), transparent 75%);
+filter: blur(150px);
+opacity: 0.55;
+animation: fogMove 22s ease-in-out infinite;
+pointer-events: none;
+z-index: -1;
+}
 
-    h1 {
-        color: var(--accent);
-        text-shadow: 0 0 25px rgba(176,0,0,0.6);
-        font-size: 3rem;
-        text-align: center;
-        margin-bottom: 30px;
-    }
+@keyframes fogMove {
+0%   { transform: translateX(0) translateY(0); opacity: 0.45; }
+25%  { transform: translateX(60px) translateY(40px); opacity: 0.65; }
+50%  { transform: translateX(-40px) translateY(20px); opacity: 0.55; }
+75%  { transform: translateX(30px) translateY(-30px); opacity: 0.65; }
+100% { transform: translateX(0) translateY(0); opacity: 0.45; }
+}
 
-    .gallery {
-        max-width: 900px;
-        margin: auto;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
+/* Medieval seal at the top */
+.seal {
+font-family: 'IM Fell English SC', serif;
+font-size: 0.9rem;
+color: var(--text-muted);
+letter-spacing: 0.18em;
+opacity: 0.8;
+margin-bottom: 5px;
+}
 
-    .video-box {
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 0 25px rgba(255,0,0,0.18);
-        backdrop-filter: blur(6px);
-        text-align: center;
-        transition: transform 0.3s ease;
-    }
+/* Minimal UX — Home · Remastered */
+.top-menu {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin-bottom: 5px;
+}
 
-    /* Hover Zoom */
-    .video-box:hover {
-        transform: scale(1.05);
-    }
+.top-menu a {
+color: var(--text-muted);
+text-decoration: none;
+font-size: 0.85rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+transition: 0.3s ease;
+}
 
-    video {
-        width: 100%;
-        border-radius: 10px;
-        border: 1px solid rgba(255,0,0,0.2);
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
+.top-menu a:hover {
+color: var(--accent);
+}
 
-    video:hover {
-        transform: scale(1.08);
-    }
+.divider {
+color: var(--text-muted);
+opacity: 0.7;
+font-size: 0.85rem;
+}
 
-    .video-box p {
-        margin-top: 10px;
-        font-size: 1rem;
-        color: var(--text-main);
-    }
+/* Title — medieval horror style */
+h1 {
+font-family: 'IM Fell English SC', serif;
+font-size: 3.6rem;
+color: var(--accent);
+letter-spacing: 0.08em;
+margin: 0;
+text-shadow:
+0 0 25px rgba(176,0,0,0.6),
+0 0 60px rgba(176,0,0,0.3),
+0 0 120px rgba(176,0,0,0.15);
+}
 
-    a {
-        display: block;
-        color: var(--accent);
-        text-decoration: none;
-        font-size: 1.2rem;
-        margin-top: 40px;
-        text-align: center;
-        transition: 0.3s ease;
-    }
+.subtitle {
+color: var(--text-muted);
+font-size: 1rem;
+margin: 5px 0 15px;
+}
 
-    a:hover {
-        color: #fff;
-        text-shadow: 0 0 20px rgba(255,0,0,0.9);
-    }
+/* Compact layout */
+.content-wrap {
+max-width: 900px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+gap: 15px;
+}
 
-    /* Lightbox PREY */
-    #lightbox {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.85);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 999;
-    }
+/* Dark medieval panel */
+.section {
+width: 48%;
+background: var(--panel);
+padding: 12px 18px;
+border-radius: 10px;
+border: 1px solid var(--border);
+box-shadow: 0 0 25px rgba(255,0,0,0.18);
+backdrop-filter: blur(6px);
+text-align: left;
+}
 
-    #lightbox video {
-        max-width: 90%;
-        max-height: 90%;
-        border: 2px solid #b00000;
-        border-radius: 10px;
-        box-shadow: 0 0 35px rgba(255,0,0,0.4);
-    }
+.section h2 {
+font-family: 'IM Fell English SC', serif;
+color: var(--accent);
+font-size: 1.3rem;
+margin-bottom: 8px;
+}
+
+.section p {
+color: var(--text-main);
+font-size: 0.85rem;
+line-height: 1.35;
+margin-bottom: 8px;
+}
+
+/* File links — simple, serious */
+.file-links a {
+display: block;
+margin: 5px 0;
+color: var(--accent);
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: 600;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+transition: 0.3s ease;
+}
+
+.file-links a:hover {
+color: #ffffff;
+text-shadow: 0 0 18px rgba(255,0,0,0.9);
+transform: translateX(4px);
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>PREY – Video Showcase</h1>
-
-<div class="gallery">
-
-    <!-- INTRO VIDEO -->
-    <div class="video-box">
-        <video src="intro.mp4" controls></video>
-        <p>Cinematic intro presenting the world of PREY and setting the dark tone of the adventure.</p>
-    </div>
-
-    <!-- GAMEPLAY VIDEO -->
-    <div class="video-box">
-        <video src="gameplay.mp4" controls></video>
-        <p>Gameplay footage showing exploration, combat mechanics, and environmental hazards.</p>
-    </div>
-
-    <!-- GAME OVER VIDEO -->
-    <div class="video-box">
-        <video src="gameover.mp4" controls></video>
-        <p>Game Over sequence highlighting the consequences of defeat and the oppressive atmosphere.</p>
-    </div>
-
+<div class="header-line">
+<span class="seal">PREY · ORIGINAL & REMASTERED</span>
+<span class="divider">·</span>
+<a href="/" class="menu-link">HOME</a>
 </div>
 
-<a href="../index.html">← Back to PREY</a>
+<!-- Title -->
+<h1>PREY</h1>
+<p class="subtitle">
+A medieval town drowned in fog… and something hunts in the dark.
+</p>
 
-<!-- LIGHTBOX -->
-<div id="lightbox">
-    <video id="lightbox-video" src="" controls></video>
+<div class="content-wrap">
+
+<!-- ORIGINAL -->
+<div class="section">
+<h2>PREY - Original Project Files</h2>
+<div class="file-links">
+<a href="./gdd/index.html">Game Design Document</a>
+        <a href="./history/story.md">Story & Lore</a>
+        <a href="./history/index.html">Story & Lore</a>
+<a href="./code/">Source Code</a>
+<a href="./images/">Image Gallery</a>
+<a href="./videos/">Videos & Trailers</a>
+</div>
 </div>
 
-<script>
-document.querySelectorAll('.video-box video').forEach(video => {
-    video.addEventListener('click', () => {
-        const lightbox = document.getElementById('lightbox');
-        const bigVid = document.getElementById('lightbox-video');
-        bigVid.src = video.src;
-        lightbox.style.display = 'flex';
-    });
-});
+<!-- REMASTERED -->
+<div class="section">
+<h2>PREY – Remastered</h2>
+<p>
+A future enhanced version with expanded lore, new enemies, and improved medieval atmosphere.
+</p>
+<div class="file-links">
+<a href="../remastered/">Available Soon</a>
+</div>
+</div>
 
-document.getElementById('lightbox').addEventListener('click', () => {
-    const lightbox = document.getElementById('lightbox');
-    const bigVid = document.getElementById('lightbox-video');
-    bigVid.pause();
-    lightbox.style.display = 'none';
-});
-</script>
+</div>
 
 </body>
 </html>
