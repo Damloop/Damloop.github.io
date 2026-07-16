@@ -62,40 +62,42 @@
         max-width: 1000px;
         margin: auto;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* 25% bigger */
+        gap: 35px;
     }
 
     .img-box {
         background: var(--panel);
-        border: 1px solid var(--border);
+        border: 3px solid #8b0000;
         border-radius: 10px;
-        padding: 15px;
-        box-shadow: 0 0 25px rgba(255,0,0,0.18);
+        padding: 20px;
+        box-shadow: 0 0 45px rgba(255,0,0,0.45);
         backdrop-filter: blur(6px);
         text-align: center;
         transition: transform 0.3s ease;
+        transform: rotate(-1.5deg);
     }
 
     .img-box:hover {
-        transform: scale(1.05);
+        transform: scale(1.08) rotate(1deg);
     }
 
     .img-box img {
-        width: 100%;
+        width: 110%; /* 25% bigger */
         border-radius: 8px;
-        border: 1px solid rgba(255,0,0,0.2);
+        border: 4px dashed #b00000;
         cursor: pointer;
         transition: transform 0.3s ease;
+        filter: brightness(0.9) contrast(1.1);
     }
 
     .img-box img:hover {
-        transform: scale(1.08);
+        transform: scale(1.12);
     }
 
     .img-box p {
         margin-top: 10px;
-        font-size: 1rem;
+        font-size: 1.1rem;
         color: var(--text-main);
     }
 
@@ -144,21 +146,22 @@
 
 <div class="gallery">
 
+    <!-- Existing images (now chaotic) -->
     <div class="img-box">
         <img src="prey-cover.png" alt="PREY Cover">
         <p>Official cover art showcasing the dark atmosphere and core identity of PREY.</p>
     </div>
 
-    <div class="img-box"><img src="1.png"><p>Screenshoot 1</p></div>
-    <div class="img-box"><img src="2.png"><p>Screenshoot 2</p></div>
-    <div class="img-box"><img src="3.png"><p>Screenshoot 3</p></div>
-    <div class="img-box"><img src="4.png"><p>Screenshoot 4</p></div>
-    <div class="img-box"><img src="5.png"><p>Screenshoot 5</p></div>
-    <div class="img-box"><img src="6.png"><p>Screenshoot 6</p></div>
-    <div class="img-box"><img src="7.png"><p>Screenshoot 7</p></div>
-    <div class="img-box"><img src="8.png"><p>Screenshoot 8</p></div>
-    <div class="img-box"><img src="9.png"><p>Screenshoot 9</p></div>
-    <div class="img-box"><img src="10.png"><p>Screenshoot 10</p></div>
+    <div class="img-box"><img src="1.png"><p>Screenshot 1</p></div>
+    <div class="img-box"><img src="2.png"><p>Screenshot 2</p></div>
+    <div class="img-box"><img src="3.png"><p>Screenshot 3</p></div>
+    <div class="img-box"><img src="4.png"><p>Screenshot 4</p></div>
+    <div class="img-box"><img src="5.png"><p>Screenshot 5</p></div>
+    <div class="img-box"><img src="6.png"><p>Screenshot 6</p></div>
+    <div class="img-box"><img src="7.png"><p>Screenshot 7</p></div>
+    <div class="img-box"><img src="8.png"><p>Screenshot 8</p></div>
+    <div class="img-box"><img src="9.png"><p>Screenshot 9</p></div>
+    <div class="img-box"><img src="10.png"><p>Screenshot 10</p></div>
 
     <div class="img-box">
         <img src="prey-cover2.png" alt="PREY Alternate Cover">
@@ -166,39 +169,15 @@
     </div>
 
     <!-- CHAOTIC NEW IMAGE 1 -->
-    <div class="img-box" style="
-        border: 3px solid #8b0000;
-        box-shadow: 0 0 35px rgba(255,0,0,0.45);
-        transform: rotate(-2deg);
-        padding: 20px;
-    ">
-        <img src="11.png" alt="Night Camp Scene" style="
-            width: 92%;
-            border: 4px dashed #b00000;
-            border-radius: 6px;
-            filter: brightness(0.85);
-        ">
-        <p style="font-size: 1.1rem; color: #c8c8c8;">
-            A lone warrior approaches a fog‑covered medieval camp lit by firelight, creating a tense and mysterious atmosphere.
-        </p>
+    <div class="img-box">
+        <img src="scene_bridge.png" alt="Night Camp Scene">
+        <p>A lone warrior approaches a fog‑covered medieval camp lit by firelight, creating a tense and mysterious atmosphere.</p>
     </div>
 
     <!-- CHAOTIC NEW IMAGE 2 -->
-    <div class="img-box" style="
-        border: 4px solid #b00000;
-        box-shadow: 0 0 45px rgba(255,0,0,0.55);
-        transform: rotate(1.5deg);
-        padding: 25px;
-    ">
-        <img src="12.png" alt="Undead Encounter" style="
-            width: 85%;
-            border: 5px solid #700000;
-            border-radius: 4px;
-            filter: contrast(1.2) brightness(0.9);
-        ">
-        <p style="font-size: 1.1rem; color: #c8c8c8;">
-            The hero confronts a pale undead creature near a burning campfire, highlighting the dark tone and danger of the world.
-        </p>
+    <div class="img-box">
+        <img src="scene_zombie.png" alt="Undead Encounter">
+        <p>The hero confronts a pale undead creature near a burning campfire, highlighting the dark tone and danger of the world.</p>
     </div>
 
 </div>
