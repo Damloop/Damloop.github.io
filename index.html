@@ -39,31 +39,30 @@
       max-width: 100%;
     }
 
-    /* --- PREMIUM VISUAL UPGRADE --- */
+    /* --- PREMIUM VISUAL UPGRADE 2.0 --- */
 
-    /* Fondo premium */
     body::before {
       content: "";
       position: fixed;
-      top: -20%;
-      left: -20%;
-      width: 140%;
-      height: 140%;
+      top: -25%;
+      left: -25%;
+      width: 150%;
+      height: 150%;
       background:
-        radial-gradient(circle at 30% 20%, rgba(0, 224, 255, 0.18), transparent 70%),
-        radial-gradient(circle at 70% 80%, rgba(0, 150, 255, 0.12), transparent 75%);
-      animation: pulseGlow 12s ease-in-out infinite;
+        radial-gradient(circle at 25% 20%, rgba(0, 224, 255, 0.22), transparent 70%),
+        radial-gradient(circle at 75% 80%, rgba(0, 150, 255, 0.18), transparent 75%);
+      animation: pulseGlow 14s ease-in-out infinite;
       z-index: -1;
       pointer-events: none;
     }
 
     @keyframes pulseGlow {
-      0% { opacity: 0.35; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.12); }
-      100% { opacity: 0.35; transform: scale(1); }
+      0% { opacity: 0.30; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(1.15); }
+      100% { opacity: 0.30; transform: scale(1); }
     }
 
-    /* NAVBAR cristal premium */
+    /* NAVBAR */
     .navbar {
       width: 100%;
       padding: 18px 20px;
@@ -72,24 +71,24 @@
       align-items: center;
       position: sticky;
       top: 0;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(18px) saturate(180%);
-      border-bottom: 1px solid rgba(0, 224, 255, 0.15);
-      box-shadow: 0 4px 25px rgba(0, 224, 255, 0.05);
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(22px) saturate(180%);
+      border-bottom: 1px solid rgba(0, 224, 255, 0.22);
+      box-shadow: 0 4px 35px rgba(0, 224, 255, 0.08);
       z-index: 999;
       flex-wrap: wrap;
     }
 
     .logo-modern {
-      font-size: 2rem;
+      font-size: 2.1rem;
       font-weight: 800;
       letter-spacing: 0.12em;
       color: var(--accent);
-      padding: 8px 18px;
-      border: 3px solid var(--accent);
-      border-radius: 10px;
+      padding: 10px 22px;
+      border: 2px solid var(--accent);
+      border-radius: 12px;
       text-shadow: 0 0 18px rgba(0,200,255,0.6);
-      box-shadow: 0 0 25px rgba(0,200,255,0.35);
+      box-shadow: 0 0 22px rgba(0,200,255,0.35);
       background: rgba(0,0,0,0.4);
       backdrop-filter: blur(6px);
       transition: 0.35s ease;
@@ -124,10 +123,10 @@
       text-shadow: 0 0 10px rgba(0,200,255,0.6);
     }
 
-    /* HERO cinematográfico */
+    /* HERO */
     header {
       text-align: center;
-      padding: 120px 20px 80px;
+      padding: 140px 20px 90px;
       opacity: 0;
       animation: fadeHero 1.2s ease forwards;
     }
@@ -138,18 +137,19 @@
     }
 
     h1 {
-      font-size: 3.8rem;
+      font-size: 4rem;
       font-weight: 800;
       color: var(--accent);
-      text-shadow: 0 0 25px rgba(0,200,255,0.5);
+      text-shadow: 0 0 35px rgba(0,200,255,0.45);
       margin-bottom: 15px;
     }
 
     .subtitle {
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       color: var(--text-muted);
       max-width: 900px;
       margin: 0 auto;
+      opacity: 0.9;
     }
 
     .tagline {
@@ -171,83 +171,61 @@
       gap: 35px;
     }
 
-/* Cards premium — TODAS IGUALES, LIMPIAS Y EPICAS */
-.card {
-  background: var(--panel);
-  border-radius: 16px;
-  padding: 22px;
-  text-align: center;
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.45);
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-  position: relative;
-  overflow: hidden;
-}
+    .card {
+      background: linear-gradient(
+        to bottom right,
+        rgba(13,15,20,0.95),
+        rgba(10,12,18,0.75)
+      );
+      border-radius: 18px;
+      padding: 26px;
+      text-align: center;
+      border: 1px solid rgba(0,224,255,0.15);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.55);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
 
-.card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 20px 45px rgba(0,200,255,0.25);
-  border-color: var(--accent);
-}
+    .card:hover {
+      transform: translateY(-12px) scale(1.035);
+      box-shadow: 0 25px 55px rgba(0,200,255,0.25);
+      border-color: var(--accent);
+    }
 
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 16px;
-  background: radial-gradient(circle at top, rgba(0, 224, 255, 0.18), transparent 75%);
-  opacity: 0;
-  transition: 0.4s ease;
-  pointer-events: none;
-}
+    .card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      border: 1px solid var(--border);
+      filter: contrast(1.2) saturate(1.2) brightness(1.05);
+      transition: 0.35s ease;
+    }
 
-.card:hover::before {
-  opacity: 1;
-}
+    .card:hover img {
+      filter: contrast(1.35) saturate(1.25) brightness(1.15);
+    }
 
-/* IMÁGENES UNIFICADAS — TODAS 16:9 */
-.card img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 18px;
-  border: 1px solid var(--border);
-  filter: contrast(1.25) saturate(1.15) brightness(1.05);
-  transition: 0.35s ease;
-}
+    .card h3 {
+      color: var(--accent);
+      font-size: 1.45rem;
+      font-weight: 700;
+      text-align: center;
+      min-height: 48px;
+      letter-spacing: 0.6px;
+      margin-top: 12px;
+      text-shadow: 0 0 14px rgba(0,200,255,0.25);
+    }
 
-.card:hover img {
-  filter: contrast(1.35) saturate(1.25) brightness(1.15);
-}
+    .card p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.45;
+    }
 
-/* TITULOS — UNIFICADOS, SIN SUBRAYADO, ESTILO PREMIUM */
-.card h3 {
-  color: var(--accent);
-  font-size: 1.35rem;
-  font-weight: 700;
-  text-align: center;
-  min-height: 48px;
-  letter-spacing: 0.5px;
-  margin-top: 12px;
-  position: relative;
-  text-shadow: 0 0 12px rgba(0,200,255,0.25);
-}
-
-/* SUBRAYADO DESACTIVADO DEFINITIVAMENTE */
-.card h3::after {
-  content: none !important;
-  display: none !important;
-}
-
-/* DESCRIPCIÓN — UNIFICADA */
-.card p {
-  color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.45;
-}
-
-    /* Botón About premium */
+    /* ABOUT BUTTON */
     .about-btn {
       padding: 14px 32px;
       font-size: 1.1rem;
@@ -269,10 +247,10 @@
 
     footer {
       text-align: center;
-      padding: 45px 20px 55px;
-      opacity: 0.8;
-      font-size: 0.95rem;
-      border-top: 1px solid rgba(0,224,255,0.15);
+      padding: 55px 20px 65px;
+      opacity: 0.7;
+      font-size: 1rem;
+      border-top: 1px solid rgba(0,224,255,0.18);
     }
 
     .bottom-about {
@@ -329,6 +307,13 @@
     <p>Responsive layouts, UI components and interactive front‑end features.</p>
   </a>
 
+  <!-- NEW FINAL CARD -->
+  <a href="#" class="card">
+    <img src="/img/placeholder.jpg" alt="Next Project">
+    <h3>Next Project – Under Construction</h3>
+    <p>Something new is coming soon. Stay tuned for the next chapter.</p>
+  </a>
+
 </div>
 
 <div class="bottom-about">
@@ -338,7 +323,7 @@
 </main>
 
 <footer>
-  © 2026 – Portfolio by Damian Lopez
+  © 2026-27 – Portfolio by Damian Lopez
 </footer>
 
 </body>
