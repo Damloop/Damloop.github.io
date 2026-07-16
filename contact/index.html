@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact – Damián López</title>
+  <title>Contact – Damian Lopez</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #000000;
+      --bg: #000;
       --panel: #0d0f14;
       --accent: #00e0ff;
-      --text-main: #ffffff;
+      --text-main: #fff;
       --text-muted: #b8b8b8;
       --border: #1f1f25;
     }
@@ -41,29 +41,29 @@
       max-width: 100%;
     }
 
-    /* Fondo premium */
+    /* --- PREMIUM BACKGROUND (Unified with Home & About) --- */
     body::before {
       content: "";
       position: fixed;
-      top: -20%;
-      left: -20%;
-      width: 140%;
-      height: 140%;
+      top: -25%;
+      left: -25%;
+      width: 150%;
+      height: 150%;
       background:
-        radial-gradient(circle at 30% 20%, rgba(0, 224, 255, 0.18), transparent 70%),
-        radial-gradient(circle at 70% 80%, rgba(0, 150, 255, 0.12), transparent 75%);
-      animation: pulseGlow 12s ease-in-out infinite;
+        radial-gradient(circle at 25% 20%, rgba(0, 224, 255, 0.22), transparent 70%),
+        radial-gradient(circle at 75% 80%, rgba(0, 150, 255, 0.18), transparent 75%);
+      animation: pulseGlow 14s ease-in-out infinite;
       z-index: -1;
       pointer-events: none;
     }
 
     @keyframes pulseGlow {
-      0% { opacity: 0.35; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.12); }
-      100% { opacity: 0.35; transform: scale(1); }
+      0% { opacity: 0.30; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(1.15); }
+      100% { opacity: 0.30; transform: scale(1); }
     }
 
-    /* NAVBAR premium */
+    /* NAVBAR (Unified with Home & About) */
     .navbar {
       width: 100%;
       padding: 18px 20px;
@@ -72,24 +72,24 @@
       align-items: center;
       position: sticky;
       top: 0;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(18px) saturate(180%);
-      border-bottom: 1px solid rgba(0, 224, 255, 0.15);
-      box-shadow: 0 4px 25px rgba(0, 224, 255, 0.05);
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(22px) saturate(180%);
+      border-bottom: 1px solid rgba(0, 224, 255, 0.22);
+      box-shadow: 0 4px 35px rgba(0, 224, 255, 0.08);
       z-index: 999;
       flex-wrap: wrap;
     }
 
     .logo-modern {
-      font-size: 2rem;
+      font-size: 2.1rem;
       font-weight: 800;
       letter-spacing: 0.12em;
       color: var(--accent);
-      padding: 8px 18px;
-      border: 3px solid var(--accent);
-      border-radius: 10px;
+      padding: 10px 22px;
+      border: 2px solid var(--accent);
+      border-radius: 12px;
       text-shadow: 0 0 18px rgba(0,200,255,0.6);
-      box-shadow: 0 0 25px rgba(0,200,255,0.35);
+      box-shadow: 0 0 22px rgba(0,200,255,0.35);
       background: rgba(0,0,0,0.4);
       backdrop-filter: blur(6px);
       transition: 0.35s ease;
@@ -100,8 +100,8 @@
     .logo-modern:hover {
       background: var(--accent);
       color: #000;
-      transform: translateY(-4px) scale(1.03);
       box-shadow: 0 0 35px rgba(0,200,255,0.9);
+      transform: translateY(-4px) scale(1.03);
     }
 
     .nav-links {
@@ -124,14 +124,14 @@
       text-shadow: 0 0 10px rgba(0,200,255,0.6);
     }
 
-    /* TITLE premium */
+    /* TITLE */
     h1 {
       text-align: center;
-      font-size: 3rem;
-      margin-top: 80px;
-      margin-bottom: 40px;
+      font-size: 3.6rem;
+      margin-top: 90px;
+      margin-bottom: 50px;
       color: var(--accent);
-      text-shadow: 0 0 18px rgba(0,200,255,0.4);
+      text-shadow: 0 0 25px rgba(0,200,255,0.45);
       opacity: 0;
       animation: fadeHero 1.2s ease forwards;
     }
@@ -141,27 +141,32 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* CONTACT BOX premium */
+    /* CONTACT BOX (Unified with About sections) */
     .contact-box {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 30px;
-      background: var(--panel);
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      box-shadow: 0 0 25px rgba(0,200,255,0.08);
+      max-width: 850px;
+      margin: 0 auto 60px;
+      padding: 35px 40px;
+      background: linear-gradient(
+        to bottom right,
+        rgba(13,15,20,0.95),
+        rgba(10,12,18,0.75)
+      );
+      border-radius: 18px;
+      border: 1px solid rgba(0,224,255,0.15);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.55);
       text-align: center;
       transition: 0.35s ease;
     }
 
     .contact-box:hover {
-      box-shadow: 0 0 35px rgba(0,200,255,0.18);
-      transform: translateY(-4px);
+      transform: translateY(-6px);
+      box-shadow: 0 25px 55px rgba(0,200,255,0.25);
+      border-color: var(--accent);
     }
 
     .contact-item {
-      margin: 18px 0;
-      font-size: 1.2rem;
+      margin: 22px 0;
+      font-size: 1.25rem;
       color: var(--text-muted);
     }
 
@@ -181,12 +186,13 @@
       text-shadow: 0 0 10px rgba(0,200,255,0.6);
     }
 
+    /* FOOTER */
     footer {
       text-align: center;
-      padding: 45px 20px 55px;
-      opacity: 0.8;
-      font-size: 0.95rem;
-      border-top: 1px solid rgba(0,224,255,0.15);
+      padding: 55px 20px 65px;
+      opacity: 0.7;
+      font-size: 1rem;
+      border-top: 1px solid rgba(0,224,255,0.18);
     }
   </style>
 </head>
@@ -232,7 +238,7 @@
 </main>
 
 <footer>
-  © 2026 – Portfolio by Damián López
+  © 2026-27 – Portfolio by Damian Lopez
 </footer>
 
 </body>
