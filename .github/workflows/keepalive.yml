@@ -1,1 +1,17 @@
 
+name: Keepalive (Silent)
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"   # Ejecuta cada domingo
+  workflow_dispatch:       # Permite ejecutarlo manualmente
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Initialize runner
+        uses: actions/checkout@v3
+
+      - name: Silent ping
+        run: echo "ping"
