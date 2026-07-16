@@ -59,31 +59,32 @@
     }
 
     .gallery {
-        max-width: 1000px;
+        max-width: 1100px;
         margin: auto;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* 25% bigger */
-        gap: 35px;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 40px;
     }
 
+    /* CAOTIC BOX BASE */
     .img-box {
         background: var(--panel);
-        border: 3px solid #8b0000;
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0 0 45px rgba(255,0,0,0.45);
         backdrop-filter: blur(6px);
         text-align: center;
         transition: transform 0.3s ease;
-        transform: rotate(-1.5deg);
+        border: 4px solid #8b0000;
     }
 
     .img-box:hover {
         transform: scale(1.08) rotate(1deg);
     }
 
+    /* CAOTIC IMAGE BASE */
     .img-box img {
-        width: 110%; /* 25% bigger */
+        width: 110%;
         border-radius: 8px;
         border: 4px dashed #b00000;
         cursor: pointer;
@@ -94,6 +95,21 @@
     .img-box img:hover {
         transform: scale(1.12);
     }
+
+    /* CHAOTIC SIZE VARIANTS */
+    .size-small img { width: 85%; transform: rotate(-2deg); }
+    .size-medium img { width: 110%; transform: rotate(1deg); }
+    .size-large img { width: 135%; transform: rotate(-3deg); }
+
+    /* CHAOTIC BORDER VARIANTS */
+    .blood1 { border: 4px solid #700000; }
+    .blood2 { border: 4px dashed #b00000; }
+    .blood3 { border: 6px double #ff0000; }
+
+    /* CHAOTIC ROTATION VARIANTS */
+    .tilt1 { transform: rotate(-2deg); }
+    .tilt2 { transform: rotate(1.5deg); }
+    .tilt3 { transform: rotate(-4deg); }
 
     .img-box p {
         margin-top: 10px;
@@ -146,37 +162,37 @@
 
 <div class="gallery">
 
-    <!-- Existing images (now chaotic) -->
-    <div class="img-box">
+    <!-- Apply chaotic classes to ALL images -->
+    <div class="img-box size-large blood1 tilt1">
         <img src="prey-cover.png" alt="PREY Cover">
         <p>Official cover art showcasing the dark atmosphere and core identity of PREY.</p>
     </div>
 
-    <div class="img-box"><img src="1.png"><p>Screenshot 1</p></div>
-    <div class="img-box"><img src="2.png"><p>Screenshot 2</p></div>
-    <div class="img-box"><img src="3.png"><p>Screenshot 3</p></div>
-    <div class="img-box"><img src="4.png"><p>Screenshot 4</p></div>
-    <div class="img-box"><img src="5.png"><p>Screenshot 5</p></div>
-    <div class="img-box"><img src="6.png"><p>Screenshot 6</p></div>
-    <div class="img-box"><img src="7.png"><p>Screenshot 7</p></div>
-    <div class="img-box"><img src="8.png"><p>Screenshot 8</p></div>
-    <div class="img-box"><img src="9.png"><p>Screenshot 9</p></div>
-    <div class="img-box"><img src="10.png"><p>Screenshot 10</p></div>
+    <div class="img-box size-small blood2 tilt3"><img src="1.png"><p>Screenshot 1</p></div>
+    <div class="img-box size-medium blood3 tilt2"><img src="2.png"><p>Screenshot 2</p></div>
+    <div class="img-box size-large blood2 tilt1"><img src="3.png"><p>Screenshot 3</p></div>
+    <div class="img-box size-small blood1 tilt2"><img src="4.png"><p>Screenshot 4</p></div>
+    <div class="img-box size-medium blood3 tilt3"><img src="5.png"><p>Screenshot 5</p></div>
+    <div class="img-box size-large blood1 tilt2"><img src="6.png"><p>Screenshot 6</p></div>
+    <div class="img-box size-small blood2 tilt1"><img src="7.png"><p>Screenshot 7</p></div>
+    <div class="img-box size-medium blood3 tilt3"><img src="8.png"><p>Screenshot 8</p></div>
+    <div class="img-box size-large blood2 tilt2"><img src="9.png"><p>Screenshot 9</p></div>
+    <div class="img-box size-small blood1 tilt3"><img src="10.png"><p>Screenshot 10</p></div>
 
-    <div class="img-box">
+    <div class="img-box size-medium blood3 tilt1">
         <img src="prey-cover2.png" alt="PREY Alternate Cover">
         <p>Alternate cover art emphasizing the game’s lore and supernatural themes.</p>
     </div>
 
-    <!-- CHAOTIC NEW IMAGE 1 -->
-    <div class="img-box">
-        <img src="scene_bridge.png" alt="Night Camp Scene">
+    <!-- NEW CHAOTIC IMAGE 1 -->
+    <div class="img-box size-large blood3 tilt2">
+        <img src="11.png" alt="Night Camp Scene">
         <p>A lone warrior approaches a fog‑covered medieval camp lit by firelight, creating a tense and mysterious atmosphere.</p>
     </div>
 
-    <!-- CHAOTIC NEW IMAGE 2 -->
-    <div class="img-box">
-        <img src="scene_zombie.png" alt="Undead Encounter">
+    <!-- NEW CHAOTIC IMAGE 2 -->
+    <div class="img-box size-small blood1 tilt3">
+        <img src="12.png" alt="Undead Encounter">
         <p>The hero confronts a pale undead creature near a burning campfire, highlighting the dark tone and danger of the world.</p>
     </div>
 
