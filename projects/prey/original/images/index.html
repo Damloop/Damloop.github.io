@@ -58,12 +58,18 @@
         margin-bottom: 30px;
     }
 
+    /* GRID: 3 por fila */
     .gallery {
-        max-width: 1100px;
+        max-width: 1200px;
         margin: auto;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
         gap: 40px;
+    }
+
+    /* Para imágenes grandes que ocupan toda la fila */
+    .full-row {
+        grid-column: span 3;
     }
 
     /* CAOTIC BOX BASE */
@@ -89,10 +95,6 @@
         cursor: pointer;
         transition: transform 0.3s ease;
         filter: brightness(0.9) contrast(1.1);
-    }
-
-    .img-box img:hover {
-        transform: scale(1.12);
     }
 
     /* SIZE GROUPS */
@@ -161,46 +163,75 @@
 
 <div class="gallery">
 
-    <!-- LARGE IMAGES -->
-    <div class="img-box large blood3 tilt1">
+    <!-- Fila 1: SOLO COVER -->
+    <div class="img-box large blood3 tilt1 full-row">
         <img src="prey-cover.png" alt="PREY Cover">
         <p>Official cover art showcasing the dark atmosphere and core identity of PREY.</p>
     </div>
 
-    <!-- SMALL IMAGES -->
-    
-    <div class="img-box small blood2 tilt2"><img src="2.png"><p>Screenshot 2</p></div>
+    <!-- Filas intermedias: 3 por fila -->
+    <div class="img-box small blood1 tilt3">
+        <img src="1.png" alt="Screenshot 1">
+        <p>Screenshot 1</p>
+    </div>
 
-    <!-- MEDIUM -->
-    <div class="img-box medium blood3 tilt1"><img src="3.png"><p>Screenshot 3</p></div>
+    <div class="img-box small blood2 tilt2">
+        <img src="2.png" alt="Screenshot 2">
+        <p>Screenshot 2</p>
+    </div>
 
-    <!-- SMALL -->
-    <div class="img-box small blood1 tilt2"><img src="4.png"><p>Screenshot 4</p></div>
-    <div class="img-box small blood3 tilt3"><img src="5.png"><p>Screenshot 5</p></div>
+    <div class="img-box medium blood3 tilt1">
+        <img src="3.png" alt="Screenshot 3">
+        <p>Screenshot 3</p>
+    </div>
 
-    <!-- MEDIUM -->
-    <div class="img-box medium blood2 tilt1"><img src="6.png"><p>Screenshot 6</p></div>
-    <div class="img-box medium blood1 tilt2"><img src="7.png"><p>Screenshot 7</p></div>
-    <div class="img-box medium blood3 tilt3"><img src="8.png"><p>Screenshot 8</p></div>
-    <div class="img-box medium blood2 tilt1"><img src="9.png"><p>Screenshot 9</p></div>
+    <div class="img-box small blood1 tilt2">
+        <img src="4.png" alt="Screenshot 4">
+        <p>Screenshot 4</p>
+    </div>
 
-    <!-- SMALL -->
-    <div class="img-box small blood1 tilt3"><img src="10.png"><p>Screenshot 10</p></div>
+    <div class="img-box small blood3 tilt3">
+        <img src="5.png" alt="Screenshot 5">
+        <p>Screenshot 5</p>
+    </div>
 
-    <!-- LARGE -->
-    <div class="img-box large blood3 tilt2">
+    <div class="img-box medium blood2 tilt1">
+        <img src="6.png" alt="Screenshot 6">
+        <p>Screenshot 6</p>
+    </div>
+
+    <div class="img-box medium blood1 tilt2">
+        <img src="7.png" alt="Screenshot 7">
+        <p>Screenshot 7</p>
+    </div>
+
+    <div class="img-box medium blood3 tilt3">
+        <img src="8.png" alt="Screenshot 8">
+        <p>Screenshot 8</p>
+    </div>
+
+    <div class="img-box medium blood2 tilt1">
+        <img src="9.png" alt="Screenshot 9">
+        <p>Screenshot 9</p>
+    </div>
+
+    <div class="img-box small blood1 tilt3">
+        <img src="10.png" alt="Screenshot 10">
+        <p>Screenshot 10</p>
+    </div>
+
+    <!-- Últimas 3 filas: cada una sola -->
+    <div class="img-box large blood3 tilt2 full-row">
         <img src="prey-cover2.png" alt="PREY Alternate Cover">
         <p>Alternate cover art emphasizing the game’s lore and supernatural themes.</p>
     </div>
 
-    <!-- LARGE NEW IMAGE -->
-    <div class="img-box large blood3 tilt2">
+    <div class="img-box large blood3 tilt2 full-row">
         <img src="11.png" alt="Night Camp Scene">
         <p>A lone warrior approaches a fog‑covered medieval camp lit by firelight, creating a tense and mysterious atmosphere.</p>
     </div>
 
-    <!-- LARGE NEW IMAGE -->
-    <div class="img-box large blood1 tilt3">
+    <div class="img-box large blood1 tilt3 full-row">
         <img src="12.png" alt="Undead Encounter">
         <p>The hero confronts a pale undead creature near a burning campfire, highlighting the dark tone and danger of the world.</p>
     </div>
