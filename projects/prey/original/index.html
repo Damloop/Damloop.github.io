@@ -8,167 +8,240 @@
 
 <style>
 
+/* ───────────────────────────────────────────── */
+/* DARK MEDIEVAL THEME — PREY                    */
+/* ───────────────────────────────────────────── */
+
 :root {
---bg: #000;
---fog: rgba(100, 100, 110, 0.35);     /* gray fog */
---lamp: rgba(255, 180, 80, 0.18);     /* warm lamp glow */
---accent: #b00000;                    /* dark blood red */
---text-main: #c8c8c8;
---text-muted: #8a8a8a;
---panel: rgba(15, 15, 20, 0.7);
---border: rgba(255, 0, 0, 0.18);
+    --bg: #000;
+    --fog: rgba(80, 80, 100, 0.35);
+    --lamp: rgba(255, 120, 40, 0.15);
+    --accent: #8b0000; /* sangre oscura medieval */
+    --text-main: #c8c8c8;
+    --text-muted: #7a7a7a;
+    --panel: rgba(10, 10, 15, 0.75);
+    --border: rgba(255, 0, 0, 0.25);
 }
 
+/* Base */
 body {
-margin: 0;
-font-family: 'Inter', sans-serif;
-background: var(--bg);
-color: var(--text-main);
-padding: 10px 20px;
-text-align: center;
-position: relative;
-overflow: hidden; /* NO SCROLL */
-height: 100vh;    /* Fit everything */
-display: flex;
-flex-direction: column;
-justify-content: center;
-gap: 8px;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text-main);
+    padding: 10px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
 }
 
-/* Dynamic fog + lamp ambience */
+/* Cinematic grain */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2NkYGD4DwABBAEAffO3WQAAAABJRU5ErkJggg==");
+    opacity: 0.10;
+    mix-blend-mode: overlay;
+    z-index: 999;
+}
+
+/* Fog ambience */
 body::before {
-content: "";
-position: fixed;
-top: -40%;
-left: -40%;
-width: 180%;
-height: 180%;
-background:
-radial-gradient(circle at 20% 30%, var(--lamp), transparent 70%),
-radial-gradient(circle at 70% 80%, var(--fog), transparent 75%);
-filter: blur(150px);
-opacity: 0.55;
-animation: fogMove 22s ease-in-out infinite;
-pointer-events: none;
-z-index: -1;
+    content: "";
+    position: fixed;
+    top: -40%;
+    left: -40%;
+    width: 180%;
+    height: 180%;
+    background:
+        radial-gradient(circle at 20% 30%, var(--lamp), transparent 70%),
+        radial-gradient(circle at 70% 80%, var(--fog), transparent 75%);
+    filter: blur(180px);
+    opacity: 0.55;
+    animation: fogMove 22s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
 }
 
 @keyframes fogMove {
-0%   { transform: translateX(0) translateY(0); opacity: 0.45; }
-25%  { transform: translateX(60px) translateY(40px); opacity: 0.65; }
-50%  { transform: translateX(-40px) translateY(20px); opacity: 0.55; }
-75%  { transform: translateX(30px) translateY(-30px); opacity: 0.65; }
-100% { transform: translateX(0) translateY(0); opacity: 0.45; }
+    0%   { transform: translate(0,0) scale(1); opacity: 0.45; }
+    25%  { transform: translate(60px,40px) scale(1.1); opacity: 0.7; }
+    50%  { transform: translate(-40px,20px) scale(1.05); opacity: 0.55; }
+    75%  { transform: translate(30px,-30px) scale(1.12); opacity: 0.75; }
+    100% { transform: translate(0,0) scale(1); opacity: 0.45; }
 }
 
-/* Medieval seal at the top */
+/* Medieval seal */
 .seal {
-font-family: 'IM Fell English SC', serif;
-font-size: 0.9rem;
-color: var(--text-muted);
-letter-spacing: 0.18em;
-opacity: 0.8;
-margin-bottom: 5px;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    letter-spacing: 0.18em;
+    opacity: 0.8;
+    margin-bottom: 5px;
 }
 
-/* Minimal UX — Home · Remastered */
+/* Top menu */
 .top-menu {
-display: flex;
-justify-content: center;
-gap: 10px;
-margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 5px;
 }
 
 .top-menu a {
-color: var(--text-muted);
-text-decoration: none;
-font-size: 0.85rem;
-letter-spacing: 0.15em;
-text-transform: uppercase;
-transition: 0.3s ease;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: 0.3s ease;
 }
 
 .top-menu a:hover {
-color: var(--accent);
+    color: var(--accent);
 }
 
 .divider {
-color: var(--text-muted);
-opacity: 0.7;
-font-size: 0.85rem;
+    color: var(--text-muted);
+    opacity: 0.7;
+    font-size: 0.85rem;
 }
 
-/* Title — medieval horror style */
+/* Title with medieval glitch */
 h1 {
-font-family: 'IM Fell English SC', serif;
-font-size: 3.6rem;
-color: var(--accent);
-letter-spacing: 0.08em;
-margin: 0;
-text-shadow:
-0 0 25px rgba(176,0,0,0.6),
-0 0 60px rgba(176,0,0,0.3),
-0 0 120px rgba(176,0,0,0.15);
+    font-family: 'IM Fell English SC', serif;
+    font-size: 3.8rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin: 0;
+    position: relative;
+    text-shadow:
+        0 0 25px rgba(176,0,0,0.6),
+        0 0 60px rgba(176,0,0,0.3),
+        0 0 120px rgba(176,0,0,0.15);
+}
+
+h1::after {
+    content: "PREY";
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    color: rgba(255,0,0,0.25);
+    text-shadow: -2px 0 rgba(255,0,0,0.4);
+    animation: glitch 0.8s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); opacity: 0.4; }
+    20% { transform: translate(-2px, 2px); opacity: 0.6; }
+    40% { transform: translate(2px, -2px); opacity: 0.3; }
+    60% { transform: translate(-1px, 1px); opacity: 0.5; }
+    80% { transform: translate(1px, -1px); opacity: 0.4; }
+    100% { transform: translate(0); opacity: 0.4; }
 }
 
 .subtitle {
-color: var(--text-muted);
-font-size: 1rem;
-margin: 5px 0 15px;
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin: 5px 0 15px;
 }
 
-/* Compact layout */
+/* Layout */
 .content-wrap {
-max-width: 900px;
-margin: 0 auto;
-display: flex;
-justify-content: space-between;
-gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
 }
 
-/* Dark medieval panel */
+/* Medieval horror panels */
 .section {
-width: 48%;
-background: var(--panel);
-padding: 12px 18px;
-border-radius: 10px;
-border: 1px solid var(--border);
-box-shadow: 0 0 25px rgba(255,0,0,0.18);
-backdrop-filter: blur(6px);
-text-align: left;
+    width: 48%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(10,10,15,0.85),
+        rgba(20,0,0,0.6)
+    );
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,0,0,0.25);
+    box-shadow:
+        0 0 25px rgba(255,0,0,0.18),
+        inset 0 0 25px rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    text-align: left;
+    transition: 0.3s ease;
 }
 
+.section:hover {
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-1px); }
+    100% { transform: translateX(0); }
+}
+
+/* Section titles with animated underline */
 .section h2 {
-font-family: 'IM Fell English SC', serif;
-color: var(--accent);
-font-size: 1.3rem;
-margin-bottom: 8px;
+    font-family: 'IM Fell English SC', serif;
+    color: var(--accent);
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.section h2::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--accent);
+    animation: underline 1.2s forwards;
+}
+
+@keyframes underline {
+    to { width: 100%; }
 }
 
 .section p {
-color: var(--text-main);
-font-size: 0.85rem;
-line-height: 1.35;
-margin-bottom: 8px;
+    color: var(--text-main);
+    font-size: 0.85rem;
+    line-height: 1.35;
+    margin-bottom: 8px;
 }
 
-/* File links — simple, serious */
+/* File links */
 .file-links a {
-display: block;
-margin: 5px 0;
-color: var(--accent);
-text-decoration: none;
-font-size: 0.85rem;
-font-weight: 600;
-letter-spacing: 0.05em;
-text-transform: uppercase;
-transition: 0.3s ease;
+    display: block;
+    margin: 5px 0;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: 0.3s ease;
 }
 
 .file-links a:hover {
-color: #ffffff;
-text-shadow: 0 0 18px rgba(255,0,0,0.9);
-transform: translateX(4px);
+    color: #ffffff;
+    text-shadow: 0 0 18px rgba(255,0,0,0.9);
+    transform: translateX(6px) scale(1.05);
 }
 
 </style>
@@ -195,8 +268,7 @@ A medieval town drowned in fog… and something hunts in the dark.
 <h2>PREY - Original Project Files</h2>
 <div class="file-links">
 <a href="./gdd/index.html">Game Design Document</a>
-        
-        <a href="./history/index.html">Story Overview</a>
+<a href="./history/index.html">Story Overview</a>
 <a href="./code/">Source Code</a>
 <a href="./images/">Image Gallery</a>
 <a href="./videos/">Videos Showcase</a>
