@@ -4,294 +4,226 @@
   <meta charset="UTF-8">
   <title>ShadowMap – The Veiled Archive</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
+      margin: 0;
+      background: #0a0a0f;
+      color: #e6e2f7;
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top, #2a0f3f 0%, #0a050f 40%, #020208 100%);
-      color: #e8ddff;
-      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(120, 90, 180, 0.3);
+      background: rgba(10, 10, 20, 0.7);
+      backdrop-filter: blur(6px);
+    }
+
+    header .logo {
       display: flex;
       align-items: center;
-      justify-content: center;
-    }
-
-    .veil {
-      width: 100%;
-      max-width: 980px;
-      padding: 50px 40px;
-      border-radius: 20px;
-      border: 1px solid rgba(180, 140, 255, 0.35);
-      background: radial-gradient(circle at top, rgba(80, 30, 130, 0.45), rgba(10, 5, 20, 0.95));
-      box-shadow:
-        0 0 50px rgba(155, 77, 255, 0.45),
-        0 0 140px rgba(40, 10, 80, 0.9);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .veil::before {
-      content: "";
-      position: absolute;
-      inset: -40px;
-      background-image:
-        radial-gradient(circle at 10% 0%, rgba(255,255,255,0.08) 0, transparent 55%),
-        radial-gradient(circle at 90% 100%, rgba(155,77,255,0.18) 0, transparent 60%);
-      opacity: 0.7;
-      pointer-events: none;
-    }
-
-    .veil-inner {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .logo {
+      gap: 12px;
       font-family: 'Cinzel', serif;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      color: #c7b5ff;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      font-size: 1.4rem;
+      letter-spacing: 0.08em;
+      color: #c8b4ff;
     }
 
-    .logo::before,
-    .logo::after {
-      content: "✦";
-      font-size: 0.8rem;
-      color: #9b4dff;
-    }
-
-    h1 {
-      font-family: 'Cinzel', serif;
-      font-size: 2.8rem;
-      line-height: 1.1;
-      color: #f3e9ff;
-      text-shadow:
-        0 0 22px rgba(155,77,255,0.7),
-        0 0 50px rgba(40,10,80,0.9);
-      margin-bottom: 14px;
-    }
-
-    .subtitle {
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: #b9a4ff;
-      margin-bottom: 22px;
-    }
-
-    .copy {
-      font-size: 1rem;
-      color: #d7cffc;
-      max-width: 480px;
-      line-height: 1.7;
-      margin-bottom: 28px;
-    }
-
-    .copy span {
-      color: #e0b8ff;
+    header nav a {
+      margin-left: 30px;
+      color: #c8b4ff;
+      text-decoration: none;
       font-weight: 600;
+      font-size: 0.9rem;
     }
 
-    .buttons {
+    header nav a:hover {
+      color: #ffffff;
+    }
+
+    /* HERO SECTION */
+    .hero {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 40px;
+      gap: 40px;
+    }
+
+    .hero-text {
+      max-width: 520px;
+    }
+
+    .hero-text h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #f0eaff;
+      text-shadow: 0 0 20px rgba(155, 77, 255, 0.5);
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #cfc7e9;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
       gap: 16px;
     }
 
     .btn {
-      padding: 12px 26px;
-      border-radius: 999px;
-      border: 1px solid rgba(210, 180, 255, 0.6);
-      background: linear-gradient(135deg, rgba(40, 10, 80, 0.9), rgba(120, 60, 190, 0.9));
+      padding: 14px 28px;
+      border-radius: 8px;
+      border: 1px solid rgba(155, 77, 255, 0.6);
+      background: linear-gradient(135deg, #2a1a4f, #4d2b8a);
       color: #fdf7ff;
-      font-size: 0.9rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      letter-spacing: 0.05em;
       cursor: pointer;
-      box-shadow: 0 0 22px rgba(155,77,255,0.7);
-      transition: 0.15s ease;
+      transition: 0.2s;
     }
 
     .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 30px rgba(190,120,255,0.9);
-      background: linear-gradient(135deg, rgba(70, 20, 120, 0.95), rgba(155, 77, 255, 1));
+      background: linear-gradient(135deg, #4d2b8a, #6f3fd1);
+      box-shadow: 0 0 20px rgba(155, 77, 255, 0.7);
     }
 
     .btn-secondary {
-      background: rgba(12, 6, 24, 0.9);
-      border-color: rgba(155, 77, 255, 0.7);
-      color: #d9cfff;
-      box-shadow: 0 0 14px rgba(80, 40, 140, 0.7);
+      background: rgba(20, 20, 40, 0.8);
+      border-color: rgba(155, 77, 255, 0.4);
     }
 
-    .btn-secondary:hover {
-      background: rgba(30, 14, 60, 0.95);
-      box-shadow: 0 0 22px rgba(155, 77, 255, 0.9);
-    }
-
-    .meta {
-      margin-top: 20px;
-      font-size: 0.8rem;
-      color: #a89ad8;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-    }
-
-    .meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .meta span::before {
-      content: "◆";
-      font-size: 0.7rem;
-      color: #9b4dff;
-    }
-
-    .portal {
-      position: relative;
-      height: 280px;
-      border-radius: 20px;
-      border: 1px solid rgba(150, 110, 230, 0.6);
-      background:
-        radial-gradient(circle at 50% 0%, rgba(200, 160, 255, 0.18) 0, transparent 55%),
-        radial-gradient(circle at 50% 100%, rgba(40, 10, 80, 0.9) 0, #05030a 70%);
+    .hero-image {
+      width: 50%;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow:
-        0 0 50px rgba(155,77,255,0.7),
-        inset 0 0 50px rgba(10,5,20,0.9);
+      border: 1px solid rgba(155, 77, 255, 0.3);
+      box-shadow: 0 0 40px rgba(155, 77, 255, 0.4);
     }
 
-    .portal-arch {
-      position: absolute;
-      inset: 18px 40px;
-      border-radius: 50% / 80%;
-      border: 2px solid rgba(210, 190, 255, 0.4);
-      box-shadow:
-        0 0 40px rgba(155,77,255,0.7),
-        inset 0 0 50px rgba(20, 10, 40, 0.9);
-      opacity: 0.9;
+    .hero-image img {
+      width: 100%;
+      display: block;
     }
 
-    .portal-symbol {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 1px solid rgba(230, 210, 255, 0.7);
-      box-shadow:
-        0 0 40px rgba(200, 160, 255, 0.9),
-        0 0 70px rgba(155,77,255,1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* FEATURES */
+    .features {
+      padding: 60px 40px;
+      background: #0d0d16;
+      border-top: 1px solid rgba(120, 90, 180, 0.3);
+    }
+
+    .features h2 {
       font-family: 'Cinzel', serif;
-      font-size: 1.5rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #fdf7ff;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #e8ddff;
     }
 
-    .portal-fog {
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle at 20% 80%, rgba(155,77,255,0.35) 0, transparent 55%),
-        radial-gradient(circle at 80% 20%, rgba(90,40,140,0.45) 0, transparent 60%);
-      mix-blend-mode: screen;
-      opacity: 0.9;
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
     }
 
-    .portal-footer {
-      position: absolute;
-      bottom: 14px;
-      left: 20px;
-      right: 20px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.75rem;
-      color: #b9a4ff;
-      opacity: 0.9;
+    .feature {
+      padding: 20px;
+      background: rgba(20, 20, 40, 0.6);
+      border: 1px solid rgba(155, 77, 255, 0.3);
+      border-radius: 10px;
     }
 
-    .portal-footer span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+    .feature h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #d8caff;
     }
 
-    .portal-footer span::before {
-      content: "☽";
-      font-size: 0.8rem;
-      color: #c7b5ff;
+    .feature p {
+      color: #cfc7e9;
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
-    @media (max-width: 800px) {
-      .veil-inner { grid-template-columns: 1fr; }
-      .portal { height: 240px; }
+    /* FOOTER */
+    footer {
+      padding: 30px;
+      text-align: center;
+      color: #a89ad8;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(120, 90, 180, 0.3);
+      background: #0a0a12;
     }
   </style>
 </head>
 
 <body>
 
-<div class="veil">
-  <div class="veil-inner">
+<header>
+  <div class="logo">ShadowMap</div>
+  <nav>
+    <a href="#">Features</a>
+    <a href="#">Premium</a>
+    <a href="#">Documentation</a>
+    <a href="#">Login</a>
+  </nav>
+</header>
 
-    <div>
-      <div class="logo">ShadowMap · Gothic Archive</div>
-      <h1>The Veiled Archive</h1>
-      <div class="subtitle">Where Forgotten Spirits Still Whisper</div>
+<section class="hero">
+  <div class="hero-text">
+    <h1>The Veiled Archive</h1>
+    <p>
+      A professional spectral‑analysis platform designed for investigators,
+      analysts, and explorers of anomalous phenomena.  
+      ShadowMap combines real‑time mapping, verified case files, and
+      premium investigative tools in a single unified interface.
+    </p>
 
-      <p class="copy">
-        Step into the hidden archive where <span>haunted places</span>,
-        <span>spectral anomalies</span> and <span>ancient routes</span>
-        converge beneath the purple veil.  
-        Every location is a lingering echo of something that refused to die.
-      </p>
-
-      <div class="buttons">
-        <button class="btn">Enter the Archive</button>
-        <button class="btn btn-secondary">New Investigator</button>
-        <button class="btn btn-secondary">Premium Access</button>
-      </div>
-
-      <div class="meta">
-        <span>Spectral Signal: Stable</span>
-        <span>Access Protocol: Tier IV</span>
-        <span>Session: Veil‑Encrypted</span>
-      </div>
+    <div class="hero-buttons">
+      <button class="btn">Enter Platform</button>
+      <button class="btn btn-secondary">Premium Access</button>
     </div>
-
-    <div class="portal">
-      <div class="portal-arch"></div>
-      <div class="portal-fog"></div>
-      <div class="portal-symbol">VA</div>
-      <div class="portal-footer">
-        <span>Arcane Threshold Active</span>
-        <span>Coordinates Sealed</span>
-      </div>
-    </div>
-
   </div>
-</div>
+
+  <div class="hero-image">
+    <!-- CHANGE THIS TO YOUR IMAGE -->
+    <img src="images/logos/logo2-shadowmap.png" alt="ShadowMap Hero">
+  </div>
+</section>
+
+<section class="features">
+  <h2>Core Capabilities</h2>
+
+  <div class="feature-grid">
+    <div class="feature">
+      <h3>Real‑Time Mapping</h3>
+      <p>Track spectral anomalies, manifestations, and verified haunted locations with precision.</p>
+    </div>
+
+    <div class="feature">
+      <h3>Investigator Profiles</h3>
+      <p>Access detailed dossiers, clearance levels, and historical observation logs.</p>
+    </div>
+
+    <div class="feature">
+      <h3>Premium Case Files</h3>
+      <p>Unlock restricted archives, classified routes, and deep‑analysis reports.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © ShadowMap – The Veiled Archive · All Rights Reserved
+</footer>
 
 </body>
 </html>
