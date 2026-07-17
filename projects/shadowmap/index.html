@@ -1,1 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ShadowMap – The Veiled Archive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #2a0f3f 0%, #0a050f 40%, #020208 100%);
+      color: #e8ddff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .veil {
+      width: 100%;
+      max-width: 980px;
+      padding: 50px 40px;
+      border-radius: 20px;
+      border: 1px solid rgba(180, 140, 255, 0.35);
+      background: radial-gradient(circle at top, rgba(80, 30, 130, 0.45), rgba(10, 5, 20, 0.95));
+      box-shadow:
+        0 0 50px rgba(155, 77, 255, 0.45),
+        0 0 140px rgba(40, 10, 80, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .veil::before {
+      content: "";
+      position: absolute;
+      inset: -40px;
+      background-image:
+        radial-gradient(circle at 10% 0%, rgba(255,255,255,0.08) 0, transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(155,77,255,0.18) 0, transparent 60%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .veil-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      color: #c7b5ff;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo::before,
+    .logo::after {
+      content: "✦";
+      font-size: 0.8rem;
+      color: #9b4dff;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.8rem;
+      line-height: 1.1;
+      color: #f3e9ff;
+      text-shadow:
+        0 0 22px rgba(155,77,255,0.7),
+        0 0 50px rgba(40,10,80,0.9);
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: #b9a4ff;
+      margin-bottom: 22px;
+    }
+
+    .copy {
+      font-size: 1rem;
+      color: #d7cffc;
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .copy span {
+      color: #e0b8ff;
+      font-weight: 600;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn {
+      padding: 12px 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(210, 180, 255, 0.6);
+      background: linear-gradient(135deg, rgba(40, 10, 80, 0.9), rgba(120, 60, 190, 0.9));
+      color: #fdf7ff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 0 22px rgba(155,77,255,0.7);
+      transition: 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(190,120,255,0.9);
+      background: linear-gradient(135deg, rgba(70, 20, 120, 0.95), rgba(155, 77, 255, 1));
+    }
+
+    .btn-secondary {
+      background: rgba(12, 6, 24, 0.9);
+      border-color: rgba(155, 77, 255, 0.7);
+      color: #d9cfff;
+      box-shadow: 0 0 14px rgba(80, 40, 140, 0.7);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(30, 14, 60, 0.95);
+      box-shadow: 0 0 22px rgba(155, 77, 255, 0.9);
+    }
+
+    .meta {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #a89ad8;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .meta span::before {
+      content: "◆";
+      font-size: 0.7rem;
+      color: #9b4dff;
+    }
+
+    .portal {
+      position: relative;
+      height: 280px;
+      border-radius: 20px;
+      border: 1px solid rgba(150, 110, 230, 0.6);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(200, 160, 255, 0.18) 0, transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(40, 10, 80, 0.9) 0, #05030a 70%);
+      overflow: hidden;
+      box-shadow:
+        0 0 50px rgba(155,77,255,0.7),
+        inset 0 0 50px rgba(10,5,20,0.9);
+    }
+
+    .portal-arch {
+      position: absolute;
+      inset: 18px 40px;
+      border-radius: 50% / 80%;
+      border: 2px solid rgba(210, 190, 255, 0.4);
+      box-shadow:
+        0 0 40px rgba(155,77,255,0.7),
+        inset 0 0 50px rgba(20, 10, 40, 0.9);
+      opacity: 0.9;
+    }
+
+    .portal-symbol {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 1px solid rgba(230, 210, 255, 0.7);
+      box-shadow:
+        0 0 40px rgba(200, 160, 255, 0.9),
+        0 0 70px rgba(155,77,255,1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fdf7ff;
+    }
+
+    .portal-fog {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(155,77,255,0.35) 0, transparent 55%),
+        radial-gradient(circle at 80% 20%, rgba(90,40,140,0.45) 0, transparent 60%);
+      mix-blend-mode: screen;
+      opacity: 0.9;
+    }
+
+    .portal-footer {
+      position: absolute;
+      bottom: 14px;
+      left: 20px;
+      right: 20px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #b9a4ff;
+      opacity: 0.9;
+    }
+
+    .portal-footer span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .portal-footer span::before {
+      content: "☽";
+      font-size: 0.8rem;
+      color: #c7b5ff;
+    }
+
+    @media (max-width: 800px) {
+      .veil-inner { grid-template-columns: 1fr; }
+      .portal { height: 240px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="veil">
+  <div class="veil-inner">
+
+    <div>
+      <div class="logo">ShadowMap · Gothic Archive</div>
+      <h1>The Veiled Archive</h1>
+      <div class="subtitle">Where Forgotten Spirits Still Whisper</div>
+
+      <p class="copy">
+        Step into the hidden archive where <span>haunted places</span>,
+        <span>spectral anomalies</span> and <span>ancient routes</span>
+        converge beneath the purple veil.  
+        Every location is a lingering echo of something that refused to die.
+      </p>
+
+      <div class="buttons">
+        <button class="btn">Enter the Archive</button>
+        <button class="btn btn-secondary">New Investigator</button>
+        <button class="btn btn-secondary">Premium Access</button>
+      </div>
+
+      <div class="meta">
+        <span>Spectral Signal: Stable</span>
+        <span>Access Protocol: Tier IV</span>
+        <span>Session: Veil‑Encrypted</span>
+      </div>
+    </div>
+
+    <div class="portal">
+      <div class="portal-arch"></div>
+      <div class="portal-fog"></div>
+      <div class="portal-symbol">VA</div>
+      <div class="portal-footer">
+        <span>Arcane Threshold Active</span>
+        <span>Coordinates Sealed</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
