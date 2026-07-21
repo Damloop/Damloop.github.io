@@ -266,24 +266,23 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: url('https://i.imgur.com/8fKQZ7T.png');
-      background-size: cover;
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(255,0,0,0.15) 0px,
+        rgba(255,0,0,0.15) 2px,
+        transparent 2px,
+        transparent 6px
+      );
       opacity: 0.25;
-      mix-blend-mode: multiply;
       pointer-events: none;
     }
 
     .card-prey::after {
       content: "";
       position: absolute;
-      width: 120px;
-      height: 120px;
-      top: -20px;
-      right: -20px;
-      background: url('https://i.imgur.com/0pQmYqG.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      opacity: 0.45;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255,0,0,0.35), transparent 60%);
+      mix-blend-mode: multiply;
       pointer-events: none;
     }
 
@@ -309,8 +308,13 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: url('https://i.imgur.com/1oZQF7G.png');
-      background-size: cover;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.05) 0px,
+        rgba(255,255,255,0.05) 3px,
+        transparent 3px,
+        transparent 8px
+      );
       opacity: 0.25;
       pointer-events: none;
     }
