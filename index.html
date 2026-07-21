@@ -225,6 +225,35 @@
       line-height: 1.45;
     }
 
+    /* --- CARD THEMES --- */
+
+    .card-comic {
+      border-top: 4px solid #ffcc00;
+      box-shadow: 0 0 25px rgba(255, 200, 0, 0.25);
+    }
+
+    .card-comic:hover {
+      box-shadow: 0 0 45px rgba(255, 200, 0, 0.45);
+    }
+
+    .card-prey {
+      border-top: 4px solid #b30000;
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.25);
+    }
+
+    .card-prey:hover {
+      box-shadow: 0 0 45px rgba(255, 0, 0, 0.45);
+    }
+
+    .card-shadowmap {
+      border-top: 4px solid #6a00ff;
+      box-shadow: 0 0 25px rgba(120, 0, 255, 0.25);
+    }
+
+    .card-shadowmap:hover {
+      box-shadow: 0 0 45px rgba(120, 0, 255, 0.45);
+    }
+
     /* SMALLER FINAL CARD */
     .card.next-project {
       max-width: 320px;
@@ -289,27 +318,30 @@
   <p class="subtitle">
     Web Developer · Game Developer · IT Specialist · Cybersecurity · UI/UX · AI Projects
   </p>
-  <p class="tagline">WEB · UNITY · UNREAL · APPS · IA</p>
+  <p class="tagline">WEB · UNITY · UNREAL · APPS · AI</p>
 </header>
 
 <div class="projects">
 
-  <a href="/projects/super-sdms/index.html" class="card">
-    <img src="/projects/super-sdms/FIRST_PROJECT/web/1.jpg" alt="Super SDMS Cover">
-    <h3>Super SDMS – HP Antivirus Comic</h3>
-    <p>Promotional cybersecurity comic created for Hewlett‑Packard.</p>
+  <!-- SUPER SDMS -->
+  <a href="/projects/super-sdms/index.html" class="card card-comic">
+    <img src="/projects/super-sdms/FIRST_PROJECT/web/1.jpg" alt="Super SDMS Comic">
+    <h3>Super SDMS — Cybersecurity Comic</h3>
+    <p>A heroic promotional comic created for HP, teaching cybersecurity through action, humor, and superhero storytelling.</p>
   </a>
 
+  <!-- PREY -->
   <a href="/projects/prey/original/index.html" class="card card-prey">
-    <img src="/projects/prey/original/images/prey-cover.png" alt="PREY Game">
-    <h3>PREY – Unity Platform Game</h3>
-    <p>A hero returns to his hometown… but the villagers have turned into zombies.</p>
+    <img src="/projects/prey/original/images/prey-cover.png" alt="PREY Horror Game">
+    <h3>PREY — Unity Horror Game</h3>
+    <p>A dark survival game where you return to your hometown… only to find everyone has turned into zombies.</p>
   </a>
 
-  <a href="/projects/shadowmap/index.html" class="card">
-    <img src="/projects/shadowmap/images/logos/logo2-shadowmap.png" alt="ShadowMap">
-    <h3>ShadowMap – The Veiled Archive</h3>
-    <p>GPS missions, paranormal events and interactive storytelling.</p>
+  <!-- SHADOWMAP -->
+  <a href="/projects/shadowmap/index.html" class="card card-shadowmap">
+    <img src="/projects/shadowmap/images/logos/logo2-shadowmap.png" alt="ShadowMap App">
+    <h3>ShadowMap — Paranormal GPS Storytelling</h3>
+    <p>GPS missions, hidden archives, and real-time paranormal storytelling.</p>
   </a>
 
 </div>
