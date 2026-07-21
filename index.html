@@ -13,16 +13,25 @@
       --text-main: #fff;
       --text-muted: #b8b8b8;
       --border: #1f1f25;
+      --neon: #00e0ff;
+      --neon2: #ff00ff;
+      --neon3: #7f00ff;
     }
 
+    /* GLOBAL DARK NEON MODE */
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: var(--bg);
+      background: radial-gradient(circle at 20% 20%, #020202, #000 60%);
       color: var(--text-main);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      text-shadow: 0 0 4px rgba(0,255,255,0.25);
+      animation: neonPulse 6s ease-in-out infinite;
+    }
+
+    @keyframes neonPulse {
+      0% { filter: brightness(1); }
+      50% { filter: brightness(1.15); }
+      100% { filter: brightness(1); }
     }
 
     main {
@@ -39,30 +48,7 @@
       max-width: 100%;
     }
 
-    /* --- PREMIUM VISUAL UPGRADE 2.0 --- */
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: -25%;
-      left: -25%;
-      width: 150%;
-      height: 150%;
-      background:
-        radial-gradient(circle at 25% 20%, rgba(0, 224, 255, 0.22), transparent 70%),
-        radial-gradient(circle at 75% 80%, rgba(0, 150, 255, 0.18), transparent 75%);
-      animation: pulseGlow 14s ease-in-out infinite;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    @keyframes pulseGlow {
-      0% { opacity: 0.30; transform: scale(1); }
-      50% { opacity: 0.55; transform: scale(1.15); }
-      100% { opacity: 0.30; transform: scale(1); }
-    }
-
-    /* NAVBAR */
+    /* HOLOGRAPHIC NAVBAR */
     .navbar {
       width: 100%;
       padding: 18px 20px;
@@ -73,10 +59,15 @@
       top: 0;
       background: rgba(0,0,0,0.65);
       backdrop-filter: blur(22px) saturate(180%);
-      border-bottom: 1px solid rgba(0, 224, 255, 0.22);
-      box-shadow: 0 4px 35px rgba(0, 224, 255, 0.08);
-      z-index: 999;
-      flex-wrap: wrap;
+      border-bottom: 1px solid var(--accent);
+      box-shadow: 0 0 25px rgba(0,224,255,0.35);
+      animation: holoGlow 4s ease-in-out infinite;
+    }
+
+    @keyframes holoGlow {
+      0% { box-shadow: 0 0 25px rgba(0,224,255,0.35); }
+      50% { box-shadow: 0 0 45px rgba(255,0,255,0.45); }
+      100% { box-shadow: 0 0 25px rgba(0,224,255,0.35); }
     }
 
     .logo-modern {
@@ -92,8 +83,6 @@
       background: rgba(0,0,0,0.4);
       backdrop-filter: blur(6px);
       transition: 0.35s ease;
-      text-decoration: none;
-      margin-bottom: 10px;
     }
 
     .logo-modern:hover {
@@ -101,13 +90,6 @@
       color: #000;
       box-shadow: 0 0 35px rgba(0,200,255,0.9);
       transform: translateY(-4px) scale(1.03);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
     }
 
     .nav-links a {
@@ -119,8 +101,8 @@
     }
 
     .nav-links a:hover {
-      color: var(--accent);
-      text-shadow: 0 0 10px rgba(0,200,255,0.6);
+      color: var(--neon2);
+      text-shadow: 0 0 10px var(--neon2);
     }
 
     /* HERO */
@@ -182,7 +164,7 @@
       text-align: center;
       border: 1px solid rgba(0,224,255,0.15);
       box-shadow: 0 10px 35px rgba(0,0,0,0.55);
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
       position: relative;
       overflow: hidden;
     }
@@ -190,74 +172,32 @@
     .card:hover {
       transform: translateY(-12px) scale(1.035);
       box-shadow: 0 25px 55px rgba(0,200,255,0.25);
-      border-color: var(--accent);
-    }
-
-    .card img {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      border-radius: 14px;
-      margin-bottom: 18px;
-      border: 1px solid var(--border);
-      filter: contrast(1.2) saturate(1.2) brightness(1.05);
-      transition: 0.35s ease;
-    }
-
-    .card:hover img {
-      filter: contrast(1.35) saturate(1.25) brightness(1.15);
-    }
-
-    .card h3 {
-      color: var(--accent);
-      font-size: 1.45rem;
-      font-weight: 700;
-      text-align: center;
-      min-height: 48px;
-      letter-spacing: 0.6px;
-      margin-top: 12px;
-      text-shadow: 0 0 14px rgba(0,200,255,0.25);
-    }
-
-    .card p {
-      color: var(--text-muted);
-      font-size: 1rem;
-      line-height: 1.45;
     }
 
     /* ============================
-       SPECIAL BORDERS (CSS ONLY)
+       SPECIAL CARD EFFECTS
        ============================ */
 
-    /* 🟥 COMIC BORDER */
+    /* 🟥 COMIC POP-IN ANIMATION */
     .card-comic {
-      position: relative;
-      border: none;
-      padding: 26px;
+      animation: comicPop 0.8s cubic-bezier(.25,1.5,.5,1);
+      border: 4px solid #ffcc00;
+      box-shadow: 0 0 25px rgba(255,200,0,0.35);
       clip-path: polygon(
         4% 0%, 96% 0%, 100% 4%, 100% 96%,
         96% 100%, 4% 100%, 0% 96%, 0% 4%
       );
-      background: #111;
-      box-shadow: 0 0 0 6px #ffcc00 inset, 0 0 25px rgba(255,200,0,0.35);
     }
 
-    .card-comic::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle, rgba(255,255,255,0.15) 10%, transparent 11%) repeat;
-      background-size: 12px 12px;
-      opacity: 0.25;
-      pointer-events: none;
+    @keyframes comicPop {
+      0% { transform: scale(0.6) rotate(-8deg); opacity: 0; }
+      60% { transform: scale(1.1) rotate(3deg); opacity: 1; }
+      100% { transform: scale(1) rotate(0deg); }
     }
 
-    /* 🩸 TORN HORROR BORDER */
+    /* 🩸 GLITCH EFFECT FOR PREY */
     .card-prey {
-      position: relative;
-      border: none;
-      padding: 26px;
-      background: #111;
+      border: 4px solid #b30000;
       clip-path: polygon(
         0% 5%, 3% 0%, 10% 4%, 20% 0%, 30% 6%, 40% 0%,
         50% 5%, 60% 0%, 70% 7%, 80% 0%, 90% 5%, 100% 2%,
@@ -265,81 +205,41 @@
         60% 100%, 50% 95%, 40% 100%, 30% 93%, 20% 100%,
         10% 95%, 0% 98%
       );
-      box-shadow: 0 0 0 4px #b30000 inset, 0 0 25px rgba(255,0,0,0.35);
+      animation: glitch 0.8s infinite;
     }
 
-    .card-prey::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        -45deg,
-        rgba(255,0,0,0.15) 0px,
-        rgba(255,0,0,0.15) 2px,
-        transparent 2px,
-        transparent 6px
-      );
-      opacity: 0.25;
-      pointer-events: none;
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-1px, 1px); }
+      80% { transform: translate(1px, -1px); }
+      100% { transform: translate(0); }
     }
 
-    /* 👻 SPECTRAL PARANORMAL BORDER */
+    /* 👻 FOG ANIMATION FOR SHADOWMAP */
     .card-shadowmap {
-      position: relative;
-      border: none;
-      padding: 26px;
-      background: #0b0b14;
+      border: 4px solid #7f00ff;
       clip-path: polygon(
         2% 0%, 98% 0%, 100% 10%, 100% 90%,
         98% 100%, 2% 100%, 0% 90%, 0% 10%
       );
-      box-shadow:
-        0 0 0 3px #6a00ff inset,
-        0 0 35px rgba(120,0,255,0.45),
-        0 0 65px rgba(120,0,255,0.25);
+      position: relative;
     }
 
     .card-shadowmap::before {
       content: "";
       position: absolute;
-      inset: -20px;
+      inset: -40px;
       background: radial-gradient(circle, rgba(120,0,255,0.35), transparent 70%);
-      filter: blur(35px);
-      opacity: 0.45;
-      pointer-events: none;
+      filter: blur(40px);
+      animation: fogMove 8s ease-in-out infinite;
     }
 
-    .card-shadowmap::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        45deg,
-        rgba(255,255,255,0.05) 0px,
-        rgba(255,255,255,0.05) 3px,
-        transparent 3px,
-        transparent 8px
-      );
-      opacity: 0.25;
-      pointer-events: none;
-    }
-
-    /* CARD STRUCTURE UPGRADE */
-    .card-tag {
-      margin-top: -8px;
-      font-size: 0.85rem;
-      color: var(--accent);
-      opacity: 0.85;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    .card-desc {
-      margin-top: 10px;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.45;
+    @keyframes fogMove {
+      0% { transform: translate(-20px, -20px); opacity: 0.4; }
+      50% { transform: translate(20px, 20px); opacity: 0.7; }
+      100% { transform: translate(-20px, -20px); opacity: 0.4; }
     }
 
     /* ABOUT BUTTON */
@@ -368,11 +268,6 @@
       opacity: 0.7;
       font-size: 1rem;
       border-top: 1px solid rgba(0,224,255,0.18);
-    }
-
-    .bottom-about {
-      text-align: center;
-      margin: 40px 0;
     }
   </style>
 </head>
