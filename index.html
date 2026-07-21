@@ -227,31 +227,92 @@
 
     /* --- CARD THEMES --- */
 
+    /* COMIC CARD */
     .card-comic {
       border-top: 4px solid #ffcc00;
       box-shadow: 0 0 25px rgba(255, 200, 0, 0.25);
+      position: relative;
+      overflow: hidden;
     }
 
-    .card-comic:hover {
-      box-shadow: 0 0 45px rgba(255, 200, 0, 0.45);
+    .card-comic::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle, rgba(255,255,255,0.15) 10%, transparent 11%) repeat;
+      background-size: 12px 12px;
+      opacity: 0.25;
+      pointer-events: none;
     }
 
+    .card-comic::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 4px solid #ffcc00;
+      border-radius: 18px;
+      pointer-events: none;
+    }
+
+    /* HORROR CARD */
     .card-prey {
       border-top: 4px solid #b30000;
       box-shadow: 0 0 25px rgba(255, 0, 0, 0.25);
+      position: relative;
+      overflow: hidden;
     }
 
-    .card-prey:hover {
-      box-shadow: 0 0 45px rgba(255, 0, 0, 0.45);
+    .card-prey::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://i.imgur.com/8fKQZ7T.png');
+      background-size: cover;
+      opacity: 0.25;
+      mix-blend-mode: multiply;
+      pointer-events: none;
     }
 
+    .card-prey::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      top: -20px;
+      right: -20px;
+      background: url('https://i.imgur.com/0pQmYqG.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    /* PARANORMAL CARD */
     .card-shadowmap {
       border-top: 4px solid #6a00ff;
       box-shadow: 0 0 25px rgba(120, 0, 255, 0.25);
+      position: relative;
+      overflow: hidden;
     }
 
-    .card-shadowmap:hover {
-      box-shadow: 0 0 45px rgba(120, 0, 255, 0.45);
+    .card-shadowmap::before {
+      content: "";
+      position: absolute;
+      inset: -20px;
+      background: radial-gradient(circle, rgba(120,0,255,0.25), transparent 70%);
+      filter: blur(25px);
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .card-shadowmap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://i.imgur.com/1oZQF7G.png');
+      background-size: cover;
+      opacity: 0.25;
+      pointer-events: none;
     }
 
     /* CARD STRUCTURE UPGRADE */
