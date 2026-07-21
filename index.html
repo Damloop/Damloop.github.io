@@ -254,15 +254,22 @@
       box-shadow: 0 0 45px rgba(120, 0, 255, 0.45);
     }
 
-    /* SMALLER FINAL CARD */
-    .card.next-project {
-      max-width: 320px;
-      margin: 0 auto;
-      transform: scale(0.92);
+    /* CARD STRUCTURE UPGRADE */
+    .card-tag {
+      margin-top: -8px;
+      font-size: 0.85rem;
+      color: var(--accent);
+      opacity: 0.85;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
     }
 
-    .card.next-project:hover {
-      transform: scale(0.97);
+    .card-desc {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.45;
     }
 
     /* ABOUT BUTTON */
@@ -327,21 +334,24 @@
   <a href="/projects/super-sdms/index.html" class="card card-comic">
     <img src="/projects/super-sdms/FIRST_PROJECT/web/1.jpg" alt="Super SDMS Comic">
     <h3>Super SDMS — Cybersecurity Comic</h3>
-    <p>A heroic promotional comic created for HP, teaching cybersecurity through action, humor, and superhero storytelling.</p>
+    <p class="card-tag">Comic · HP Promotional Project</p>
+    <p class="card-desc">A superhero comic created for HP, teaching cybersecurity through action-packed storytelling.</p>
   </a>
 
   <!-- PREY -->
   <a href="/projects/prey/original/index.html" class="card card-prey">
     <img src="/projects/prey/original/images/prey-cover.png" alt="PREY Horror Game">
     <h3>PREY — Unity Horror Game</h3>
-    <p>A dark survival game where you return to your hometown… only to find everyone has turned into zombies.</p>
+    <p class="card-tag">Unity Game · Horror · Zombies</p>
+    <p class="card-desc">Return to your hometown… and survive the nightmare as the villagers turn into the undead.</p>
   </a>
 
   <!-- SHADOWMAP -->
   <a href="/projects/shadowmap/index.html" class="card card-shadowmap">
     <img src="/projects/shadowmap/images/logos/logo2-shadowmap.png" alt="ShadowMap App">
     <h3>ShadowMap — Paranormal GPS Storytelling</h3>
-    <p>GPS missions, hidden archives, and real-time paranormal storytelling.</p>
+    <p class="card-tag">Mobile App · Paranormal · GPS Missions</p>
+    <p class="card-desc">Investigate supernatural events through GPS missions, hidden archives, and interactive storytelling.</p>
   </a>
 
 </div>
